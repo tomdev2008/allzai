@@ -8,13 +8,17 @@ import java.nio.channels.FileChannel;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import org.apache.commons.codec.digest.DigestUtils;
+
 public class FileHelpUtil {
 
-	public static String getFileMD5String(File file) throws IOException, NoSuchAlgorithmException {
+	public static String getFileMD5String(File file) throws IOException,
+			NoSuchAlgorithmException {
 		MessageDigest messageDigest = MessageDigest.getInstance("MD5");
 		FileInputStream in = new FileInputStream(file);
 		FileChannel ch = in.getChannel();
-		MappedByteBuffer byteBuffer = ch.map(FileChannel.MapMode.READ_ONLY, 0, file.length());
+		MappedByteBuffer byteBuffer = ch.map(FileChannel.MapMode.READ_ONLY, 0,
+				file.length());
 		messageDigest.update(byteBuffer);
 		ch.close();
 		in.close();
@@ -22,7 +26,8 @@ public class FileHelpUtil {
 	}
 
 	private static String byteArrayToHex(byte[] byteArray) {
-		char[] hexDigits = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
+		char[] hexDigits = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+				'A', 'B', 'C', 'D', 'E', 'F' };
 		char[] resultCharArray = new char[byteArray.length * 2];
 		int index = 0;
 		for (byte b : byteArray) {
@@ -30,6 +35,23 @@ public class FileHelpUtil {
 			resultCharArray[index++] = hexDigits[b & 0xf];
 		}
 		return new String(resultCharArray);
+	}
+
+	public static void main(String[] args) throws IOException {
+
+		String path = "D://bookmarks-2013-07-16.json";
+
+		File file = new File(path);
+		if (!file.exists()) {
+			return;
+		}
+
+		FileInputStream fis = new FileInputStream(file);
+
+		System.out.println(DigestUtils.md5Hex(fis));
+
+		System.out.println(DigestUtils.sha1Hex(fis));
+
 	}
 
 }
