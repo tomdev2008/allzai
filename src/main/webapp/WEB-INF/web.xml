@@ -17,5 +17,14 @@
 		<servlet-name>StartupServlet</servlet-name>
 		<url-pattern>/startup</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>SmartCode</servlet-name>
+		<servlet-class>com.code.SmartCode</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SmartCode</servlet-name>
+		<url-pattern>/smartCode</url-pattern>
+	</servlet-mapping>
 
 </web-app>
