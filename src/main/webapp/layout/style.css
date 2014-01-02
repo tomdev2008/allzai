@@ -1904,35 +1904,6 @@ nav.secondary_menu > ul > li:first-child > a {padding-left:0px;}
 .block_calendar .datepickerDoW th:first-child span {width:41px; border-left:1px solid #262626;}
 .block_calendar .datepickerDoW th.last span {width:41px; border-right:1px solid #262626;}
 
-.block_twitter_widget {position:relative;}
-.block_twitter_widget h4 {padding-bottom:18px;}
-.block_twitter_widget .lnk_follow {position:absolute; right:0px; top:1px;}
-.block_twitter_widget .lnk_follow a {font-size:11px; color:#b5b5b5;}
-.block_twitter_widget .tweet {
-	margin-bottom:20px;
-	padding:10px 16px;
-	position:relative;
-	
-	border:1px solid #f0f0f0;
-	
-	-moz-border-radius:3px;
-	-webkit-border-radius:3px;
-	border-radius:3px;
-	
-	behavior:url(js/PIE.htc);
-}
-#content .block_twitter_widget .tweet .twtr-bd p {padding-bottom:0px; color:#4f4f4f !important; line-height:17px !important;}
-#content .block_twitter_widget .tweet .twtr-bd a {color:#f24024 !important;}
-#content .block_twitter_widget .tweet .twtr-doc a {text-decoration:underline !important;}
-#content .block_twitter_widget .tweet .twtr-doc a:hover {text-decoration:none !important;}
-#content .block_twitter_widget .tweet .twtr-doc a.twtr-user {text-decoration:none !important;}
-#content .block_twitter_widget .tweet .twtr-doc a.twtr-user:hover {text-decoration:underline !important;}
-
-.block_twitter_widget .twtr-hd {display:none;}
-.block_twitter_widget .twtr-bd .twtr-tweet-wrap {padding:0px;}
-.block_twitter_widget .twtr-bd .twtr-tweet-text em {display:none;}
-.block_twitter_widget .twtr-ft {display:none;}
-
 .block_newsletter {}
 .block_newsletter h4 {padding-bottom:18px;}
 .block_newsletter .field {width:222px; height:34px; float:left; overflow:hidden; background:url(images/bg_field_newsletter.png) no-repeat;}
