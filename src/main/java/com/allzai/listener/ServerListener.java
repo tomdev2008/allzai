@@ -15,7 +15,7 @@ public class ServerListener implements ServletContextListener
 	public void contextDestroyed(ServletContextEvent event) 
 	{
 		DatabaseManager.destroyDBPool();
-		logger.info("HasOffer SDK ended");
+		logger.info("allzai ended");
 	}
 
 	public void contextInitialized(ServletContextEvent event) 
@@ -25,7 +25,7 @@ public class ServerListener implements ServletContextListener
 			SystemCacheManager.init();
 		} catch (Exception e) {
 			e.printStackTrace();
-			logger.fatal("HasOffer SDK load error.");
+			logger.fatal("allzai load error.");
 		}
 	}
 
