@@ -1,7 +1,5 @@
 package com.allzai.cdn;
 
-import java.util.Properties;
-
 import org.json.JSONException;
 
 import com.qiniu.api.auth.AuthException;
@@ -15,13 +13,9 @@ import com.qiniu.api.rs.PutPolicy;
 public class CdnUtil {
 	
 	private static volatile CdnUtil cdnUtil = new CdnUtil();
-	
-	private static final Properties cdn_Properties = new Properties();
-	private static final String cdn_CONFIG_FILE = "/cdn.properties";
 
 	private String cdn_host = "http://allzai.qiniudn.com/";
 	private String bucketName = "allzai";
-	private String storeName = "cdn/";
 	private String uptoken = null;
 	private PutExtra extra = null;
 
@@ -29,28 +23,45 @@ public class CdnUtil {
 		return cdnUtil;
 	}
 
+	/**
+	 * 初始化cdn的基本配置信息
+	 */
 	private CdnUtil() {
 		try {
-			cdn_Properties.load(CdnUtil.class.getResourceAsStream(cdn_CONFIG_FILE));
-			
-			Config.ACCESS_KEY = cdn_Properties.getProperty("accessKey");
-			Config.SECRET_KEY = cdn_Properties.getProperty("secretKey");
-			
-			Mac mac = new Mac(Config.ACCESS_KEY, Config.SECRET_KEY);
-			
-			PutPolicy putPolicy = new PutPolicy(this.bucketName);
-			
-			uptoken = putPolicy.token(mac);
-			extra = new PutExtra();
+			if(uptoken == null || extra == null) {
+				
+				Config.ACCESS_KEY = "wrzZAJupsxE6d8743LLGCBLLWUMn_RkZL8BzqU4x";
+				Config.SECRET_KEY = "Lv2WeGpo3pMJ_UiiyEsb5I8F9Qlb4mhLigBmsjOl";
+				
+				Mac mac = new Mac(Config.ACCESS_KEY, Config.SECRET_KEY);
+				PutPolicy putPolicy = new PutPolicy(this.bucketName);
+				
+				uptoken = putPolicy.token(mac);
+				extra = new PutExtra();
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
+	/**
+	 * 将文件上传到cdn, 并获取响应
+	 * @param key
+	 * @param file
+	 * @return
+	 */
 	private String putFile2Cdn(String key, String file) {
 		PutRet ret = IoApi.putFile(this.uptoken, key, file, this.extra);
-		System.out.println(ret.getResponse());
-		return this.cdn_host + this.storeName + key;
+		return ret.getResponse();
+	}
+	
+	/**
+	 * 从cdn获取到已上传文件的路径
+	 * @param key
+	 * @return
+	 */
+	private String getFileFromCdn(String key) {
+		return this.cdn_host + key;
 	}
 
 	/**
@@ -60,10 +71,11 @@ public class CdnUtil {
 	 */
 	public static void main(String[] args) throws AuthException, JSONException {
 
-		String key = "abc.def";
-		String file = "E:\\图片\\2004050408302426.gif";
+		String key = "cdn/abc.1";
+		String file = "E:\\图片\\default_gift_logo.png";
 		
 		System.out.println(CdnUtil.getInstance().putFile2Cdn(key, file));
+		System.out.println(CdnUtil.getInstance().getFileFromCdn(key));
 
 	}
 
