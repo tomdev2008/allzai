@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>hasoffer消息推送</title>
+
+<style type="text/css">
+a,img{border:0;text-decoration:none;}
+/* Form */
+.Form{margin:20px auto;width:1000px;}
+.Form textarea{
+	display:inline-block;padding:6px 12px;font-size:18px;font-weight:300;line-height:1.4;color:#221919;background:#fff;border:1px solid #a4a2a2;resize:none;
+	
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-ms-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	
+	border-radius:6px;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	
+	box-shadow:inset 0 1px rgba(34,25,25,.15),0 1px rgba(255,255,255,.8);
+	-moz-box-shadow:inset 0 1px rgba(34,25,25,.15),0 1px rgba(255,255,255,.8);
+	-webkit-box-shadow:inset 0 1px rgba(34,25,25,.15),0 1px rgba(255,255,255,.8);
+	
+	-webkit-transition:all .08s ease-in-out;
+	-moz-transition:all .08s ease-in-out;
+}
+.Form textarea{min-height:90px;}
+.Form textarea:focus{
+	border-color:#006499;
+	box-shadow:0 1px rgba(34, 25, 25, 0.15) inset, 0 1px rgba(255, 255, 255, 0.8), 0 0 14px rgba(82, 162, 235, 0.35);
+	-moz-box-shadow:0 1px rgba(34, 25, 25, 0.15) inset, 0 1px rgba(255, 255, 255, 0.8), 0 0 14px rgba(82, 162, 235, 0.35);
+	-webkit-box-shadow:0 1px rgba(34, 25, 25, 0.15) inset, 0 1px rgba(255, 255, 255, 0.8), 0 0 14px rgba(82, 162, 235, 0.35);
+}
+/* Button base */
+.Button{
+	position:relative;
+	display:inline-block;
+	padding:.45em .825em .45em;
+	text-align:center;
+	line-height:1em; 
+	border:1px solid transparent;
+	cursor:pointer; 
+	 
+	border-radius:.3em; 
+	-moz-border-radius:.3em; 
+	-webkit-border-radius:.3em; 
+	
+	-moz-transition-property:color, -moz-box-shadow, text-shadow; 
+	-moz-transition-duration:.05s; 
+	-moz-transition-timing-function:ease-in-out; 
+	-webkit-transition-property:color, -webkit-box-shadow, text-shadow; 
+	-webkit-transition-duration:.05s; 
+	-webkit-transition-timing-function:ease-in-out; 
+	
+	box-shadow:0 1px rgba(255,255,255,0.8), inset 0 1px rgba(255,255,255,0.35); 
+	-moz-box-shadow:0 1px rgba(255,255,255,0.8), inset 0 1px rgba(255,255,255,0.35); 
+	-webkit-box-shadow:0 1px rgba(255,255,255,0.8), inset 0 1px rgba(255,255,255,0.35);
+}
+
+.Button:hover {text-decoration:none;}
+.Button strong {position:relative; z-index:2;}
+
+.Button{
+	display:block;border:1px solid;opacity:1;
+	
+	border-radius:.3em;
+	-moz-border-radius:.3em;
+	-webkit-border-radius:.3em;
+	
+	box-shadow:inset 0 1px rgba(255,255,255,0.35);
+	-moz-box-shadow:inset 0 1px rgba(255,255,255,0.35);
+	-webkit-box-shadow:inset 0 1px rgba(255,255,255,0.35);
+	
+	-moz-transition-property:opacity;
+	-moz-transition-duration:0.5s;
+	-moz-transition-timing-function:ease-in-out;
+	-webkit-transition-property:opacity;
+	-webkit-transition-duration:0.5s;
+	-webkit-transition-timing-function:ease-in-out;
+}
+
+.Button:hover span{
+	-moz-transition-property:opacity;
+	-moz-transition-duration:0.05s;
+	-moz-transition-timing-function:linear;
+	-webkit-transition-property:opacity;
+	-webkit-transition-duration:0.05s;
+	-webkit-transition-timing-function:linear;
+}
+.Button:active span{
+	-moz-transition:none;
+	-webkit-transition:none;
+}
+
+/* blue Button */
+.blueButton{color:#fcf9f9; text-shadow:0 -1px rgba(34,25,25,0.5);}
+.blueButton:hover {color:#fff; text-shadow:0 -1px rgba(34,25,25,0.3);}
+.blueButton:active {color:#f2f0f0; text-shadow:0 -1px rgba(34,25,25,0.6);}
+
+.blueButton{
+	border-color:#015E91;
+	background-color:#3693D5;
+	background:-moz-linear-gradient(center top , #54B1EB, #47A0E0 50%, #419FE1 50%, #3683D5);
+	background:-o-linear-gradient(top left, #54B1EB, #47A0E0 50%, #419FE1 50%, #3683D5);
+	background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#54B1EB), to(#47A0E0), color-stop(.5,#419FE1),color-stop(.5,#3683D5));
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#54B1EB', endColorstr='#3683D5');
+}
+
+.blueButton:hover{
+	border-color:#0366AD;
+	background-color:#3EA1D6;
+	background:-moz-linear-gradient(center top, #5EB4EA, #61A1EE 50%, #59A5EB 50%, #3691E6);
+	background:-o-linear-gradient(top left, #5EB4EA, #61A1EE 50%, #59A5EB 50%, #3691E6);
+	background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#5EB4EA), to(#61A1EE), color-stop(.5,#59A5EB),color-stop(.5,#3691E6));
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#5EB4EA', endColorstr='#3691E6');
+}
+
+.blueButton:active{
+	border-color:#013B6A;
+	background-color:#3089C8;
+	background:-moz-linear-gradient(center top, #4B9CDD, #4189D5 50%, #3D8BD3 50%, #3093C8);
+	background:-o-linear-gradient(top left, #4B9CDD, #4189D5 50%, #3D8BD3 50%, #3093C8);
+	background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4B9CDD), to(#4189D5), color-stop(.5,#3D8BD3),color-stop(.5,#3093C8));
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#4B9CDD', endColorstr='#3093C8');
+}
+
+.blueButton.Button18:hover{
+	box-shadow:0 1px rgba(255, 255, 255, 0.8), 0 1px rgba(255, 255, 255, 0.35) inset, 0 0 10px rgba(82, 162, 235, 0.25);
+	-moz-box-shadow:0 1px rgba(255, 255, 255, 0.8), 0 1px rgba(255, 255, 255, 0.35) inset, 0 0 10px rgba(82, 162, 235, 0.25);
+	-webkit-box-shadow:0 1px rgba(255, 255, 255, 0.8), 0 1px rgba(255, 255, 255, 0.35) inset, 0 0 10px rgba(82, 162, 235, 0.25);
+}
+.blueButton.Button18:active{
+	box-shadow:0 1px 2px rgba(34, 25, 25, 0.25) inset, 0 0 3px rgba(82, 202, 235, 0.35);
+	-moz-box-shadow:0 1px 2px rgba(34, 25, 25, 0.25) inset, 0 0 3px rgba(82, 202, 235, 0.35);
+	-webkit-box-shadow:0 1px 2px rgba(34, 25, 25, 0.25) inset, 0 0 3px rgba(82, 202, 235, 0.35);	
+}
+/* wordage */
+#wordage{text-align:right;font-size:14px;color:#5e5e5e;margin:10px 0 0 0;}
+
+
+</style>
+</head>
+
+<body>
+
+<div>
+<form name="pushform" id="pushform" action="../secure/sendAll" class="Form">
+中国是东八区(+8),美国东部是西五区(-5),两地的时差是13小时,北京比纽约要早13个小时;如果是美国实行夏令时的时期,相差12小时。
+<p/>
+<div id="USAdate"></div><div id="CHdate"></div>
+<script language="javascript">
+var ddate=document.getElementById("USAdate");
+var ddate2=document.getElementById("CHdate");
+function updatedate(){
+
+
+var dd1=new Date(); 
+dd1.setMinutes(dd1.getMinutes()+dd1.getTimezoneOffset()-300); //取当地时间加上和格林威治的时差减要求地区和格林的时差分钟，这里是-300，代表美国东部纽约和格林的时差
+//先设置setMinutes再取getHours才有效
+var tmin=dd1.getHours();
+if(tmin>=0 && tmin<6){
+   tmin='凌晨'+tmin;
+}
+if(tmin>=6 && tmin<=12){
+   tmin='早上'+tmin;
+}
+if(tmin>12 && tmin<=18){
+   tmin='下午'+tmin;
+}
+if(tmin>18 && tmin<=24){
+   tmin='晚上'+tmin;
+}
+  
+ddate.innerHTML='美国东部时间:'+dd1.getFullYear()+"年"+(dd1.getMonth()+1)+"月"+dd1.getDate()+"日"+tmin+"点"+dd1.getMinutes()+"分"+dd1.getSeconds()+"秒";
+var dd2=new Date();
+    dd2.setMinutes(dd2.getMinutes()+dd2.getTimezoneOffset()+13*60-300);//因为纽约和中国相差13个小时，夏天是12个小时所以这里加上13*60 夏天改为12*60 
+ddate2.innerHTML='北京现在时间:'+ dd2.getFullYear()+"年"+(dd2.getMonth()+1)+"月"+dd2.getDate()+"日"+dd2.getHours()+"点"+dd2.getMinutes()+"分"+dd2.getSeconds()+"秒";
+ var t=setTimeout("updatedate()",1000);
+}
+updatedate();
+</script>
+	<br/>
+	<select id="type" name="type">
+		<option value="push_version">1.版本升级</option>
+		<option value="push_gift">2.新增礼品</option>
+		<option value="push_app">3.新增应用</option>
+		<option value="push_holiday">4.节日祝福</option>
+		<option value="push_dinner">5.每天提示</option>
+		<option value="push_credit">6.积分提示</option>
+		<option value="push_daily">7.每日推送</option>
+		<option value="push_topic">8.专题更新</option>
+		<option value="push_others">9.自定义</option>
+	</select>
+	<font color="red" size="2">消息发送之前先选择好此消息的准确类型(以免引起误解)!!!</font>
+
+	<textarea id="wordtext"  name="push" style="width:1000px; height: 200px; font-size: 30px; overflow: hidden;"></textarea>
+	<div style="float:left; color: green;" id="wordage"></div>
+	<button class="Button blueButton Button18" style="float:right; margin-top: 10px;" type="submit">点击发送</button>
+</form>
+
+</div>
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	var limitNum = 120;
+	
+	var pattern = '还可以输入' + limitNum + '字';
+	
+	$('#wordage').html(pattern);
+	
+	$('#wordtext').keyup(
+		function(){
+			var remain = $(this).val().length;
+			if(remain > limitNum){
+				pattern = "<font color='red'>当前字数" + remain + "个，已超出建议最大值"+limitNum+"个的范围，请确认！</font>";
+			}else{
+				var result = limitNum - remain;
+				pattern = '还可以输入' + result + '字';
+			}
+			$('#wordage').html(pattern);
+		}
+	);
+	 
+});	
+</script>	
+
+</body>
+</html>
