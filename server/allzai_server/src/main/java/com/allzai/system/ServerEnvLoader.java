@@ -1,65 +1,222 @@
-package com.allzai.system;
+package com.yeahmobi.gamelala.system;
 
-import java.util.Date;
+import java.sql.Timestamp;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.apache.log4j.Logger;
 
-import com.allzai.util.Constants;
-import com.allzai.util.TimeHelpUtil;
+import com.yeahmobi.gamelala.exception.DaoException;
+import com.yeahmobi.gamelala.server.SystemCacheServer;
+import com.yeahmobi.gamelala.util.Constants;
 
+/**
+ * 装载服务器基础环境
+ * 
+ * @author  Eric
+ * @version hasoffer-0.0.1, 2013-9-6
+ * @see     SystemCacheServer
+ * @since   JDK 1.6
+ */
 public class ServerEnvLoader  
 {
+	//一级缓存 begin
+	public static ConcurrentHashMap<String, Map<String, Object>> configCacheMap = new ConcurrentHashMap<String, Map<String, Object>>();
+	
+	//ip黑白名单
+	public static ConcurrentHashMap<String, Map<String, Object>> blackCacheMap = new ConcurrentHashMap<String, Map<String, Object>>();
+	public static ConcurrentHashMap<String, Map<String, Object>> whiteCacheMap = new ConcurrentHashMap<String, Map<String, Object>>();
+	
+	/** 刷新缓存标识 */
+	private static boolean triggerFull = true;
+	
+	/** 刷新缓存时，同步已经修改的DB数据 begin */
+	private static Timestamp blackUpdateToken = new Timestamp(0);
+	private static Timestamp whiteUpdateToken = new Timestamp(0);
+	private static Timestamp configUpdateToken = new Timestamp(0);
+	/** 刷新缓存时，同步已经修改的DB数据 end */
+	
 	private static final Logger logger = Logger.getLogger(ServerEnvLoader.class);
 	
-	private static String work_date = Constants.sdf_yMd.format(new Date());
-	private static String work_month = Constants.sdf_yM.format(new Date());
-
-	public static boolean initServer()
+	/**
+	 * 服务初始化
+	 * 
+	 * @return
+	 */
+	public static String initServer()
 	{
 		try 
 		{
-			//每日统计
-			String next_date = TimeHelpUtil.getDateOfDay();
-			boolean deal_daily = TimeHelpUtil.getDateCompare(work_date, next_date);
-			if(deal_daily) {
+			if (triggerFull) 
+			{
+				blackUpdateToken.setTime(0);
+				whiteUpdateToken.setTime(0);
+				configUpdateToken.setTime(0);
 				
-				//做个0点判断, 避开发布时的重复运算
-				
-				//两个服务重复的问题?
-				
-				//处理完成后变更
-				work_date = next_date;
+				clearRootCache();
+				logger.info("full update");
+				triggerFull = false;
+			} 
+			else 
+			{
+				logger.debug("incremental update");
 			}
 			
-			//每月统计
-			String next_month = TimeHelpUtil.getDateOfMonth();
-			boolean deal_month = TimeHelpUtil.getDateCompare(work_month, next_month);
-			if(deal_month) {
-				//上月的日志文件上传
-				
-				//处理完成后变更
-				work_month = next_month;
+			try 
+			{
+				ServerEnvLoader.loadBlackData();
+			}
+			catch (Exception e) 
+			{
+				logger.error("加载用户ip黑名单数据失败,详细信息如下", e);
+				throw e;
 			}
 			
-			//每日计算
-			//磁盘不够, 保留一周
+			try 
+			{
+				ServerEnvLoader.loadWhiteData();
+			}
+			catch (Exception e) 
+			{
+				logger.error("加载用户ip白名单数据失败,详细信息如下", e);
+				throw e;
+			}
 			
+			try 
+			{
+				ServerEnvLoader.loadConfigData();
+			}
+			catch (Exception e) 
+			{
+				logger.error("加载配置缓存数据失败,详细信息如下", e);
+				throw e;
+			}
 
-			//System.out.println(work_date);
-		//	System.out.println(work_month);
+			Thread.sleep(Constants.sleepTime);
 			
-			
-			Thread.sleep(Constants.SECOND);
 		} 
 		catch (Exception e) 
 		{
 			e.printStackTrace();
 			logger.error("加载服务环境失败,详细信息如下:", e);
-			return false;
+			return "error";
 		} 
 		
 		logger.debug("load all data finished;");
-		return true;
+		return null;
+	}
+
+	/**
+	 * 清理一级缓存
+	 */
+	private static void clearRootCache()
+	{
+		configCacheMap.clear();
+		blackCacheMap.clear();
+		whiteCacheMap.clear();
+	}
+
+	/***
+	 * 加载ip黑名单缓存
+	 */
+	private static void loadBlackData() throws DaoException
+	{
+		logger.debug("刷新前    black缓存总数据量为: " + blackCacheMap.size() + ", black修改时间为: " + blackUpdateToken.toString());
+		SystemCacheServer.getInstance().loadBlackData(blackUpdateToken, blackCacheMap);
+
+		Timestamp updateTime;
+		Map<String, Object> itemMap;
+		Entry<String, Map<String, Object>> entry = null;
+		
+		for (Iterator<Entry<String, Map<String, Object>>> iterator = blackCacheMap.entrySet().iterator(); iterator.hasNext();) 
+		{
+			entry = iterator.next();
+			itemMap = entry.getValue();
+			
+			updateTime =(Timestamp)itemMap.get("updateTime");
+			String isDeleted = String.valueOf(itemMap.get("isDeleted"));
+			
+			if(Boolean.parseBoolean(isDeleted) || "1".equals(isDeleted)) {
+				iterator.remove();
+			}
+			
+			if (blackUpdateToken.compareTo(updateTime) < 0) {
+				blackUpdateToken = updateTime;
+			}
+		}
+		logger.debug("刷新后    black缓存总数据量为: " + blackCacheMap.size() + ", black修改时间为: " + blackUpdateToken.toString());
+		
+	}
+	
+	/***
+	 * 加载ip白名单缓存
+	 */
+	private static void loadWhiteData() throws DaoException
+	{
+		logger.debug("刷新前    white缓存总数据量为: " + whiteCacheMap.size() + ", white修改时间为: " + whiteUpdateToken.toString());
+		SystemCacheServer.getInstance().loadWhiteData(whiteUpdateToken, whiteCacheMap);
+
+		Timestamp updateTime;
+		Map<String, Object> itemMap;
+		Entry<String, Map<String, Object>> entry = null;
+		
+		for (Iterator<Entry<String, Map<String, Object>>> iterator = whiteCacheMap.entrySet().iterator(); iterator.hasNext();) 
+		{
+			entry = iterator.next();
+			itemMap = entry.getValue();
+			
+			updateTime =(Timestamp)itemMap.get("updateTime");
+			String isDeleted = String.valueOf(itemMap.get("isDeleted"));
+			
+			if(Boolean.parseBoolean(isDeleted) || "1".equals(isDeleted)) {
+				iterator.remove();
+			}
+			
+			if (whiteUpdateToken.compareTo(updateTime) < 0) {
+				whiteUpdateToken = updateTime;
+			}
+		}
+		logger.debug("刷新后    white缓存总数据量为: " + whiteCacheMap.size() + ", white修改时间为: " + whiteUpdateToken.toString());
+		
+	}
+
+	/**
+	 * 加载系统配置缓存
+	 * 
+	 * @throws DaoException
+	 */
+	private static void loadConfigData() throws DaoException
+	{
+		logger.debug("刷新前    Config缓存总数据量为: " + configCacheMap.size() + ", config修改时间为: " + configUpdateToken.toString());
+		SystemCacheServer.getInstance().loadConfigData(configUpdateToken, configCacheMap);
+
+		Timestamp updateTime;
+		Map<String, Object> itemMap;
+		Entry<String, Map<String, Object>> entry = null;
+		
+		for (Iterator<Entry<String, Map<String, Object>>> iterator = configCacheMap.entrySet().iterator(); iterator.hasNext();) 
+		{
+			entry = iterator.next();
+			itemMap = entry.getValue();
+			
+			updateTime =(Timestamp)itemMap.get("updateTime");
+			
+			if (configUpdateToken.compareTo(updateTime) < 0) 
+			{
+				configUpdateToken = updateTime;
+			}
+		}
+		logger.debug("刷新后    config缓存总数据量为: " + configCacheMap.size() + ", config修改时间为: " + configUpdateToken.toString());
+	}
+
+	/**
+	 * @param triggerFull the triggerFull to set
+	 */
+	public static void setTriggerFull(boolean triggerFull) 
+	{
+		ServerEnvLoader.triggerFull = triggerFull;
 	}
 
 }

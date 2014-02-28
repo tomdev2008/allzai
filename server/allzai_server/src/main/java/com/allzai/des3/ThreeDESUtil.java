@@ -1,4 +1,4 @@
-package com.allzai.des3;
+package com.yeahmobi.gamelala.des3;
 
 import java.security.InvalidParameterException;
 import java.security.Key;
@@ -36,6 +36,10 @@ public class ThreeDESUtil
 
 	private static final char HEX_DIGITS[] = { '0', '1', '2', '3', '4', '5',
 			'6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
+	
+	public static int get3desKeyLength() {
+		return KEY.length;
+	}
 
 	public static String Encode(String param, int keyIndex) throws Exception {
 		if (keyIndex <= 0 || keyIndex >= KEY.length) {
