@@ -126,19 +126,33 @@ public abstract class BaseActionSupport extends HttpServlet
 				
 				//封装参数项
 				Map<String, Object> map = Hosts.getReqKeys(gll);
-				map.put("ip", ip);
-
-				if(!map.containsKey("imei") || !map.containsKey("mac") || !map.containsKey("ver") || !map.containsKey("platform")) {
+				if(!map.containsKey("imei") 
+						|| !map.containsKey("mac") 
+						|| !map.containsKey("ver") 
+						|| !map.containsKey("platform")) {
 					/**
 					 * -10009:必填参数缺少时, 不允许通过
 					 */
 					resp.getWriter().append(Hosts.InvalidRequestResponse(ip, Boolean.FALSE, "-1x0009",  "Invalid request"));
 					return;
 				}
-				
-				if(StringUtil.isEmpty(String.valueOf(map.get("imei")))) {
-					map.put("imei", map.get("mac"));
+
+				String imei = String.valueOf(map.get("imei"));
+				String mac = String.valueOf(map.get("mac"));
+				if(StringUtil.isEmpty(imei) && StringUtil.isEmpty(mac)) {
+					/**
+					 * -1x0010:IMEI和MAC同时为空
+					 */
+					resp.getWriter().append(Hosts.InvalidRequestResponse(ip, Boolean.FALSE, "-1x0010",  "Invalid request"));
+					return;
 				}
+				
+				map.put("ip", ip);
+				if(!map.containsKey("lang") 
+						|| StringUtil.isEmpty(String.valueOf(map.get("lang")))) {
+					map.put("lang", "zh_CN");
+				}
+				if(StringUtil.isEmpty(imei)) {map.put("imei", mac);}
 				
 				//对tk进行校验
 				if(map.containsKey("userId")) {

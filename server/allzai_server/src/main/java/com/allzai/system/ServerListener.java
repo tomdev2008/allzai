@@ -5,6 +5,8 @@ import javax.servlet.ServletContextListener;
 
 import org.apache.log4j.Logger;
 
+import com.allzai.util.LangUtil;
+
 /**
  * 装载系统初始资源
  * 
@@ -31,6 +33,8 @@ public class ServerListener implements ServletContextListener
 			DatabaseManager.init();
 			
 			CacheManager.init();
+			
+			LangUtil.initLangMap();
 			
 			logger.info("ServerListener Started.");
 		} catch (Exception e) {
