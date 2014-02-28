@@ -11,6 +11,7 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import com.allzai.bean.UserBean;
+import com.allzai.cdn.CdnUtil;
 import com.allzai.dao.upload.FileUploadDao;
 import com.allzai.dao.user.UserSlaveDao;
 import com.allzai.form.upload.FileUploadForm;
@@ -86,14 +87,16 @@ public class FileUploadServer {
 
 							/**文件上传至S3*/
 							try {
-								//String newkey = AWSStorageUtil.getInstance().upload(tarFile);
-								String newkey = "";
-								//newurl = AWSStorageUtil.getInstance().getFileFromS3(newkey);
-								/**更新用户头像信息*/
-								suc = FileUploadDao.getInstance().doEditUserHeadPortrait(form.getUserId(), newkey, newurl);
-								String oldkey = user.getHeadKey();
-								if(oldkey != null && !newkey.equals(oldkey)) {
-									//AWSStorageUtil.getInstance().delFileFromS3(oldkey);
+								JsonObject ret = new JsonObject(CdnUtil.getInstance().putFile2Cdn(tarFileName, path));
+								if(ret.has("hash") && ret.has("key")) {
+									String newkey = path;
+									newurl = CdnUtil.getInstance().getFileFromCdn(newkey);
+									/**更新用户头像信息*/
+									suc = FileUploadDao.getInstance().doEditUserHeadPortrait(form.getUserId(), newkey, newurl);
+									String oldkey = user.getHeadKey();
+									if(oldkey != null && !newkey.equals(oldkey)) {
+										CdnUtil.getInstance().delFileFromCdn(oldkey);
+									}
 								}
 							} catch (Exception e) {
 								msg = "s3 upload file error.";
@@ -122,7 +125,7 @@ public class FileUploadServer {
 			return json.toString();
 		}
 		
-		if(suc) {
+		if(suc && newurl != null) {
 			/**
 			 * Kx0000:上传成功
 			 */

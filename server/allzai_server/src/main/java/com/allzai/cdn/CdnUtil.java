@@ -9,6 +9,7 @@ import com.qiniu.api.io.IoApi;
 import com.qiniu.api.io.PutExtra;
 import com.qiniu.api.io.PutRet;
 import com.qiniu.api.rs.PutPolicy;
+import com.qiniu.api.rs.RSClient;
 
 public class CdnUtil {
 	
@@ -18,6 +19,7 @@ public class CdnUtil {
 	private String bucketName = "allzai";
 	private String uptoken = null;
 	private PutExtra extra = null;
+	private RSClient client = null;
 
 	public static CdnUtil getInstance() {
 		return cdnUtil;
@@ -38,6 +40,7 @@ public class CdnUtil {
 				
 				uptoken = putPolicy.token(mac);
 				extra = new PutExtra();
+				client = new RSClient(mac);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -50,7 +53,7 @@ public class CdnUtil {
 	 * @param file
 	 * @return
 	 */
-	private String putFile2Cdn(String key, String file) {
+	public String putFile2Cdn(String key, String file) {
 		PutRet ret = IoApi.putFile(this.uptoken, key, file, this.extra);
 		return ret.getResponse();
 	}
@@ -60,8 +63,16 @@ public class CdnUtil {
 	 * @param key
 	 * @return
 	 */
-	private String getFileFromCdn(String key) {
+	public String getFileFromCdn(String key) {
 		return this.cdn_host + key;
+	}
+	
+	/**
+	 * 从cdn上删除已经上传的文件
+	 * @param key
+	 */
+	public void delFileFromCdn(String key) {
+		this.client.delete(this.bucketName, key);
 	}
 
 	/**
@@ -77,6 +88,8 @@ public class CdnUtil {
 		System.out.println(CdnUtil.getInstance().putFile2Cdn(key, file));
 		System.out.println(CdnUtil.getInstance().getFileFromCdn(key));
 
+		//CdnUtil.getInstance().delFileFromCdn(key);
+		
 	}
 
 }
