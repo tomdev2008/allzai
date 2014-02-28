@@ -113,7 +113,7 @@ public class QuickLogonServer {
 		}
 
 		// 添加交互字段
-		userMap.put("tk", ThreeDESUtil.Encode(userMap.get("id") + "_" + form.getImei()+ "_1", Constants.index_deocde));
+		userMap.put("tk", ThreeDESUtil.Encode(userMap.get("id") + "_" + form.getImei()+ "_1", Constants.index_tk_deocde));
 		/**
 		 * Fx0100:登录成功
 		 */

@@ -83,7 +83,7 @@ public abstract class BaseActionSupport extends HttpServlet
 			//解析浏览器
 			String user_agent = req.getHeader("User-Agent");
 			if(!StringUtil.isEmpty(user_agent)) {
-				if(!user_agent.endsWith("UA-lalasdk")) {
+				if(!user_agent.endsWith("UA-AZ")) {
 					/**
 					 * -10007:错误的引擎
 					 */
@@ -104,7 +104,7 @@ public abstract class BaseActionSupport extends HttpServlet
 				
 				//解析加密串
 				String index = req.getParameter("index");
-				String gll = req.getParameter("GLL");
+				String gll = req.getParameter("key");
 				if(!StringUtil.isEmpty(gll) && !StringUtil.isEmpty(index)) {
 					int key = Integer.parseInt(index);
 					if(key <= 0 || key >= ThreeDESUtil.get3desKeyLength()) {
@@ -149,7 +149,7 @@ public abstract class BaseActionSupport extends HttpServlet
 						if(map.containsKey("tk") &&  !StringUtil.isEmpty(h_tk)) {
 							
 							if(h_tk.equals(String.valueOf(map.get("tk")))) {
-								h_tk = ThreeDESUtil.Decode(h_tk, Constants.index_deocde);
+								h_tk = ThreeDESUtil.Decode(h_tk, Constants.index_tk_deocde);
 								
 								String[] keys = h_tk.split("_");
 								if(keys.length == 3 
@@ -200,7 +200,7 @@ public abstract class BaseActionSupport extends HttpServlet
 		{
 			String info = doAutoAction(obj, req, resp);
 			logger.info("ip = " + ip + ", ret = " + info);
-			 resp.getWriter().append(ThreeDESUtil.Encode(info, Constants.GLL_index));
+			 resp.getWriter().append(ThreeDESUtil.Encode(info, Constants.index_az_decode));
 		} 
 		catch (Exception e) 
 		{

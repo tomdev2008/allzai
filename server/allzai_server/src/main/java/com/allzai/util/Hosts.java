@@ -72,7 +72,7 @@ public class Hosts {
 		json.put("info", info);
 		
 		logger.info("ip = " + ip + ", err = " + json.toString());
-		return ThreeDESUtil.Encode(json.toString(), Constants.GLL_index);
+		return ThreeDESUtil.Encode(json.toString(), Constants.index_az_decode);
 	}
 
 }

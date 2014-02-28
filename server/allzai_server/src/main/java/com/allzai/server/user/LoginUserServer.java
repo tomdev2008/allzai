@@ -97,7 +97,7 @@ public class LoginUserServer {
 			map = null;
 			
 			//添加交互字段
-			users.put("tk", ThreeDESUtil.Encode(userId + "_" + form.getImei() + "_0", Constants.index_deocde));
+			users.put("tk", ThreeDESUtil.Encode(userId + "_" + form.getImei() + "_0", Constants.index_tk_deocde));
 			/**
 			 * Fx0000:登录成功
 			 */

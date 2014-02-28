@@ -11,13 +11,9 @@ import java.text.SimpleDateFormat;
  */
 public final class Constants
 {
-	/**
-	 * 1.前后端协议好的3desc加密下标
-	 * 2.为保证加密规则不变, 此字段不可变, 同时加密数组的字符串也不可变
-	 * 3.用于用户名与密码, cpa交互加密
-	 */
-	public static final int index_deocde = 1;
-	public static final int GLL_index = 2;
+
+	public static final int index_tk_deocde = 1;
+	public static final int index_az_decode = 2;
 	
 	public static final int ZERO_NUMBER = 0;
 	public static final int ONE_NUMBER = 1;
