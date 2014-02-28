@@ -20,7 +20,8 @@ public class ServerListener implements ServletContextListener
 	public void contextDestroyed(ServletContextEvent event) 
 	{
 		DatabaseManager.destroyDBPool();
-		logger.info("Lalasdk Service ended");
+		
+		logger.info("ServerListener Ended.");
 	}
 
 	public void contextInitialized(ServletContextEvent event) 
@@ -28,15 +29,15 @@ public class ServerListener implements ServletContextListener
 		try 
 		{
 			DatabaseManager.init();
+			
+			CacheManager.init();
+			
+			logger.info("ServerListener Started.");
 		} catch (Exception e) {
 			e.printStackTrace();
-			logger.error("Lalasdk service load error.");
+			logger.error("ServerListener Error.");
 			
-			//非正常退出虚拟机
-			System.exit(1);
+			return;
 		}
-		
-		CacheManager.init();
-		logger.info("Lalasdk Service started");
 	}
 }
