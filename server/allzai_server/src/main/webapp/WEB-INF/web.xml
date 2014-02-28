@@ -1,35 +1,156 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:javaee="http://java.sun.com/xml/ns/javaee"
 	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
-	
+
 	<javaee:display-name>allzai_server</javaee:display-name>
 
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
 
+	<!-- 系统监听 -->
 	<listener>
-		<javaee:listener-class>com.allzai.listener.ServerListener
-		</javaee:listener-class>
+		<listener-class>com.allzai.system.LalasdkListener</listener-class>
 	</listener>
 
+	<!-- 刷新缓存 -->
 	<servlet>
-		<servlet-name>StartupServlet</servlet-name>
-		<servlet-class>com.allzai.listener.StartupServlet</servlet-class>
-		<load-on-startup>1</load-on-startup>
+		<servlet-name>SystemCacheRefresh</servlet-name>
+		<servlet-class>com.allzai.action.admin.SystemCacheRefreshAction</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>StartupServlet</servlet-name>
-		<url-pattern>/startup</url-pattern>
+		<servlet-name>SystemCacheRefresh</servlet-name>
+		<url-pattern>/private/refreshCache</url-pattern>
 	</servlet-mapping>
 
+	<!-- 服务响应 -->
+	<servlet>
+		<servlet-name>AliveAction</servlet-name>
+		<servlet-class>com.allzai.action.alive.AliveAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AliveAction</servlet-name>
+		<url-pattern>/private/alive</url-pattern>
+	</servlet-mapping>
+
+	<!-- 用户转化 -->
+	<servlet>
+		<servlet-name>UserChangeRoleAction</servlet-name>
+		<servlet-class>com.allzai.action.user.UserChangeRoleAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UserChangeRoleAction</servlet-name>
+		<url-pattern>/secure/changeRole</url-pattern>
+	</servlet-mapping>
+
+	<!-- 时光轴 -->
+	<servlet>
+		<servlet-name>GetOperationList</servlet-name>
+		<servlet-class>com.allzai.action.user.GetOperationListAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetOperationList</servlet-name>
+		<url-pattern>/secure/getOperation</url-pattern>
+	</servlet-mapping>
+
+	<!-- 头像上传 -->
+	<servlet>
+		<servlet-name>FileUploadAction</servlet-name>
+		<servlet-class>com.allzai.action.upload.FileUploadAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FileUploadAction</servlet-name>
+		<url-pattern>/secure/fileUpload</url-pattern>
+	</servlet-mapping>
+
+	<!-- 系统设置 -->
+	<servlet>
+		<servlet-name>GetSysConfig</servlet-name>
+		<servlet-class>com.allzai.action.system.GetSysConfigAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetSysConfig</servlet-name>
+		<url-pattern>/public/getSysConfig</url-pattern>
+	</servlet-mapping>
+
+	<!-- 动态验证 -->
 	<servlet>
 		<servlet-name>SmartCode</servlet-name>
-		<servlet-class>com.code.SmartCode</servlet-class>
+		<servlet-class>com.allzai.code.SmartCode</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>SmartCode</servlet-name>
-		<url-pattern>/smartCode</url-pattern>
+		<url-pattern>/public/smartCode</url-pattern>
+	</servlet-mapping>
+
+	<!-- 用户注册 -->
+	<servlet>
+		<servlet-name>RegisterUser</servlet-name>
+		<servlet-class>com.allzai.action.user.RegisterUserAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RegisterUser</servlet-name>
+		<url-pattern>/public/insertUser</url-pattern>
+	</servlet-mapping>
+
+	<!-- 用户登录 -->
+	<servlet>
+		<servlet-name>LoginUserAction</servlet-name>
+		<servlet-class>com.allzai.action.user.LoginUserAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginUserAction</servlet-name>
+		<url-pattern>/public/loginUser</url-pattern>
+	</servlet-mapping>
+
+	<!-- 上报设备 -->
+	<servlet>
+		<servlet-name>DeviceUserAction</servlet-name>
+		<servlet-class>com.allzai.action.device.DeviceUserAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DeviceUserAction</servlet-name>
+		<url-pattern>/public/deviceUser</url-pattern>
+	</servlet-mapping>
+
+	<!-- 上报应用 -->
+	<servlet>
+		<servlet-name>appUseHistory</servlet-name>
+		<servlet-class>com.allzai.action.device.AppUseHistoryAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>appUseHistory</servlet-name>
+		<url-pattern>/public/useHistoryUser</url-pattern>
+	</servlet-mapping>
+
+	<!-- 快速登录 -->
+	<servlet>
+		<servlet-name>QuickLogon</servlet-name>
+		<servlet-class>com.allzai.action.guest.QuickLogonAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>QuickLogon</servlet-name>
+		<url-pattern>/public/quickLogon</url-pattern>
+	</servlet-mapping>
+
+	<!-- 推送上报 -->
+	<servlet>
+		<servlet-name>GcmReportAction</servlet-name>
+		<servlet-class>com.allzai.action.gcm.GcmReportAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GcmReportAction</servlet-name>
+		<url-pattern>/public/gcmReport</url-pattern>
+	</servlet-mapping>
+
+	<!-- 游戏通知 -->
+	<servlet>
+		<servlet-name>GameNoticeAction</servlet-name>
+		<servlet-class>com.allzai.action.notice.GameNoticeAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GameNoticeAction</servlet-name>
+		<url-pattern>/public/gameNotice</url-pattern>
 	</servlet-mapping>
 
 </web-app>
