@@ -16,7 +16,7 @@ import com.allzai.server.user.UserOperationServer;
  * @since   JDK 1.6
  */
 @SuppressWarnings("serial")
-public class GetOperationListAction extends BaseActionSupport 
+public class GetOperationAction extends BaseActionSupport 
 {
 
 	@Override

@@ -20,7 +20,7 @@ import com.restfb.json.JsonObject;
  * @see UserManageServer#registerUser(com.yeahmobi.gamelala.bean.UserBean)
  * @since JDK 1.6
  */
-public class RegisterUserAction extends BaseActionSupport {
+public class UserRegisterAction extends BaseActionSupport {
 
 	/**
 	 * 

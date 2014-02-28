@@ -7,7 +7,7 @@ import com.allzai.action.BaseActionSupport;
 import com.allzai.form.device.DeviceUserForm;
 import com.allzai.server.device.DeviceUserServer;
 
-public class DeviceUserAction extends BaseActionSupport {
+public class DeviceReportAction extends BaseActionSupport {
 
 	private static final long serialVersionUID = 5999635462092011193L;
 

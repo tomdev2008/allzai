@@ -13,9 +13,9 @@ import org.apache.log4j.Logger;
  * @see     DatabaseManager
  * @since   JDK 1.6
  */
-public class LalasdkListener implements ServletContextListener 
+public class ServerListener implements ServletContextListener 
 {
-	private static Logger logger = Logger.getLogger(LalasdkListener.class);
+	private static Logger logger = Logger.getLogger(ServerListener.class);
 
 	public void contextDestroyed(ServletContextEvent event) 
 	{
@@ -36,7 +36,7 @@ public class LalasdkListener implements ServletContextListener
 			System.exit(1);
 		}
 		
-		SystemCacheManager.init();
+		CacheManager.init();
 		logger.info("Lalasdk Service started");
 	}
 }

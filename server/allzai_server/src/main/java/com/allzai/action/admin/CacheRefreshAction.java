@@ -20,14 +20,14 @@ import com.allzai.util.Hosts;
  * @see     ServerEnvLoader#setTriggerFull(boolean)
  * @since   JDK 1.6
  */
-public class SystemCacheRefreshAction extends HttpServlet
+public class CacheRefreshAction extends HttpServlet
 {
 	/**
 	 * 管理员刷新缓存的私有接口
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private static final Logger logger = Logger.getLogger(SystemCacheRefreshAction.class);
+	private static final Logger logger = Logger.getLogger(CacheRefreshAction.class);
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)

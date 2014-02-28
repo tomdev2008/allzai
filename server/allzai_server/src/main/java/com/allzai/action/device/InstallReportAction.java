@@ -15,7 +15,7 @@ import com.allzai.server.user.AppUseHistoryServer;
  * @see     AppUseHistoryServer#recordUserAppInfo(AppUseHistoryForm)
  * @since   JDK 1.6
  */
-public class AppUseHistoryAction extends BaseActionSupport 
+public class InstallReportAction extends BaseActionSupport 
 {
 
 	/**

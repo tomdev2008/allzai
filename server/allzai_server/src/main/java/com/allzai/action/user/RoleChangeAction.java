@@ -3,20 +3,16 @@ package com.allzai.action.user;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.log4j.Logger;
-
 import com.allzai.action.BaseActionSupport;
 import com.allzai.form.user.LoginUserForm;
-import com.allzai.server.user.LoginUserServer;
+import com.allzai.server.user.UserManageServer;
 
-public class LoginUserAction extends BaseActionSupport {
+public class RoleChangeAction extends BaseActionSupport {
 
-	private static final Logger logger = Logger.getLogger(LoginUserAction.class);
-	
 	/**
-	 * 用户登录
+	 * 
 	 */
-	private static final long serialVersionUID = -2437294960165906142L;
+	private static final long serialVersionUID = 1L;
 
 	@Override
 	public String doAutoAction(Object obj, HttpServletRequest req,
@@ -24,9 +20,7 @@ public class LoginUserAction extends BaseActionSupport {
 		
 		LoginUserForm form = (LoginUserForm) obj;
 		
-		logger.info("user login from imei : " + form.getImei() + ", login from ip : " + form.getIp());
-		
-		return LoginUserServer.getInstance().doLoginUser(form);
+		return UserManageServer.getInstance().changeRole(form);
 	}
 
 	@Override

@@ -13,15 +13,15 @@ import org.apache.log4j.Logger;
  * @version hasoffer-0.0.1, 2013-9-7
  * @since   JDK 1.6
  */
-public class SystemCacheManager 
+public class CacheManager 
 {
 	private static boolean lock = false;
 	
 	private static ScheduledExecutorService execService = Executors.newScheduledThreadPool(1);
 
-	private static Logger logger = Logger.getLogger(SystemCacheManager.class);
+	private static Logger logger = Logger.getLogger(CacheManager.class);
 
-	private SystemCacheManager() 
+	private CacheManager() 
 	{
 		
 	}
