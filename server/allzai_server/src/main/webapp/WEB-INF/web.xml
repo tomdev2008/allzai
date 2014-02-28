@@ -40,7 +40,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>UserChangeRoleAction</servlet-name>
-		<url-pattern>/secure/changeRole</url-pattern>
+		<url-pattern>/secure/roleChange</url-pattern>
 	</servlet-mapping>
 
 	<!-- 时光轴 -->
@@ -90,7 +90,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>RegisterUser</servlet-name>
-		<url-pattern>/public/insertUser</url-pattern>
+		<url-pattern>/public/userRegister</url-pattern>
 	</servlet-mapping>
 
 	<!-- 用户登录 -->
@@ -100,7 +100,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>LoginUserAction</servlet-name>
-		<url-pattern>/public/loginUser</url-pattern>
+		<url-pattern>/public/userLogin</url-pattern>
 	</servlet-mapping>
 
 	<!-- 上报设备 -->
@@ -110,7 +110,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>DeviceUserAction</servlet-name>
-		<url-pattern>/public/deviceUser</url-pattern>
+		<url-pattern>/public/deviceReport</url-pattern>
 	</servlet-mapping>
 
 	<!-- 上报应用 -->
@@ -120,7 +120,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>appUseHistory</servlet-name>
-		<url-pattern>/public/useHistoryUser</url-pattern>
+		<url-pattern>/public/installReport</url-pattern>
 	</servlet-mapping>
 
 	<!-- 快速登录 -->
