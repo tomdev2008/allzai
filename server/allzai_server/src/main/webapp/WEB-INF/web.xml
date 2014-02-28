@@ -10,16 +10,16 @@
 
 	<!-- 系统监听 -->
 	<listener>
-		<listener-class>com.allzai.system.LalasdkListener</listener-class>
+		<listener-class>com.allzai.system.ServerListener</listener-class>
 	</listener>
 
 	<!-- 刷新缓存 -->
 	<servlet>
-		<servlet-name>SystemCacheRefresh</servlet-name>
-		<servlet-class>com.allzai.action.admin.SystemCacheRefreshAction</servlet-class>
+		<servlet-name>CacheRefresh</servlet-name>
+		<servlet-class>com.allzai.action.admin.CacheRefreshAction</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>SystemCacheRefresh</servlet-name>
+		<servlet-name>CacheRefresh</servlet-name>
 		<url-pattern>/private/refreshCache</url-pattern>
 	</servlet-mapping>
 
@@ -35,31 +35,31 @@
 
 	<!-- 用户转化 -->
 	<servlet>
-		<servlet-name>UserChangeRoleAction</servlet-name>
-		<servlet-class>com.allzai.action.user.UserChangeRoleAction</servlet-class>
+		<servlet-name>RoleChange</servlet-name>
+		<servlet-class>com.allzai.action.user.RoleChangeAction</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>UserChangeRoleAction</servlet-name>
+		<servlet-name>RoleChange</servlet-name>
 		<url-pattern>/secure/roleChange</url-pattern>
 	</servlet-mapping>
 
 	<!-- 时光轴 -->
 	<servlet>
-		<servlet-name>GetOperationList</servlet-name>
-		<servlet-class>com.allzai.action.user.GetOperationListAction</servlet-class>
+		<servlet-name>GetOperation</servlet-name>
+		<servlet-class>com.allzai.action.user.GetOperationAction</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>GetOperationList</servlet-name>
+		<servlet-name>GetOperation</servlet-name>
 		<url-pattern>/secure/getOperation</url-pattern>
 	</servlet-mapping>
 
 	<!-- 头像上传 -->
 	<servlet>
-		<servlet-name>FileUploadAction</servlet-name>
+		<servlet-name>FileUpload</servlet-name>
 		<servlet-class>com.allzai.action.upload.FileUploadAction</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>FileUploadAction</servlet-name>
+		<servlet-name>FileUpload</servlet-name>
 		<url-pattern>/secure/fileUpload</url-pattern>
 	</servlet-mapping>
 
@@ -85,41 +85,41 @@
 
 	<!-- 用户注册 -->
 	<servlet>
-		<servlet-name>RegisterUser</servlet-name>
-		<servlet-class>com.allzai.action.user.RegisterUserAction</servlet-class>
+		<servlet-name>UserRegister</servlet-name>
+		<servlet-class>com.allzai.action.user.UserRegisterAction</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>RegisterUser</servlet-name>
+		<servlet-name>UserRegister</servlet-name>
 		<url-pattern>/public/userRegister</url-pattern>
 	</servlet-mapping>
 
 	<!-- 用户登录 -->
 	<servlet>
-		<servlet-name>LoginUserAction</servlet-name>
-		<servlet-class>com.allzai.action.user.LoginUserAction</servlet-class>
+		<servlet-name>UserLogin</servlet-name>
+		<servlet-class>com.allzai.action.user.UserLoginAction</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>LoginUserAction</servlet-name>
+		<servlet-name>UserLogin</servlet-name>
 		<url-pattern>/public/userLogin</url-pattern>
 	</servlet-mapping>
 
 	<!-- 上报设备 -->
 	<servlet>
-		<servlet-name>DeviceUserAction</servlet-name>
-		<servlet-class>com.allzai.action.device.DeviceUserAction</servlet-class>
+		<servlet-name>DeviceReport</servlet-name>
+		<servlet-class>com.allzai.action.device.DeviceReportAction</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>DeviceUserAction</servlet-name>
+		<servlet-name>DeviceReport</servlet-name>
 		<url-pattern>/public/deviceReport</url-pattern>
 	</servlet-mapping>
 
 	<!-- 上报应用 -->
 	<servlet>
-		<servlet-name>appUseHistory</servlet-name>
-		<servlet-class>com.allzai.action.device.AppUseHistoryAction</servlet-class>
+		<servlet-name>InstallReport</servlet-name>
+		<servlet-class>com.allzai.action.device.InstallReportAction</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>appUseHistory</servlet-name>
+		<servlet-name>InstallReport</servlet-name>
 		<url-pattern>/public/installReport</url-pattern>
 	</servlet-mapping>
 
@@ -135,21 +135,21 @@
 
 	<!-- 推送上报 -->
 	<servlet>
-		<servlet-name>GcmReportAction</servlet-name>
+		<servlet-name>GcmReport</servlet-name>
 		<servlet-class>com.allzai.action.gcm.GcmReportAction</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>GcmReportAction</servlet-name>
+		<servlet-name>GcmReport</servlet-name>
 		<url-pattern>/public/gcmReport</url-pattern>
 	</servlet-mapping>
 
 	<!-- 游戏通知 -->
 	<servlet>
-		<servlet-name>GameNoticeAction</servlet-name>
+		<servlet-name>GameNotice</servlet-name>
 		<servlet-class>com.allzai.action.notice.GameNoticeAction</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>GameNoticeAction</servlet-name>
+		<servlet-name>GameNotice</servlet-name>
 		<url-pattern>/public/gameNotice</url-pattern>
 	</servlet-mapping>
 
