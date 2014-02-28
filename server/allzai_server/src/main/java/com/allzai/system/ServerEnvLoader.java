@@ -1,4 +1,4 @@
-package com.yeahmobi.gamelala.system;
+package com.allzai.system;
 
 import java.sql.Timestamp;
 import java.util.Iterator;
@@ -8,9 +8,9 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import org.apache.log4j.Logger;
 
-import com.yeahmobi.gamelala.exception.DaoException;
-import com.yeahmobi.gamelala.server.SystemCacheServer;
-import com.yeahmobi.gamelala.util.Constants;
+import com.allzai.exception.DaoException;
+import com.allzai.server.SystemCacheServer;
+import com.allzai.util.Constants;
 
 /**
  * 装载服务器基础环境

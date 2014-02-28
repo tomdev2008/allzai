@@ -1,4 +1,4 @@
-package com.yeahmobi.gamelala.system;
+package com.allzai.system;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;

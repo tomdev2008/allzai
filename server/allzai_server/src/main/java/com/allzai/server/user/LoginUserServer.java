@@ -1,31 +1,24 @@
-package com.yeahmobi.gamelala.server.user;
+package com.allzai.server.user;
 
 import java.util.Map;
 
+import com.allzai.bean.LoginHistory;
+import com.allzai.bean.MobileDeviceBean;
+import com.allzai.dao.AutoBeanDao;
+import com.allzai.dao.decive.DeviceUserDao;
+import com.allzai.dao.notice.GameNoticeDao;
+import com.allzai.dao.user.UserSlaveDao;
+import com.allzai.des3.ThreeDESUtil;
+import com.allzai.form.user.LoginUserForm;
+import com.allzai.util.Constants;
+import com.allzai.util.JsonUtil;
+import com.allzai.util.StringUtil;
 import com.restfb.json.JsonObject;
-import com.yeahmobi.gamelala.bean.LoginHistory;
-import com.yeahmobi.gamelala.bean.MobileDeviceBean;
-import com.yeahmobi.gamelala.dao.AutoBeanDao;
-import com.yeahmobi.gamelala.dao.decive.DeviceUserDao;
-import com.yeahmobi.gamelala.dao.notice.GameNoticeDao;
-import com.yeahmobi.gamelala.dao.user.UserSlaveDao;
-import com.yeahmobi.gamelala.des3.ThreeDESUtil;
-import com.yeahmobi.gamelala.form.user.LoginUserForm;
-import com.yeahmobi.gamelala.util.Constants;
-import com.yeahmobi.gamelala.util.JsonUtil;
-import com.yeahmobi.gamelala.util.StringUtil;
 
 public class LoginUserServer {
 	
 	 private static final LoginUserServer loginUserServer = new LoginUserServer();
 		
-//	private static final Logger logger = Logger.getLogger(LoginUserServer.class);
-	
-	private LoginUserServer() 
-	{
-		
-	} 
-	
 	public static LoginUserServer getInstance()
 	{
 		return loginUserServer;

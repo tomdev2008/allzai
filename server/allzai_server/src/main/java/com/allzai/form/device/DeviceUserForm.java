@@ -1,7 +1,7 @@
-package com.yeahmobi.gamelala.form.device;
+package com.allzai.form.device;
 
-import com.yeahmobi.gamelala.bean.MobileDeviceBean;
-import com.yeahmobi.gamelala.form.BasicForm;
+import com.allzai.bean.MobileDeviceBean;
+import com.allzai.form.BasicForm;
 
 public class DeviceUserForm extends BasicForm 
 {

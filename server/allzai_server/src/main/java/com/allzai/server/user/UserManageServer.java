@@ -1,4 +1,4 @@
-package com.yeahmobi.gamelala.server.user;
+package com.allzai.server.user;
 
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -6,16 +6,15 @@ import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 
+import com.allzai.bean.UserBean;
+import com.allzai.dao.ManulBeanDao;
+import com.allzai.dao.TransactionManager;
+import com.allzai.dao.user.UserSlaveDao;
+import com.allzai.form.user.LoginUserForm;
+import com.allzai.form.user.RegeistUserForm;
+import com.allzai.util.Constants;
+import com.allzai.util.StringUtil;
 import com.restfb.json.JsonObject;
-import com.yeahmobi.gamelala.bean.UserBean;
-import com.yeahmobi.gamelala.dao.ManulBeanDao;
-import com.yeahmobi.gamelala.dao.TransactionManager;
-import com.yeahmobi.gamelala.dao.user.UserSlaveDao;
-import com.yeahmobi.gamelala.exception.DaoException;
-import com.yeahmobi.gamelala.form.user.LoginUserForm;
-import com.yeahmobi.gamelala.form.user.RegeistUserForm;
-import com.yeahmobi.gamelala.util.Constants;
-import com.yeahmobi.gamelala.util.StringUtil;
 
 /**
  * 提供用户信息管理服务

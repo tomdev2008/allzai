@@ -1,4 +1,4 @@
-package com.yeahmobi.gamelala.server.user;
+package com.allzai.server.user;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,18 +9,18 @@ import java.util.Map.Entry;
 
 import org.apache.log4j.Logger;
 
+import com.allzai.bean.MobileDeviceBean;
+import com.allzai.bean.UserAppBean;
+import com.allzai.dao.TransactionManager;
+import com.allzai.dao.decive.DeviceUserDao;
+import com.allzai.dao.user.UserAppUseHistoryMasterDao;
+import com.allzai.dao.user.UserManageMasterDao;
+import com.allzai.dao.user.UserSlaveDao;
+import com.allzai.exception.DaoException;
+import com.allzai.form.device.AppUseHistoryForm;
+import com.allzai.util.Constants;
+import com.allzai.util.StringUtil;
 import com.restfb.json.JsonObject;
-import com.yeahmobi.gamelala.bean.MobileDeviceBean;
-import com.yeahmobi.gamelala.bean.UserAppBean;
-import com.yeahmobi.gamelala.dao.TransactionManager;
-import com.yeahmobi.gamelala.dao.decive.DeviceUserDao;
-import com.yeahmobi.gamelala.dao.user.UserAppUseHistoryMasterDao;
-import com.yeahmobi.gamelala.dao.user.UserManageMasterDao;
-import com.yeahmobi.gamelala.dao.user.UserSlaveDao;
-import com.yeahmobi.gamelala.exception.DaoException;
-import com.yeahmobi.gamelala.form.device.AppUseHistoryForm;
-import com.yeahmobi.gamelala.util.Constants;
-import com.yeahmobi.gamelala.util.StringUtil;
 
 /**
  * 用户APP装卸历史服务

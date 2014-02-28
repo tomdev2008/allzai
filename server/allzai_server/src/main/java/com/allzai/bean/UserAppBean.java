@@ -1,11 +1,11 @@
-package com.yeahmobi.gamelala.bean;
+package com.allzai.bean;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.yeahmobi.gamelala.util.Constants;
-import com.yeahmobi.gamelala.util.StringUtil;
+import com.allzai.util.Constants;
+import com.allzai.util.StringUtil;
 
 /**
  * 用户APP信息实体
@@ -324,7 +324,6 @@ public class UserAppBean extends BaseBean implements Comparable<UserAppBean>
 	@Override
 	public String getTableName() 
 	{
-		// TODO Auto-generated method stub
 		return Constants.USER_APP_TABLE_NAME;
 	}
 }

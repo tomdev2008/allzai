@@ -1,4 +1,4 @@
-package com.yeahmobi.gamelala.exception;
+package com.allzai.exception;
 
 
 /**

@@ -1,10 +1,10 @@
-package com.yeahmobi.gamelala.server;
+package com.allzai.server;
 
 import java.sql.Timestamp;
 import java.util.Map;
 
-import com.yeahmobi.gamelala.dao.SystemCacheSlaveDao;
-import com.yeahmobi.gamelala.exception.DaoException;
+import com.allzai.dao.SystemCacheSlaveDao;
+import com.allzai.exception.DaoException;
 
 /**
  * 提供系统基础信息的加载服务<p>

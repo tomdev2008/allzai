@@ -1,11 +1,11 @@
-package com.yeahmobi.gamelala.bean;
+package com.allzai.bean;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.yeahmobi.gamelala.util.Constants;
-import com.yeahmobi.gamelala.util.StringUtil;
+import com.allzai.util.Constants;
+import com.allzai.util.StringUtil;
 
 /**
  * 手机设备实体
@@ -472,7 +472,6 @@ public class MobileDeviceBean extends BaseBean implements Serializable
 	@Override
 	public String getTableName() 
 	{
-		// TODO Auto-generated method stub
 		return Constants.MOBILE_DEVICE_TABLE_NAME;
 	}
 	

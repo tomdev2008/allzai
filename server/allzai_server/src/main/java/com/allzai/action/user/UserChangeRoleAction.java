@@ -1,11 +1,11 @@
-package com.yeahmobi.gamelala.action.user;
+package com.allzai.action.user;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.yeahmobi.gamelala.action.BaseActionSupport;
-import com.yeahmobi.gamelala.form.user.LoginUserForm;
-import com.yeahmobi.gamelala.server.user.UserManageServer;
+import com.allzai.action.BaseActionSupport;
+import com.allzai.form.user.LoginUserForm;
+import com.allzai.server.user.UserManageServer;
 
 public class UserChangeRoleAction extends BaseActionSupport {
 

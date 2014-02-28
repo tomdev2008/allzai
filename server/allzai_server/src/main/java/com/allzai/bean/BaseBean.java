@@ -1,4 +1,4 @@
-package com.yeahmobi.gamelala.bean;
+package com.allzai.bean;
 
 import java.io.Serializable;
 import java.util.List;

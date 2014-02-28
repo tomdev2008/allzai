@@ -1,13 +1,13 @@
-package com.yeahmobi.gamelala.server.notice;
+package com.allzai.server.notice;
 
 import java.util.List;
 import java.util.Map;
 
+import com.allzai.dao.notice.GameNoticeDao;
+import com.allzai.form.notice.GameNoticeForm;
+import com.allzai.util.JsonUtil;
 import com.restfb.json.JsonArray;
 import com.restfb.json.JsonObject;
-import com.yeahmobi.gamelala.dao.notice.GameNoticeDao;
-import com.yeahmobi.gamelala.form.notice.GameNoticeForm;
-import com.yeahmobi.gamelala.util.JsonUtil;
 
 public class GameNoticeServer {
 	

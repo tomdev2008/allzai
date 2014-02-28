@@ -1,4 +1,4 @@
-package com.yeahmobi.gamelala.action;
+package com.allzai.action;
 
 import java.io.IOException;
 import java.util.Map;
@@ -11,10 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.log4j.Logger;
 
-import com.yeahmobi.gamelala.des3.ThreeDESUtil;
-import com.yeahmobi.gamelala.util.Constants;
-import com.yeahmobi.gamelala.util.Hosts;
-import com.yeahmobi.gamelala.util.StringUtil;
+import com.allzai.des3.ThreeDESUtil;
+import com.allzai.util.Constants;
+import com.allzai.util.Hosts;
+import com.allzai.util.StringUtil;
 
 /**
  * 响应动作支持类，返回类型为JSON<p>

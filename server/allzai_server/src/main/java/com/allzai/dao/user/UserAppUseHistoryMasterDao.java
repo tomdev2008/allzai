@@ -1,11 +1,11 @@
-package com.yeahmobi.gamelala.dao.user;
+package com.allzai.dao.user;
 
 import java.sql.Connection;
 import java.util.List;
 
-import com.yeahmobi.gamelala.bean.UserAppBean;
-import com.yeahmobi.gamelala.dao.TransactionDaoSupport;
-import com.yeahmobi.gamelala.dao.TransactionManager;
+import com.allzai.bean.UserAppBean;
+import com.allzai.dao.TransactionDaoSupport;
+import com.allzai.dao.TransactionManager;
 
 /**
  * 用户APP使用记录操作Dao
@@ -118,18 +118,5 @@ public class UserAppUseHistoryMasterDao extends TransactionDaoSupport<UserAppBea
 		// TODO Auto-generated method stub
 		return TransactionManager.getContainer().get();
 	}
-	
-	/**
-	private static final UserAppUseHistoryMasterDao userAppDao = new UserAppUseHistoryMasterDao();
-	
-	private UserAppUseHistoryMasterDao()
-	{
-		
-	}
-	
-	public static UserAppUseHistoryMasterDao getInstance()
-	{
-		return UserAppUseHistoryMasterDao.userAppDao;
-	} 
-	*/
+
 }

@@ -1,14 +1,14 @@
-package com.yeahmobi.gamelala.dao.user;
+package com.allzai.dao.user;
 
 import java.sql.Connection;
 import java.util.List;
 import java.util.Map;
 
-import com.yeahmobi.gamelala.bean.UserAppBean;
-import com.yeahmobi.gamelala.bean.UserBean;
-import com.yeahmobi.gamelala.dao.BaseJdbcDaoSupport;
-import com.yeahmobi.gamelala.exception.DaoException;
-import com.yeahmobi.gamelala.system.DatabaseManager;
+import com.allzai.bean.UserAppBean;
+import com.allzai.bean.UserBean;
+import com.allzai.dao.BaseJdbcDaoSupport;
+import com.allzai.exception.DaoException;
+import com.allzai.system.DatabaseManager;
 
 /**
  * 用户管理读取Dao

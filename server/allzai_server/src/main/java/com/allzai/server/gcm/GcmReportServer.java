@@ -1,13 +1,13 @@
-package com.yeahmobi.gamelala.server.gcm;
+package com.allzai.server.gcm;
 
 import java.util.Map;
 
+import com.allzai.bean.MobileDeviceBean;
+import com.allzai.dao.decive.DeviceUserDao;
+import com.allzai.dao.gcm.GcmReportDao;
+import com.allzai.dao.notice.GameNoticeDao;
+import com.allzai.form.gcm.GcmReportForm;
 import com.restfb.json.JsonObject;
-import com.yeahmobi.gamelala.bean.MobileDeviceBean;
-import com.yeahmobi.gamelala.dao.decive.DeviceUserDao;
-import com.yeahmobi.gamelala.dao.gcm.GcmReportDao;
-import com.yeahmobi.gamelala.dao.notice.GameNoticeDao;
-import com.yeahmobi.gamelala.form.gcm.GcmReportForm;
 
 public class GcmReportServer {
 
@@ -54,6 +54,7 @@ public class GcmReportServer {
 				}
 				map = null;
 			}
+			device = null;
 		} catch (Exception e) {
 			e.printStackTrace();
 			

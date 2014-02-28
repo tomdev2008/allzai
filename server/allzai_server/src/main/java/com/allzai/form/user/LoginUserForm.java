@@ -1,7 +1,7 @@
-package com.yeahmobi.gamelala.form.user;
+package com.allzai.form.user;
 
-import com.yeahmobi.gamelala.bean.BaseBean;
-import com.yeahmobi.gamelala.form.BasicForm;
+import com.allzai.bean.BaseBean;
+import com.allzai.form.BasicForm;
 
 public class LoginUserForm extends BasicForm {
 	
@@ -39,9 +39,11 @@ public class LoginUserForm extends BasicForm {
 	public String getPackageName() {
 		return packageName;
 	}
+	
 	public void setPackageName(String packageName) {
 		this.packageName = packageName;
 	}
+	
 	/* (non-Javadoc)
 	 * @see com.yeahmobi.gamelala.form.BaseForm#convertBaseBean()
 	 */

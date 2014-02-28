@@ -1,11 +1,11 @@
-package com.yeahmobi.gamelala.bean;
+package com.allzai.bean;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.yeahmobi.gamelala.util.Constants;
-import com.yeahmobi.gamelala.util.StringUtil;
+import com.allzai.util.Constants;
+import com.allzai.util.StringUtil;
 
 /**
  * 登录历史实体类
@@ -271,7 +271,6 @@ public class LoginHistory extends BaseBean implements Comparable<LoginHistory>
 	@Override
 	public String getTableName() 
 	{
-		// TODO Auto-generated method stub
 		return Constants.LOGIN_LOG_TABLE_NAME;
 	}
 	

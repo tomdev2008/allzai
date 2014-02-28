@@ -1,4 +1,4 @@
-package com.yeahmobi.gamelala.util;
+package com.allzai.util;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
 
+import com.allzai.des3.ThreeDESUtil;
 import com.restfb.json.JsonObject;
-import com.yeahmobi.gamelala.des3.ThreeDESUtil;
 
 public class Hosts {
 	

@@ -1,11 +1,11 @@
-package com.yeahmobi.gamelala.form.device;
+package com.allzai.form.device;
 
 import java.util.List;
 
-import com.yeahmobi.gamelala.bean.UserAppBean;
-import com.yeahmobi.gamelala.form.BasicForm;
-import com.yeahmobi.gamelala.util.JsonUtil;
-import com.yeahmobi.gamelala.util.StringUtil;
+import com.allzai.bean.UserAppBean;
+import com.allzai.form.BasicForm;
+import com.allzai.util.JsonUtil;
+import com.allzai.util.StringUtil;
 
 /**
  * 用户App装卸历史表单

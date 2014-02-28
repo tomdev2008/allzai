@@ -1,7 +1,7 @@
-package com.yeahmobi.gamelala.form.config;
+package com.allzai.form.config;
 
-import com.yeahmobi.gamelala.bean.BaseBean;
-import com.yeahmobi.gamelala.form.BasicForm;
+import com.allzai.bean.BaseBean;
+import com.allzai.form.BasicForm;
 
 public class SysConfigForm extends BasicForm {
 

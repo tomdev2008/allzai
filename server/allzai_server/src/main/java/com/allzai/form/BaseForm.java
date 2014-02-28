@@ -1,6 +1,6 @@
-package com.yeahmobi.gamelala.form;
+package com.allzai.form;
 
-import com.yeahmobi.gamelala.bean.BaseBean;
+import com.allzai.bean.BaseBean;
 
 public class BaseForm extends BasicForm {
 

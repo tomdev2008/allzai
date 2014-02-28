@@ -1,9 +1,9 @@
-package com.yeahmobi.gamelala.dao;
+package com.allzai.dao;
 
 import java.sql.Connection;
 import java.util.ArrayList;
 
-import com.yeahmobi.gamelala.bean.BaseBean;
+import com.allzai.bean.BaseBean;
 
 /**
  * 对符合规则的BaseBean类型提供公共的添加、修改方法

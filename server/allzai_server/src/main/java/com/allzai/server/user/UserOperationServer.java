@@ -1,17 +1,16 @@
-package com.yeahmobi.gamelala.server.user;
+package com.allzai.server.user;
 
 import java.util.Map;
 
 import org.apache.log4j.Logger;
 
+import com.allzai.dao.notice.GameNoticeDao;
+import com.allzai.dao.user.UserSlaveDao;
+import com.allzai.exception.DaoException;
+import com.allzai.form.user.GetOperationForm;
+import com.allzai.util.JsonUtil;
 import com.restfb.json.JsonArray;
 import com.restfb.json.JsonObject;
-import com.yeahmobi.gamelala.dao.notice.GameNoticeDao;
-import com.yeahmobi.gamelala.dao.user.UserSlaveDao;
-import com.yeahmobi.gamelala.exception.DaoException;
-import com.yeahmobi.gamelala.form.user.GetOperationForm;
-import com.yeahmobi.gamelala.util.JsonUtil;
-
 
 /**
  * 用户操作服务

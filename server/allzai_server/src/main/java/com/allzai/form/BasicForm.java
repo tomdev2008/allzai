@@ -1,8 +1,8 @@
-package com.yeahmobi.gamelala.form;
+package com.allzai.form;
 
 import java.io.Serializable;
 
-import com.yeahmobi.gamelala.bean.BaseBean;
+import com.allzai.bean.BaseBean;
 
 /**
  * 映射请求参数的全局Form

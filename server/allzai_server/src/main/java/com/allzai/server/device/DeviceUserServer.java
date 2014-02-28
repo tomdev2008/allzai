@@ -1,23 +1,19 @@
-package com.yeahmobi.gamelala.server.device;
+package com.allzai.server.device;
 
 import org.apache.log4j.Logger;
 
+import com.allzai.bean.MobileDeviceBean;
+import com.allzai.dao.AutoBeanDao;
+import com.allzai.dao.decive.DeviceUserDao;
+import com.allzai.form.device.DeviceUserForm;
+import com.allzai.util.StringUtil;
 import com.restfb.json.JsonObject;
-import com.yeahmobi.gamelala.bean.MobileDeviceBean;
-import com.yeahmobi.gamelala.dao.AutoBeanDao;
-import com.yeahmobi.gamelala.dao.decive.DeviceUserDao;
-import com.yeahmobi.gamelala.form.device.DeviceUserForm;
-import com.yeahmobi.gamelala.util.StringUtil;
 
 public class DeviceUserServer {
 
 	private static final Logger logger = Logger.getLogger(DeviceUserServer.class);
 
 	private static final DeviceUserServer deviceUserServer = new DeviceUserServer();
-
-	private DeviceUserServer() {
-
-	}
 
 	public static DeviceUserServer getInstance() {
 		return deviceUserServer;

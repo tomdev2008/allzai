@@ -1,6 +1,6 @@
-package com.yeahmobi.gamelala.dao.upload;
+package com.allzai.dao.upload;
 
-import com.yeahmobi.gamelala.dao.AutoBeanDao;
+import com.allzai.dao.AutoBeanDao;
 
 public class FileUploadDao {
 	

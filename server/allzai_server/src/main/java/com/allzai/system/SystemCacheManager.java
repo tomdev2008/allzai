@@ -1,4 +1,4 @@
-package com.yeahmobi.gamelala.system;
+package com.allzai.system;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;

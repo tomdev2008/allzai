@@ -1,14 +1,14 @@
-package com.yeahmobi.gamelala.server;
+package com.allzai.server;
 
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import com.allzai.form.config.SysConfigForm;
+import com.allzai.system.ServerEnvLoader;
 import com.restfb.json.JsonArray;
 import com.restfb.json.JsonObject;
-import com.yeahmobi.gamelala.form.config.SysConfigForm;
-import com.yeahmobi.gamelala.system.ServerEnvLoader;
 
 /**
  * 提供系统配置管理服务

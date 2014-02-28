@@ -1,10 +1,9 @@
-package com.yeahmobi.gamelala.dao;
+package com.allzai.dao;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import com.yeahmobi.gamelala.exception.DaoException;
-import com.yeahmobi.gamelala.system.DatabaseManager;
+import com.allzai.system.DatabaseManager;
 
 /**
  * 事务管理

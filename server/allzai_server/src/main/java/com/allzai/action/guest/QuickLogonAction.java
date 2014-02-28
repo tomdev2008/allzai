@@ -1,14 +1,13 @@
-package com.yeahmobi.gamelala.action.guest;
+package com.allzai.action.guest;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
-import com.yeahmobi.gamelala.action.BaseActionSupport;
-import com.yeahmobi.gamelala.form.guest.QuickLogonForm;
-import com.yeahmobi.gamelala.server.guest.QuickLogonServer;
-import com.yeahmobi.gamelala.util.Hosts;
+import com.allzai.action.BaseActionSupport;
+import com.allzai.form.guest.QuickLogonForm;
+import com.allzai.server.guest.QuickLogonServer;
 
 public class QuickLogonAction extends BaseActionSupport {
 	
@@ -25,7 +24,7 @@ public class QuickLogonAction extends BaseActionSupport {
 
 		QuickLogonForm form = (QuickLogonForm) obj;
 		
-		logger.info("guest login from imei : " + form.getImei() + ", login from ip : " + Hosts.getIpAddr(req));
+		logger.info("guest login from imei : " + form.getImei() + ", login from ip : " + form.getIp());
 		
 		return QuickLogonServer.getInstance().doQuickLogon(form);
 	}

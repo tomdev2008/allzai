@@ -1,4 +1,4 @@
-package com.yeahmobi.gamelala.dao;
+package com.allzai.dao;
 
 import java.util.List;
 import java.util.Map;

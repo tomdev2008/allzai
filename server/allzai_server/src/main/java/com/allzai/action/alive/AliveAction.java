@@ -1,4 +1,4 @@
-package com.yeahmobi.gamelala.action.alive;
+package com.allzai.action.alive;
 
 
 import java.io.IOException;

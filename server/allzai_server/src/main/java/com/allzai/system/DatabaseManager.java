@@ -1,4 +1,4 @@
-package com.yeahmobi.gamelala.system;
+package com.allzai.system;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -9,8 +9,8 @@ import javax.sql.DataSource;
 import org.apache.commons.dbutils.DbUtils;
 import org.apache.log4j.Logger;
 
+import com.allzai.util.JdbcPropertiesUtil;
 import com.mchange.v2.c3p0.DataSources;
-import com.yeahmobi.gamelala.util.JdbcPropertiesUtil;
 
 /**
  * DB连接管理类<p>

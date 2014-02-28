@@ -1,11 +1,11 @@
-package com.yeahmobi.gamelala.action.system;
+package com.allzai.action.system;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.yeahmobi.gamelala.action.BaseActionSupport;
-import com.yeahmobi.gamelala.form.config.SysConfigForm;
-import com.yeahmobi.gamelala.server.SystemConfigServer;
+import com.allzai.action.BaseActionSupport;
+import com.allzai.form.config.SysConfigForm;
+import com.allzai.server.SystemConfigServer;
 
 /**
  * 获取系统配置处理类

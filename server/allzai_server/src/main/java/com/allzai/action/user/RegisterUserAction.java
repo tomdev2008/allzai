@@ -1,4 +1,4 @@
-package com.yeahmobi.gamelala.action.user;
+package com.allzai.action.user;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -6,11 +6,11 @@ import java.util.regex.Pattern;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.allzai.action.BaseActionSupport;
+import com.allzai.form.user.RegeistUserForm;
+import com.allzai.server.user.UserManageServer;
+import com.allzai.util.Constants;
 import com.restfb.json.JsonObject;
-import com.yeahmobi.gamelala.action.BaseActionSupport;
-import com.yeahmobi.gamelala.form.user.RegeistUserForm;
-import com.yeahmobi.gamelala.server.user.UserManageServer;
-import com.yeahmobi.gamelala.util.Constants;
 
 /**
  * 注册用户

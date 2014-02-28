@@ -1,4 +1,4 @@
-package com.yeahmobi.gamelala.action.admin;
+package com.allzai.action.admin;
 
 import java.io.IOException;
 
@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
-import com.yeahmobi.gamelala.system.ServerEnvLoader;
-import com.yeahmobi.gamelala.util.Hosts;
+import com.allzai.system.ServerEnvLoader;
+import com.allzai.util.Hosts;
 
 /**
  * 刷新系统缓存<p>

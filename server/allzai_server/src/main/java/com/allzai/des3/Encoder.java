@@ -1,4 +1,4 @@
-package com.yeahmobi.gamelala.des3;
+package com.allzai.des3;
 
 import java.io.IOException;
 import java.io.OutputStream;

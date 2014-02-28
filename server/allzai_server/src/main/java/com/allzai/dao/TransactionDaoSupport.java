@@ -1,4 +1,4 @@
-package com.yeahmobi.gamelala.dao;
+package com.allzai.dao;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -7,7 +7,7 @@ import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 import org.apache.log4j.Logger;
 
-import com.yeahmobi.gamelala.util.StringUtil;
+import com.allzai.util.StringUtil;
 
 /**
  * 支持JDBC事务操作<p>

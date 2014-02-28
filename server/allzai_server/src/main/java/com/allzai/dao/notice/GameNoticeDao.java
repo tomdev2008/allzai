@@ -1,12 +1,12 @@
-package com.yeahmobi.gamelala.dao.notice;
+package com.allzai.dao.notice;
 
 import java.sql.Connection;
 import java.util.List;
 import java.util.Map;
 
-import com.yeahmobi.gamelala.bean.BaseBean;
-import com.yeahmobi.gamelala.dao.BaseJdbcDaoSupport;
-import com.yeahmobi.gamelala.system.DatabaseManager;
+import com.allzai.bean.BaseBean;
+import com.allzai.dao.BaseJdbcDaoSupport;
+import com.allzai.system.DatabaseManager;
 
 public class GameNoticeDao extends BaseJdbcDaoSupport<BaseBean> {
 	

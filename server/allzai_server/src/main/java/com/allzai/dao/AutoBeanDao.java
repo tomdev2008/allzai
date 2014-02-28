@@ -1,9 +1,9 @@
-package com.yeahmobi.gamelala.dao;
+package com.allzai.dao;
 
 import java.sql.Connection;
 
-import com.yeahmobi.gamelala.bean.BaseBean;
-import com.yeahmobi.gamelala.system.DatabaseManager;
+import com.allzai.bean.BaseBean;
+import com.allzai.system.DatabaseManager;
 
 /**
  * BaseBean公用Dao层支持,自动提交事务<p>

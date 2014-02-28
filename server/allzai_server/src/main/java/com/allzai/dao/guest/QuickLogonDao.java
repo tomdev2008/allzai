@@ -1,10 +1,10 @@
-package com.yeahmobi.gamelala.dao.guest;
+package com.allzai.dao.guest;
 
 import java.sql.Connection;
 
-import com.yeahmobi.gamelala.bean.BaseBean;
-import com.yeahmobi.gamelala.dao.BaseJdbcDaoSupport;
-import com.yeahmobi.gamelala.system.DatabaseManager;
+import com.allzai.system.DatabaseManager;
+import com.allzai.bean.BaseBean;
+import com.allzai.dao.BaseJdbcDaoSupport;
 
 public class QuickLogonDao extends BaseJdbcDaoSupport<BaseBean> {
 	

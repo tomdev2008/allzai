@@ -1,14 +1,13 @@
-package com.yeahmobi.gamelala.action.user;
+package com.allzai.action.user;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
-import com.yeahmobi.gamelala.action.BaseActionSupport;
-import com.yeahmobi.gamelala.form.user.LoginUserForm;
-import com.yeahmobi.gamelala.server.user.LoginUserServer;
-import com.yeahmobi.gamelala.util.Hosts;
+import com.allzai.action.BaseActionSupport;
+import com.allzai.form.user.LoginUserForm;
+import com.allzai.server.user.LoginUserServer;
 
 public class LoginUserAction extends BaseActionSupport {
 
@@ -25,7 +24,7 @@ public class LoginUserAction extends BaseActionSupport {
 		
 		LoginUserForm form = (LoginUserForm) obj;
 		
-		logger.info("user login from imei : " + form.getImei() + ", login from ip : " + Hosts.getIpAddr(req));
+		logger.info("user login from imei : " + form.getImei() + ", login from ip : " + form.getIp());
 		
 		return LoginUserServer.getInstance().doLoginUser(form);
 	}

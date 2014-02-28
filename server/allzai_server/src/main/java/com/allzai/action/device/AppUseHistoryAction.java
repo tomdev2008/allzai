@@ -1,11 +1,11 @@
-package com.yeahmobi.gamelala.action.device;
+package com.allzai.action.device;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.yeahmobi.gamelala.action.BaseActionSupport;
-import com.yeahmobi.gamelala.form.device.AppUseHistoryForm;
-import com.yeahmobi.gamelala.server.user.AppUseHistoryServer;
+import com.allzai.action.BaseActionSupport;
+import com.allzai.form.device.AppUseHistoryForm;
+import com.allzai.server.user.AppUseHistoryServer;
 
 /**
  * 用户APP装卸历史接口<p>
@@ -41,7 +41,6 @@ public class AppUseHistoryAction extends BaseActionSupport
 	@Override
 	public Class<AppUseHistoryForm> getFromBean() 
 	{
-		// TODO Auto-generated method stub
 		return AppUseHistoryForm.class;
 	}
 

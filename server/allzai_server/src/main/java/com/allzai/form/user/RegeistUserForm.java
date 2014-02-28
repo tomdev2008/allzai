@@ -1,9 +1,9 @@
-package com.yeahmobi.gamelala.form.user;
+package com.allzai.form.user;
 
 import java.io.Serializable;
 
-import com.yeahmobi.gamelala.bean.UserBean;
-import com.yeahmobi.gamelala.form.BasicForm;
+import com.allzai.bean.UserBean;
+import com.allzai.form.BasicForm;
 
 /**
  * 注册用户Form<p>

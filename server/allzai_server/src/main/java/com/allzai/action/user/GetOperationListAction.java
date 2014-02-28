@@ -1,11 +1,11 @@
-package com.yeahmobi.gamelala.action.user;
+package com.allzai.action.user;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.yeahmobi.gamelala.action.BaseActionSupport;
-import com.yeahmobi.gamelala.form.user.GetOperationForm;
-import com.yeahmobi.gamelala.server.user.UserOperationServer;
+import com.allzai.action.BaseActionSupport;
+import com.allzai.form.user.GetOperationForm;
+import com.allzai.server.user.UserOperationServer;
 
 /**
  * 获取用户操作列表<p>

@@ -1,7 +1,7 @@
-package com.yeahmobi.gamelala.form.notice;
+package com.allzai.form.notice;
 
-import com.yeahmobi.gamelala.bean.BaseBean;
-import com.yeahmobi.gamelala.form.BasicForm;
+import com.allzai.bean.BaseBean;
+import com.allzai.form.BasicForm;
 
 public class GameNoticeForm extends BasicForm {
 

@@ -1,12 +1,12 @@
-package com.yeahmobi.gamelala.dao;
+package com.allzai.dao;
 
 import java.sql.Connection;
 import java.sql.Timestamp;
 import java.util.Map;
 
-import com.yeahmobi.gamelala.exception.DaoException;
-import com.yeahmobi.gamelala.system.DatabaseManager;
-import com.yeahmobi.gamelala.util.JsonUtil;
+import com.allzai.exception.DaoException;
+import com.allzai.system.DatabaseManager;
+import com.allzai.util.JsonUtil;
 
 /**
  * 系统缓存读取

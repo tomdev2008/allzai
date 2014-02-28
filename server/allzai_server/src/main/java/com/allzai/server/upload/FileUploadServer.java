@@ -1,4 +1,4 @@
-package com.yeahmobi.gamelala.server.upload;
+package com.allzai.server.upload;
 
 import java.io.File;
 import java.util.Iterator;
@@ -10,14 +10,13 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+import com.allzai.bean.UserBean;
+import com.allzai.dao.upload.FileUploadDao;
+import com.allzai.dao.user.UserSlaveDao;
+import com.allzai.form.upload.FileUploadForm;
+import com.allzai.util.Constants;
+import com.allzai.util.UploadFileUtil;
 import com.restfb.json.JsonObject;
-import com.yeahmobi.gamelala.bean.UserBean;
-import com.yeahmobi.gamelala.dao.upload.FileUploadDao;
-import com.yeahmobi.gamelala.dao.user.UserSlaveDao;
-import com.yeahmobi.gamelala.form.upload.FileUploadForm;
-import com.yeahmobi.gamelala.util.AWSStorageUtil;
-import com.yeahmobi.gamelala.util.Constants;
-import com.yeahmobi.gamelala.util.UploadFileUtil;
 
 public class FileUploadServer {
 	
@@ -87,13 +86,14 @@ public class FileUploadServer {
 
 							/**文件上传至S3*/
 							try {
-								String newkey = AWSStorageUtil.getInstance().upload(tarFile);
-								newurl = AWSStorageUtil.getInstance().getFileFromS3(newkey);
+								//String newkey = AWSStorageUtil.getInstance().upload(tarFile);
+								String newkey = "";
+								//newurl = AWSStorageUtil.getInstance().getFileFromS3(newkey);
 								/**更新用户头像信息*/
 								suc = FileUploadDao.getInstance().doEditUserHeadPortrait(form.getUserId(), newkey, newurl);
 								String oldkey = user.getHeadKey();
 								if(oldkey != null && !newkey.equals(oldkey)) {
-									AWSStorageUtil.getInstance().delFileFromS3(oldkey);
+									//AWSStorageUtil.getInstance().delFileFromS3(oldkey);
 								}
 							} catch (Exception e) {
 								msg = "s3 upload file error.";

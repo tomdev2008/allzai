@@ -1,11 +1,11 @@
-package com.yeahmobi.gamelala.action.upload;
+package com.allzai.action.upload;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.yeahmobi.gamelala.action.BaseActionSupport;
-import com.yeahmobi.gamelala.form.upload.FileUploadForm;
-import com.yeahmobi.gamelala.server.upload.FileUploadServer;
+import com.allzai.action.BaseActionSupport;
+import com.allzai.form.upload.FileUploadForm;
+import com.allzai.server.upload.FileUploadServer;
 
 public class FileUploadAction extends BaseActionSupport {
 

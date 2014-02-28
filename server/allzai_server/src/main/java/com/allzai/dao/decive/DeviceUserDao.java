@@ -1,12 +1,12 @@
-package com.yeahmobi.gamelala.dao.decive;
+package com.allzai.dao.decive;
 
 import java.sql.Connection;
 import java.util.Map;
 
-import com.yeahmobi.gamelala.bean.BaseBean;
-import com.yeahmobi.gamelala.bean.MobileDeviceBean;
-import com.yeahmobi.gamelala.dao.BaseJdbcDaoSupport;
-import com.yeahmobi.gamelala.system.DatabaseManager;
+import com.allzai.bean.BaseBean;
+import com.allzai.bean.MobileDeviceBean;
+import com.allzai.dao.BaseJdbcDaoSupport;
+import com.allzai.system.DatabaseManager;
 
 /**
  * 

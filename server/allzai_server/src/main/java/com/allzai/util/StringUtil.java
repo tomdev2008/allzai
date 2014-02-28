@@ -1,4 +1,4 @@
-package com.yeahmobi.gamelala.util;
+package com.allzai.util;
 
 import java.sql.Timestamp;
 

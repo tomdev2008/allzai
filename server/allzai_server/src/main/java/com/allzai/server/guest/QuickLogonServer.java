@@ -1,21 +1,21 @@
-package com.yeahmobi.gamelala.server.guest;
+package com.allzai.server.guest;
 
 import java.util.Map;
 
+import com.allzai.bean.LoginHistory;
+import com.allzai.bean.MobileDeviceBean;
+import com.allzai.dao.AutoBeanDao;
+import com.allzai.dao.decive.DeviceUserDao;
+import com.allzai.dao.guest.QuickLogonDao;
+import com.allzai.dao.notice.GameNoticeDao;
+import com.allzai.dao.user.UserSlaveDao;
+import com.allzai.des3.ThreeDESUtil;
+import com.allzai.exception.DaoException;
+import com.allzai.form.guest.QuickLogonForm;
+import com.allzai.util.Constants;
+import com.allzai.util.JsonUtil;
+import com.allzai.util.StringUtil;
 import com.restfb.json.JsonObject;
-import com.yeahmobi.gamelala.bean.LoginHistory;
-import com.yeahmobi.gamelala.bean.MobileDeviceBean;
-import com.yeahmobi.gamelala.dao.AutoBeanDao;
-import com.yeahmobi.gamelala.dao.decive.DeviceUserDao;
-import com.yeahmobi.gamelala.dao.guest.QuickLogonDao;
-import com.yeahmobi.gamelala.dao.notice.GameNoticeDao;
-import com.yeahmobi.gamelala.dao.user.UserSlaveDao;
-import com.yeahmobi.gamelala.des3.ThreeDESUtil;
-import com.yeahmobi.gamelala.exception.DaoException;
-import com.yeahmobi.gamelala.form.guest.QuickLogonForm;
-import com.yeahmobi.gamelala.util.Constants;
-import com.yeahmobi.gamelala.util.JsonUtil;
-import com.yeahmobi.gamelala.util.StringUtil;
 
 public class QuickLogonServer {
 
