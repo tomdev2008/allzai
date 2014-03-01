@@ -17,7 +17,7 @@ public class GameNoticeServer {
 		return gameNoticeServer;
 	}
 
-	public String getGameNotice(GameNoticeForm form) throws Exception {
+	public JsonObject getGameNotice(GameNoticeForm form) throws Exception {
 		
 		JsonObject json = new JsonObject();
 		JsonArray array = null;
@@ -28,8 +28,7 @@ public class GameNoticeServer {
 			 */
 			json.put("result", Boolean.FALSE);
 			json.put("code", "Jx0002");
-			json.put("info", "lost param");
-			return json.toString();
+			return json;
 		}
 		
 		try {
@@ -40,8 +39,7 @@ public class GameNoticeServer {
 				 */
 				json.put("result", Boolean.FALSE);
 				json.put("code", "Jx0003");
-				json.put("info", "game not exists");
-				return json.toString();
+				return json;
 			}
 
 			List<Map<String, Object>> list = GameNoticeDao.getInstance().getGameNotice(Integer.parseInt(String.valueOf(map.get("id"))), form.getStart(), form.getEnd());
@@ -60,7 +58,7 @@ public class GameNoticeServer {
 				}
 				json.put("notices", array);
 			}
-			return json.toString();
+			return json;
 		} catch (Exception e) {
 			e.printStackTrace();
 			
@@ -69,8 +67,7 @@ public class GameNoticeServer {
 			 */
 			json.put("result", Boolean.FALSE);
 			json.put("code", "Jx0001");
-			json.put("info", "System Error");
-			return json.toString();
+			return json;
 		}
 	}
 

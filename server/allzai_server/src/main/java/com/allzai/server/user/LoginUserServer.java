@@ -24,7 +24,7 @@ public class LoginUserServer {
 		return loginUserServer;
 	}
 	
-	public String doLoginUser(LoginUserForm form) throws Exception {
+	public JsonObject doLoginUser(LoginUserForm form) throws Exception {
 		
 		JsonObject json = new JsonObject();
 		
@@ -35,8 +35,7 @@ public class LoginUserServer {
 				 */
 				json.put("result", Boolean.FALSE);
 				json.put("code", "Fx0004");
-				json.put("info", "Wrong username / password. Please re-enter.");
-				return json.toString();
+				return json;
 			}
 
 			Map<String, Object> users =  UserSlaveDao.getInstance().doLoginUser(form.getAccount(), form.getPassword());
@@ -47,8 +46,7 @@ public class LoginUserServer {
 				 */
 				json.put("result", Boolean.FALSE);
 				json.put("code", "Fx0002");
-				json.put("info", "Wrong username / password. Please re-enter.");
-				return json.toString();
+				return json;
 			}
 			
 			Map<String, Object> map = null;
@@ -82,8 +80,7 @@ public class LoginUserServer {
 					 */
 					json.put("result", Boolean.FALSE);
 					json.put("code", "Fx0003");
-					json.put("info", "login forbbin");
-					return json.toString();
+					return json;
 				} else {
 					int gameId = Integer.parseInt(String.valueOf(map.get("id")));
 					map = GameNoticeDao.getInstance().getGamePlayHistory(userId, gameId);
@@ -103,9 +100,8 @@ public class LoginUserServer {
 			 */
 			json.put("result", Boolean.TRUE);
 			json.put("code", "Fx0000");
-			json.put("info", "ok");
 			json.put("user", JsonUtil.formatMapToJson(users));
-			return json.toString();
+			return json;
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -115,8 +111,7 @@ public class LoginUserServer {
 			 */
 			json.put("result", Boolean.FALSE);
 			json.put("code", "Fx0001");
-			json.put("info", "System Error");
-			return json.toString();
+			return json;
 		}
 	}
 

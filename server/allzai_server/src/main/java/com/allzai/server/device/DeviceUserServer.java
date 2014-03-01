@@ -19,7 +19,7 @@ public class DeviceUserServer {
 		return deviceUserServer;
 	}
 
-	public String doDeviceUser(DeviceUserForm form) throws Exception {
+	public JsonObject doDeviceUser(DeviceUserForm form) throws Exception {
 
 		JsonObject json = new JsonObject();
 		
@@ -30,8 +30,7 @@ public class DeviceUserServer {
 			if (form == null || (StringUtil.isEmpty(form.getImei()) && StringUtil.isEmpty(form.getMac()))) {
 				json.put("result", Boolean.FALSE);
 				json.put("code", "Ax0003");
-				json.put("info", "Wrong id / imei. Please re-enter.");
-				return json.toString();
+				return json;
 			}
 
 			logger.info("Device Report, imei = " + form.getImei() + ", mac = " + form.getMac());
@@ -56,8 +55,7 @@ public class DeviceUserServer {
 			 */
 			json.put("result", Boolean.TRUE);
 			json.put("code", "Ax0000");
-			json.put("info", "OK");
-			return json.toString();
+			return json;
 		} catch (Exception e) {
 			
 			/**
@@ -65,8 +63,7 @@ public class DeviceUserServer {
 			 */
 			json.put("result", Boolean.FALSE);
 			json.put("code", "Ax0001");
-			json.put("info", "System Error");
-			return json.toString();
+			return json;
 		}
 	}
 

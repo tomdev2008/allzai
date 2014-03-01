@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.allzai.action.BaseActionSupport;
 import com.allzai.form.config.SysConfigForm;
 import com.allzai.server.SystemConfigServer;
+import com.restfb.json.JsonObject;
 
 /**
  * 获取系统配置处理类
@@ -22,7 +23,7 @@ public class GetSysConfigAction extends BaseActionSupport
 	/* (non-Javadoc)
 	 * @see com.yeahmobi.hasoffer.action.BaseActionSupport#doAutoAction(com.yeahmobi.hasoffer.bean.InputBean, javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
 	 */
-	public String doAutoAction(Object obj, HttpServletRequest req,
+	public JsonObject doAutoAction(Object obj, HttpServletRequest req,
 			HttpServletResponse resp) throws Exception 
 	{
 		SysConfigForm form = (SysConfigForm) obj;

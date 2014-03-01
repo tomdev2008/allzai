@@ -64,12 +64,12 @@ public class Hosts {
 	 * @return
 	 * @throws Exception 
 	 */
-	public static String InvalidRequestResponse(String ip, boolean result, String code, String info) throws Exception {
+	public static String InvalidRequestResponse(String ip, String code) throws Exception {
 		
 		JsonObject json = new JsonObject();
-		json.put("result", result);
+		json.put("result", Boolean.FALSE);
 		json.put("code", code);
-		json.put("info", info);
+		json.put("info", LangUtil.getCodeInfoByLang(LangUtil.defaultLang, code));
 		
 		logger.info("ip = " + ip + ", err = " + json.toString());
 		return ThreeDESUtil.Encode(json.toString(), Constants.index_az_decode);

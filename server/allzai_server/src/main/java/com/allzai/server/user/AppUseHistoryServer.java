@@ -56,7 +56,7 @@ public class AppUseHistoryServer
 	 * @throws XMLStreamException 
 	 */
 	@SuppressWarnings("unchecked")
-	public String recordUserAppInfo(AppUseHistoryForm form) throws Exception
+	public JsonObject recordUserAppInfo(AppUseHistoryForm form) throws Exception
 	{
 		JsonObject json = new JsonObject();
 		
@@ -74,8 +74,7 @@ public class AppUseHistoryServer
 				 */
 				json.put("result", Boolean.TRUE);
 				json.put("code", "Bx0000");
-				json.put("info", "OK");
-				return json.toString();
+				return json;
 			}
 			else
 			{
@@ -140,8 +139,7 @@ public class AppUseHistoryServer
 					 */
 					json.put("result", Boolean.FALSE);
 					json.put("code", "Bx0003");
-					json.put("info", "Device not Exists");
-					return json.toString();
+					return json;
 				}
 			}
 		} 
@@ -154,8 +152,7 @@ public class AppUseHistoryServer
 			 */
 			json.put("result", Boolean.FALSE);
 			json.put("code", "Bx0001");
-			json.put("info", "System Error");
-			return json.toString();
+			return json;
 		}
 		
 		/**
@@ -165,13 +162,11 @@ public class AppUseHistoryServer
 		if(reslut) {
 			json.put("result", Boolean.TRUE);
 			json.put("code", "Bx0000");
-			json.put("info", "OK");
 		} else {
 			json.put("result", Boolean.FALSE);
 			json.put("code", "Bx0002");
-			json.put("info", "unknow");
 		}
-		return json.toString();
+		return json;
 	}
 	
 	/**

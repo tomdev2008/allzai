@@ -31,7 +31,7 @@ public class UserOperationServer
 		return UserOperationServer.operationServer;
 	}
 	
-	public String getOperationListForJson(GetOperationForm form) throws Exception
+	public JsonObject getOperationListForJson(GetOperationForm form) throws Exception
 	{
 		JsonObject json = new JsonObject();
 		
@@ -41,8 +41,7 @@ public class UserOperationServer
 			 */
 			json.put("result", Boolean.FALSE);
 			json.put("code", "Cx0002");
-			json.put("info", "Invalid request.");
-			return json.toString();
+			return json;
 		}
 
 		try 
@@ -54,8 +53,7 @@ public class UserOperationServer
 				 */
 				json.put("result", Boolean.FALSE);
 				json.put("code", "Cx0003");
-				json.put("info", "user not exists.");
-				return json.toString();
+				return json;
 			}
 			
 			map = GameNoticeDao.getInstance().getGameInfo(form.getPackageName());
@@ -65,8 +63,7 @@ public class UserOperationServer
 				 */
 				json.put("result", Boolean.FALSE);
 				json.put("code", "Cx0003");
-				json.put("info", "Invalid request.");
-				return json.toString();
+				return json;
 			} else {
 				int gameId = Integer.parseInt(String.valueOf(map.get("id")));
 				map = UserSlaveDao.getInstance().queryGamePlayHistoryList(form.getUserId(), gameId);
@@ -80,9 +77,8 @@ public class UserOperationServer
 				 */
 				json.put("result", Boolean.TRUE);
 				json.put("code", "Cx0000");
-				json.put("info", "OK");
 				json.put("times", array);
-				return json.toString();
+				return json;
 			}
 		}
 		catch (DaoException e)
@@ -95,8 +91,7 @@ public class UserOperationServer
 			 */
 			json.put("result", Boolean.FALSE);
 			json.put("code", "Cx0001");
-			json.put("info", "System Error");
-			return json.toString();
+			return json;
 		}
 	}
 }

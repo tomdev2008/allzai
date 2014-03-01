@@ -7,11 +7,13 @@ import java.util.Properties;
 
 public class LangUtil {
 	
+	private static Map<String, String> codeInfoMap = new HashMap<String, String>();
+	
 	private static final Properties properties = new Properties();
 	private static final String CONFIG_FILE = "/lang.properties";
 	
 	private static Map<String, String> langMap = new HashMap<String, String>(2);
-	private static String defaultLang = "zh_CN";
+	public static String defaultLang = "zh_CN";
 	
 	/**
 	 * 獲取錯誤提示消息
@@ -21,7 +23,13 @@ public class LangUtil {
 	 */
 	public static String getCodeInfoByLang(String lang, String code) {
 		
-		return properties.getProperty((chooseLang(lang) + code), "unknown");
+		code  = chooseLang(lang) + "/" + code;
+		
+		if(!codeInfoMap.containsKey(code)) {
+			codeInfoMap.put(code, properties.getProperty(code, "unknown"));
+		}
+		
+		return codeInfoMap.get(code);
 	}
 
 	/**

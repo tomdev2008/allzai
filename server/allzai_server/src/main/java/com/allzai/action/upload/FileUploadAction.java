@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.allzai.action.BaseActionSupport;
 import com.allzai.form.upload.FileUploadForm;
 import com.allzai.server.upload.FileUploadServer;
+import com.restfb.json.JsonObject;
 
 public class FileUploadAction extends BaseActionSupport {
 
@@ -15,7 +16,7 @@ public class FileUploadAction extends BaseActionSupport {
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	public String doAutoAction(Object obj, HttpServletRequest req,
+	public JsonObject doAutoAction(Object obj, HttpServletRequest req,
 			HttpServletResponse resp) throws Exception {
 
 		FileUploadForm form = (FileUploadForm) obj;

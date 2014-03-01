@@ -32,7 +32,7 @@ public class SystemConfigServer
 	 * 获取系统配置列表Json格式数据
 	 * @throws Exception 
 	 */
-	public String getSysConfigListForJson(SysConfigForm form) throws Exception
+	public JsonObject getSysConfigListForJson(SysConfigForm form) throws Exception
 	{
 		JsonObject json = new JsonObject();
 		
@@ -63,9 +63,8 @@ public class SystemConfigServer
 			 */
 			json.put("result", Boolean.TRUE);
 			json.put("code", "Dx0000");
-			json.put("info", "ok");
 			json.put("configs", array);
-			return json.toString();
+			return json;
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -75,8 +74,7 @@ public class SystemConfigServer
 			 */
 			json.put("result", Boolean.FALSE);
 			json.put("code", "Dx0001");
-			json.put("info", "ok");
-			return json.toString();
+			return json;
 		}
 	}
 }

@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.allzai.action.BaseActionSupport;
 import com.allzai.form.gcm.GcmReportForm;
 import com.allzai.server.gcm.GcmReportServer;
+import com.restfb.json.JsonObject;
 
 public class GcmReportAction extends BaseActionSupport {
 
@@ -15,7 +16,7 @@ public class GcmReportAction extends BaseActionSupport {
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	public String doAutoAction(Object obj, HttpServletRequest req,
+	public JsonObject doAutoAction(Object obj, HttpServletRequest req,
 			HttpServletResponse resp) throws Exception {
 
 		GcmReportForm form = (GcmReportForm) obj;

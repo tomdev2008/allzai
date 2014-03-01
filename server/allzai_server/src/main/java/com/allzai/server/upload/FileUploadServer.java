@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.apache.log4j.Logger;
 
 import com.allzai.bean.UserBean;
 import com.allzai.cdn.CdnUtil;
@@ -20,6 +21,8 @@ import com.allzai.util.UploadFileUtil;
 import com.restfb.json.JsonObject;
 
 public class FileUploadServer {
+	
+	private static final Logger logger = Logger.getLogger(FileUploadServer.class);
 	
 	private static String fileStorePath = null, fileTempPath = null;
 	
@@ -33,7 +36,7 @@ public class FileUploadServer {
 		return fileUploadServer;
 	}
 	
-	public String doFileUpload(FileUploadForm form, HttpServletRequest req) throws Exception {
+	public JsonObject doFileUpload(FileUploadForm form, HttpServletRequest req) throws Exception {
 		
 		JsonObject json = new JsonObject();
 		
@@ -51,8 +54,7 @@ public class FileUploadServer {
 				 */
 				json.put("result", Boolean.FALSE);
 				json.put("code", "Kx0006");
-				json.put("info", "User Invalid or non-exist.");
-				return json.toString();
+				return json;
 			}
 			
 			DiskFileItemFactory factory = new DiskFileItemFactory();
@@ -121,8 +123,7 @@ public class FileUploadServer {
 			 */
 			json.put("result", Boolean.FALSE);
 			json.put("code", "Kx0001");
-			json.put("info", "System Error");
-			return json.toString();
+			return json;
 		}
 		
 		if(suc && newurl != null) {
@@ -131,17 +132,18 @@ public class FileUploadServer {
 			 */
 			json.put("result", Boolean.TRUE);
 			json.put("code", "Kx0000");
-			json.put("info", "OK");
 			json.put("headPortrait", newurl);
-			return json.toString();
+			return json;
 		} else {
 			/**
 			 * Kx0000:上传失败
 			 */
 			json.put("result", Boolean.FALSE);
 			json.put("code", code);
-			json.put("info", msg);
-			return json.toString();
+			
+			logger.info(msg);
+			
+			return json;
 		}
 	}
 

@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.allzai.action.BaseActionSupport;
 import com.allzai.form.device.AppUseHistoryForm;
 import com.allzai.server.user.AppUseHistoryServer;
+import com.restfb.json.JsonObject;
 
 /**
  * 用户APP装卸历史接口<p>
@@ -27,7 +28,7 @@ public class InstallReportAction extends BaseActionSupport
 	 * @see com.yeahmobi.gamelala.action.BaseActionSupport#doAutoAction(java.lang.Object, javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
 	 */
 	@Override
-	public String doAutoAction(Object obj, HttpServletRequest req,
+	public JsonObject doAutoAction(Object obj, HttpServletRequest req,
 			HttpServletResponse resp) throws Exception 
 	{
 		AppUseHistoryForm form = (AppUseHistoryForm)obj;

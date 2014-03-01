@@ -8,6 +8,7 @@ import org.apache.log4j.Logger;
 import com.allzai.action.BaseActionSupport;
 import com.allzai.form.guest.QuickLogonForm;
 import com.allzai.server.guest.QuickLogonServer;
+import com.restfb.json.JsonObject;
 
 public class QuickLogonAction extends BaseActionSupport {
 	
@@ -19,7 +20,7 @@ public class QuickLogonAction extends BaseActionSupport {
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	public String doAutoAction(Object obj, HttpServletRequest req,
+	public JsonObject doAutoAction(Object obj, HttpServletRequest req,
 			HttpServletResponse resp) throws Exception {
 
 		QuickLogonForm form = (QuickLogonForm) obj;

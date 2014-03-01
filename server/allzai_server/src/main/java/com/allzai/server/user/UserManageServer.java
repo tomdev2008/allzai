@@ -95,7 +95,7 @@ public class UserManageServer
 	 * @return
 	 * @throws Exception
 	 */
-	public String changeRole(LoginUserForm form) throws Exception {
+	public JsonObject changeRole(LoginUserForm form) throws Exception {
 		
 		JsonObject json = new JsonObject();
 		
@@ -105,8 +105,7 @@ public class UserManageServer
 			 */
 			json.put("result", Boolean.FALSE);
 			json.put("code", "Gx0502");
-			json.put("info", "lost account or password.");
-			return json.toString();
+			return json;
 		}
 		
 		try {
@@ -117,8 +116,7 @@ public class UserManageServer
 				 */
 				json.put("result", Boolean.FALSE);
 				json.put("code", "Gx0505");
-				json.put("info", "user not exists.");
-				return json.toString();
+				return json;
 			}
 			
 		    Pattern regex = Pattern.compile(Constants.EMAIL_REGEX);  
@@ -129,8 +127,7 @@ public class UserManageServer
 				 */
 				json.put("result", Boolean.FALSE);
 				json.put("code", "Gx0506");
-				json.put("info", "Matcher EMAIL ERROR");
-				return json.toString();
+				return json;
 		    } 
 			
 			map = UserSlaveDao.getInstance().queryUserInfoByUserAccount(form.getAccount());
@@ -140,8 +137,7 @@ public class UserManageServer
 				 */
 				json.put("result", Boolean.FALSE);
 				json.put("code", "Gx0504");
-				json.put("info", "user has exists.");
-				return json.toString();
+				return json;
 			}
 			map = null;
 			
@@ -151,16 +147,14 @@ public class UserManageServer
 				 */
 				json.put("result", Boolean.TRUE);
 				json.put("code", "Gx0500");
-				json.put("info", "OK");
-				return json.toString();
+				return json;
 			} else {
 				/**
 				 * Gx0503:修改失败
 				 */
 				json.put("result", Boolean.FALSE);
 				json.put("code", "Gx0503");
-				json.put("info", "unknow");
-				return json.toString();
+				return json;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -170,8 +164,7 @@ public class UserManageServer
 			 */
 			json.put("result", Boolean.FALSE);
 			json.put("code", "Gx0501");
-			json.put("info", "System Error");
-			return json.toString();
+			return json;
 		}
 	}
 

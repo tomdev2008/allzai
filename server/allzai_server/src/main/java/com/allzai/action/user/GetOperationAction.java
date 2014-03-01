@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.allzai.action.BaseActionSupport;
 import com.allzai.form.user.GetOperationForm;
 import com.allzai.server.user.UserOperationServer;
+import com.restfb.json.JsonObject;
 
 /**
  * 获取用户操作列表<p>
@@ -26,7 +27,7 @@ public class GetOperationAction extends BaseActionSupport
 	}
 
 	@Override
-	public String doAutoAction(Object obj, HttpServletRequest req,
+	public JsonObject doAutoAction(Object obj, HttpServletRequest req,
 			HttpServletResponse resp) throws Exception 
 	{
 		

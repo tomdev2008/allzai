@@ -25,7 +25,7 @@ public class QuickLogonServer {
 		return quickLogonServer;
 	}
 
-	public String doQuickLogon(QuickLogonForm form) throws Exception {
+	public JsonObject doQuickLogon(QuickLogonForm form) throws Exception {
 		
 		JsonObject json = new JsonObject();
 
@@ -35,8 +35,7 @@ public class QuickLogonServer {
 			 */
 			json.put("result", Boolean.FALSE);
 			json.put("code", "Fx0103");
-			json.put("info", "Invalid request.");
-			return json.toString();
+			return json;
 		}
 
 		Map<String, Object> userMap = null;
@@ -74,8 +73,7 @@ public class QuickLogonServer {
 				 */
 				json.put("result", Boolean.FALSE);
 				json.put("code", "Fx0102");
-				json.put("info", "login forbbin");
-				return json.toString();
+				return json;
 			}
 			
 			//添加用户与游戏的关系
@@ -87,8 +85,7 @@ public class QuickLogonServer {
 					 */
 					json.put("result", Boolean.FALSE);
 					json.put("code", "Fx0102");
-					json.put("info", "login forbbin");
-					return json.toString();
+					return json;
 				} else {
 					int gameId = Integer.parseInt(String.valueOf(map.get("id")));
 					map = GameNoticeDao.getInstance().getGamePlayHistory(Integer.parseInt(String.valueOf(userMap.get("id"))), gameId);
@@ -108,8 +105,7 @@ public class QuickLogonServer {
 			 */
 			json.put("result", Boolean.FALSE);
 			json.put("code", "Fx0101");
-			json.put("info", "System Error");
-			return json.toString();
+			return json;
 		}
 
 		// 添加交互字段
@@ -119,9 +115,8 @@ public class QuickLogonServer {
 		 */
 		json.put("result", Boolean.TRUE);
 		json.put("code", "Fx0100");
-		json.put("info", "OK");
 		json.put("user", JsonUtil.formatMapToJson(userMap));
-		return json.toString();
+		return json;
 	}
 
 }

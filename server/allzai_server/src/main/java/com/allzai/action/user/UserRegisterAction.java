@@ -36,7 +36,7 @@ public class UserRegisterAction extends BaseActionSupport {
 	 * javax.servlet.http.HttpServletResponse)
 	 */
 	@Override
-	public String doAutoAction(Object obj, HttpServletRequest req,
+	public JsonObject doAutoAction(Object obj, HttpServletRequest req,
 			HttpServletResponse resp) throws Exception {
 
 		JsonObject json = new JsonObject();
@@ -53,8 +53,7 @@ public class UserRegisterAction extends BaseActionSupport {
 				 */
 				json.put("result", Boolean.FALSE);
 				json.put("code", "Ex0004");
-				json.put("info", "Matcher EMAIL ERROR");
-				return json.toString();
+				return json;
 			}
 
 			String callResult = UserManageServer.getInstance().registerUser(form);
@@ -65,32 +64,28 @@ public class UserRegisterAction extends BaseActionSupport {
 				 */
 				json.put("result", Boolean.TRUE);
 				json.put("code", "Ex0000");
-				json.put("info", "OK");
-				return json.toString();
+				return json;
 			} else if (Constants.ONE_STR.equals(callResult)) {
 				/**
 				 * Ex0003:已经存在
 				 */
 				json.put("result", Boolean.FALSE);
 				json.put("code", "Ex0003");
-				json.put("info", "Someone has already registered this email.");
-				return json.toString();
+				return json;
 			} else {
 				/**
 				 * Ex0002:参数异常
 				 */
 				json.put("result", Boolean.FALSE);
 				json.put("code", "Ex0002");
-				json.put("info", "unknow:" + callResult);
-				return json.toString();
+				return json;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 
 			json.put("result", Boolean.FALSE);
 			json.put("code", "Ex0001");
-			json.put("info", "System Error");
-			return json.toString();
+			return json;
 		}
 	}
 

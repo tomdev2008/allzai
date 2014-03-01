@@ -17,7 +17,7 @@ public class GcmReportServer {
 		return gcmReportServer;
 	}
 
-	public String doGcmReport(GcmReportForm form) throws Exception {
+	public JsonObject doGcmReport(GcmReportForm form) throws Exception {
 		
 		JsonObject json = new JsonObject();
 		
@@ -27,8 +27,7 @@ public class GcmReportServer {
 			 */
 			json.put("result", Boolean.FALSE);
 			json.put("code", "Ix0002");
-			json.put("info", "lost regId");
-			return json.toString();
+			return json;
 		}
 		
 		boolean ok = false;
@@ -63,8 +62,7 @@ public class GcmReportServer {
 			 */
 			json.put("result", Boolean.FALSE);
 			json.put("code", "Ix0001");
-			json.put("info", "System Error");
-			return json.toString();
+			return json;
 		}
 		
 		if(ok) {
@@ -73,16 +71,14 @@ public class GcmReportServer {
 			 */
 			json.put("result", Boolean.TRUE);
 			json.put("code", "Ix0000");
-			json.put("info", "OK");
-			return json.toString();
+			return json;
 		} else {
 			/**
 			 * Ix0003:上报失败
 			 */
 			json.put("result", Boolean.FALSE);
 			json.put("code", "Ix0003");
-			json.put("info", "unknow");
-			return json.toString();
+			return json;
 		}
 	}
 
