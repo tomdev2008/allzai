@@ -24,6 +24,7 @@ public class ServerEnvLoader
 {
 	//一级缓存 begin
 	public static ConcurrentHashMap<String, Map<String, Object>> configCacheMap = new ConcurrentHashMap<String, Map<String, Object>>();
+	public static ConcurrentHashMap<String, Map<String, Object>> gameCacheMap  = new ConcurrentHashMap<String, Map<String, Object>> ();
 	
 	//ip黑白名单
 	public static ConcurrentHashMap<String, Map<String, Object>> blackCacheMap = new ConcurrentHashMap<String, Map<String, Object>>();
@@ -33,9 +34,10 @@ public class ServerEnvLoader
 	private static boolean triggerFull = true;
 	
 	/** 刷新缓存时，同步已经修改的DB数据 begin */
-	private static Timestamp blackUpdateToken = new Timestamp(0);
-	private static Timestamp whiteUpdateToken = new Timestamp(0);
+	private static Timestamp blackUpdateToken   = new Timestamp(0);
+	private static Timestamp whiteUpdateToken  = new Timestamp(0);
 	private static Timestamp configUpdateToken = new Timestamp(0);
+	private static Timestamp gameUpdateToken  = new Timestamp(0);
 	/** 刷新缓存时，同步已经修改的DB数据 end */
 	
 	private static final Logger logger = Logger.getLogger(ServerEnvLoader.class);
@@ -54,8 +56,10 @@ public class ServerEnvLoader
 				blackUpdateToken.setTime(0);
 				whiteUpdateToken.setTime(0);
 				configUpdateToken.setTime(0);
+				gameUpdateToken.setTime(0);
 				
 				clearRootCache();
+				
 				logger.info("full update");
 				triggerFull = false;
 			} 
@@ -70,8 +74,7 @@ public class ServerEnvLoader
 			}
 			catch (Exception e) 
 			{
-				logger.error("加载用户ip黑名单数据失败,详细信息如下", e);
-				throw e;
+				logger.error("加载用户ip黑名单数据失败,详细信息如下", e);throw e;
 			}
 			
 			try 
@@ -80,8 +83,7 @@ public class ServerEnvLoader
 			}
 			catch (Exception e) 
 			{
-				logger.error("加载用户ip白名单数据失败,详细信息如下", e);
-				throw e;
+				logger.error("加载用户ip白名单数据失败,详细信息如下", e);throw e;
 			}
 			
 			try 
@@ -90,10 +92,18 @@ public class ServerEnvLoader
 			}
 			catch (Exception e) 
 			{
-				logger.error("加载配置缓存数据失败,详细信息如下", e);
-				throw e;
+				logger.error("加载配置缓存数据失败,详细信息如下", e);throw e;
 			}
 
+			try 
+			{
+				ServerEnvLoader.loadGameData();
+			}
+			catch (Exception e) 
+			{
+				logger.error("加载遊戲缓存数据失败,详细信息如下", e);throw e;
+			}
+			
 			Thread.sleep(Constants.sleepTime);
 			
 		} 
@@ -116,7 +126,18 @@ public class ServerEnvLoader
 		configCacheMap.clear();
 		blackCacheMap.clear();
 		whiteCacheMap.clear();
+		gameCacheMap.clear();
 	}
+	
+
+	/**
+	 * @param triggerFull the triggerFull to set
+	 */
+	public static void setTriggerFull(boolean triggerFull) 
+	{
+		ServerEnvLoader.triggerFull = triggerFull;
+	}
+
 
 	/***
 	 * 加载ip黑名单缓存
@@ -212,11 +233,36 @@ public class ServerEnvLoader
 	}
 
 	/**
-	 * @param triggerFull the triggerFull to set
+	 * 加載遊戲應用列表
+	 * @throws DaoException
 	 */
-	public static void setTriggerFull(boolean triggerFull) 
-	{
-		ServerEnvLoader.triggerFull = triggerFull;
+	private static void loadGameData() throws DaoException {
+		
+		logger.debug("刷新前game缓存总数据量为: " + gameCacheMap.size() + ", game修改时间为: " + gameUpdateToken.toString());
+		SystemCacheServer.getInstance().loadGameData(gameUpdateToken, gameCacheMap);
+
+		Timestamp updateTime;
+		Map<String, Object> itemMap;
+		Entry<String, Map<String, Object>> entry = null;
+		
+		for (Iterator<Entry<String, Map<String, Object>>> iterator = gameCacheMap.entrySet().iterator(); iterator.hasNext();) 
+		{
+			entry = iterator.next();
+			itemMap = entry.getValue();
+			
+			updateTime =(Timestamp)itemMap.get("updateTime");
+			String isDeleted = String.valueOf(itemMap.get("isDeleted"));
+			
+			if(Boolean.parseBoolean(isDeleted) || "1".equals(isDeleted)) {
+				iterator.remove();
+			}
+			
+			if (gameUpdateToken.compareTo(updateTime) < 0) {
+				gameUpdateToken = updateTime;
+			}
+		}
+		logger.debug("刷新后game缓存总数据量为: " + gameCacheMap.size() + ", game修改时间为: " + gameUpdateToken.toString());
+		
 	}
 
 }

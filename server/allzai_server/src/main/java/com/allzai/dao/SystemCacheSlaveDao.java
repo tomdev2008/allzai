@@ -90,4 +90,18 @@ public class SystemCacheSlaveDao extends BaseJdbcDaoSupport<Object>
 		
 	}
 
+	/**
+	 * 加載遊戲應用列表
+	 * @param gameUpdateToken
+	 * @param gameCacheMap
+	 * @throws DaoException
+	 */
+	public void queryGameData(Timestamp gameUpdateToken, Map<String, Map<String, Object>> gameCacheMap) throws DaoException {
+
+		String querySql = "SELECT * FROM app_info WHERE updateTime >= ?";
+		
+		this.queryMapList("packageName", querySql, gameUpdateToken, gameCacheMap);
+		
+	}
+
 }

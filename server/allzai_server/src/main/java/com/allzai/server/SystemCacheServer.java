@@ -62,5 +62,17 @@ public class SystemCacheServer
 		
 	}
 
+	/**
+	 * 加載遊戲應用列表
+	 * @param gameUpdateToken
+	 * @param gameCacheMap
+	 * @throws DaoException
+	 */
+	public void loadGameData(Timestamp gameUpdateToken, Map<String, Map<String, Object>> gameCacheMap) throws DaoException {
+
+		SystemCacheSlaveDao.getInstance().queryGameData(gameUpdateToken, gameCacheMap);
+		
+	}
+
 }
 
