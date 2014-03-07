@@ -1,9 +1,9 @@
-package com.royal.client;
+package com.chat.client;
 
 import org.apache.mina.core.service.IoHandlerAdapter;
 import org.apache.mina.core.session.IoSession;
 
-import com.royal.model.User;
+import com.restfb.json.JsonObject;
 
 /**
  * 对象客户端接受处理类
@@ -14,26 +14,28 @@ import com.royal.model.User;
 public class ObjectMinaClientHandler extends IoHandlerAdapter {
 
 	// 当一个服务端连结进入时
-	@Override
 	public void sessionOpened(IoSession session) throws Exception {
 		System.out.println("connect server : " + session.getRemoteAddress());
-		session.write(new User("mina", 18));
+		
+		//传递GPS等信息
+		//传递用户等信息
+		session.write(new JsonObject());
 	}
 
 	// 当一个服务端关闭时
-	@Override
 	public void sessionClosed(IoSession session) {
 		System.out.println(session.getRemoteAddress() + " server Disconnect !");
 	}
 
 	// 当服务器发送的消息到达时:
-	@Override
 	public void messageReceived(IoSession session, Object message) throws Exception {
-		User u = (User) message;
-		System.out.println("这里是客户端(" + session.getLocalAddress() + ")\t服务器(" + session.getRemoteAddress() + ")发来的消息: " + u.getName() + "\t" + u.getAge());
 
-		// 发送到服务端
-		session.write(u);
+		JsonObject json = (JsonObject) message;
+		if(!json.isNull("from")) {
+			System.out.println("这里是客户端(" + session.getLocalAddress() + ")\t服务器(" + session.getRemoteAddress() + ")发来的消息: " + json.getString("from") + "\t" + json.getString("to") + "\t" + json.getString("info"));
+		}
+		
+		session.write(new JsonObject());
 	}
 
 }

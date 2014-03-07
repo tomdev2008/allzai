@@ -1,4 +1,4 @@
-package com.royal.client;
+package com.chat.client;
 
 import java.net.InetSocketAddress;
 

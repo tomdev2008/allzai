@@ -1,4 +1,4 @@
-package com.royal.service;
+package com.chat.service;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -11,8 +11,6 @@ import org.apache.mina.transport.socket.nio.NioSocketAcceptor;
 
 /**
  * mina服务端
- * @author Royal
- *
  */
 public class MinaServer {
 
