@@ -11,8 +11,6 @@ import org.apache.mina.transport.socket.nio.NioSocketConnector;
 
 /**
  * mina测试客户端
- * @author Royal
- *
  */
 public class MinaClient {
 

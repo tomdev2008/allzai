@@ -7,9 +7,6 @@ import com.restfb.json.JsonObject;
 
 /**
  * 对象客户端接受处理类
- * 
- * @author Royal
- * 
  */
 public class ObjectMinaClientHandler extends IoHandlerAdapter {
 
