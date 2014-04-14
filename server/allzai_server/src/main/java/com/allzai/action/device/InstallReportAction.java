@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.allzai.action.BaseActionSupport;
 import com.allzai.form.device.AppUseHistoryForm;
-import com.allzai.server.user.AppUseHistoryServer;
+import com.allzai.server.device.AppUseHistoryServer;
 import com.restfb.json.JsonObject;
 
 /**

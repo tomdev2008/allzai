@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.allzai.action.BaseActionSupport;
 import com.allzai.form.config.SysConfigForm;
-import com.allzai.server.SystemConfigServer;
+import com.allzai.server.config.SystemConfigServer;
 import com.restfb.json.JsonObject;
 
 /**

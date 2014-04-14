@@ -1,8 +1,6 @@
 package com.allzai.server.user;
 
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 
@@ -10,11 +8,8 @@ import com.allzai.bean.UserBean;
 import com.allzai.dao.ManulBeanDao;
 import com.allzai.dao.TransactionManager;
 import com.allzai.dao.user.UserSlaveDao;
-import com.allzai.form.user.LoginUserForm;
 import com.allzai.form.user.RegeistUserForm;
 import com.allzai.util.Constants;
-import com.allzai.util.StringUtil;
-import com.restfb.json.JsonObject;
 
 /**
  * 提供用户信息管理服务
@@ -87,85 +82,6 @@ public class UserManageServer
 		}
 		
 		return regisResult;
-	}
-
-	/**
-	 * 用户转化
-	 * @param form
-	 * @return
-	 * @throws Exception
-	 */
-	public JsonObject changeRole(LoginUserForm form) throws Exception {
-		
-		JsonObject json = new JsonObject();
-		
-		if(StringUtil.isEmpty(form.getAccount()) || StringUtil.isEmpty(form.getPassword()) || form.getUserId() <= 0) {
-			/**
-			 * Gx0502:参数错误
-			 */
-			json.put("result", Boolean.FALSE);
-			json.put("code", "Gx0502");
-			return json;
-		}
-		
-		try {
-			Map<String, Object> map = UserSlaveDao.getInstance().queryUserInfoByUserId(form.getUserId());
-			if(map == null || map.size() <= 0) {
-				/**
-				 * Gx0505:用户名不存在
-				 */
-				json.put("result", Boolean.FALSE);
-				json.put("code", "Gx0505");
-				return json;
-			}
-			
-		    Pattern regex = Pattern.compile(Constants.EMAIL_REGEX);  
-		    Matcher matcher = regex.matcher(form.getAccount());  
-		    if(!matcher.matches()) {
-		    	/**
-				 * Gx0506:邮箱格式不正确
-				 */
-				json.put("result", Boolean.FALSE);
-				json.put("code", "Gx0506");
-				return json;
-		    } 
-			
-			map = UserSlaveDao.getInstance().queryUserInfoByUserAccount(form.getAccount());
-			if(map != null && map.size() > 0) {
-				/**
-				 * Gx0504:用户名不能重复
-				 */
-				json.put("result", Boolean.FALSE);
-				json.put("code", "Gx0504");
-				return json;
-			}
-			map = null;
-			
-			if(UserSlaveDao.getInstance().changeRole(form.getAccount(), form.getPassword(), form.getUserId())) {
-				/**
-				 * Gx0500:修改正确
-				 */
-				json.put("result", Boolean.TRUE);
-				json.put("code", "Gx0500");
-				return json;
-			} else {
-				/**
-				 * Gx0503:修改失败
-				 */
-				json.put("result", Boolean.FALSE);
-				json.put("code", "Gx0503");
-				return json;
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			
-			/**
-			 * Gx0501:内部异常
-			 */
-			json.put("result", Boolean.FALSE);
-			json.put("code", "Gx0501");
-			return json;
-		}
 	}
 
 }

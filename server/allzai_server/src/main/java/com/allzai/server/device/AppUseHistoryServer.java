@@ -1,4 +1,4 @@
-package com.allzai.server.user;
+package com.allzai.server.device;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,8 +6,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-
-import org.apache.log4j.Logger;
 
 import com.allzai.bean.MobileDeviceBean;
 import com.allzai.bean.UserAppBean;
@@ -34,13 +32,7 @@ import com.restfb.json.JsonObject;
 public class AppUseHistoryServer 
 {
 	private static final AppUseHistoryServer appHisServer = new AppUseHistoryServer();
-	
-	private static final Logger logger = Logger.getLogger(UserOperationServer.class);
-	
-	private AppUseHistoryServer()
-	{
-		
-	}
+
 	
 	public static AppUseHistoryServer getInstance()
 	{
@@ -145,7 +137,7 @@ public class AppUseHistoryServer
 		} 
 		catch (Exception e) 
 		{
-			logger.warn("Statistics of users to install the app information failure, detailed information is as follows:", e);
+			e.printStackTrace();
 			
 			/**
 			 * Bx0001:内部异常

@@ -23,7 +23,7 @@ public class LoginUserServer {
 		JsonObject json = new JsonObject();
 		
 		try {
-			if(form == null || form.getAccount() == null  || form.getPassword() == null) {
+			if(form.getAccount() == null  || form.getPassword() == null) {
 				/**
 				 * Fx0004:参数错误
 				 */

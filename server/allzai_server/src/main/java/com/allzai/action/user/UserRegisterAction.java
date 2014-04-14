@@ -44,6 +44,15 @@ public class UserRegisterAction extends BaseActionSupport {
 		// 0:success, -1:failed, 1:alreday
 		try {
 			RegeistUserForm form = (RegeistUserForm) obj;
+			
+			if(form.getAccount() == null  || form.getPassword() == null) {
+				/**
+				 * Fx0004:参数错误
+				 */
+				json.put("result", Boolean.FALSE);
+				json.put("code", "Fx0004");
+				return json;
+			}
 
 			Pattern regex = Pattern.compile(Constants.EMAIL_REGEX);
 			Matcher matcher = regex.matcher(form.getAccount());

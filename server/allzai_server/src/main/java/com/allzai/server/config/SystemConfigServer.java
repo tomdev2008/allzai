@@ -1,4 +1,4 @@
-package com.allzai.server;
+package com.allzai.server.config;
 
 import java.util.HashMap;
 import java.util.Iterator;
