@@ -58,20 +58,10 @@ public final class Constants
 	/** master(读写)数据库 */
 	public static final String MASTER = "master";
 	
-	/** 苹果手机操作系统 */
-	public static final String OS_PHONE_IOS = "ios";
-	
-	/** anroid 手机操作系统 */
-	public static final String OS_PHONE_ANDROID = "android";
-	
 	/** 数据库表名 begin */
 	public static final String USER_TABLE_NAME = "user_info";
-	public static final String CREDIT_TABLE_NAME = "credit_history";
-	public static final String USER_APP_TABLE_NAME = "device_app";
-	public static final String LOGIN_LOG_TABLE_NAME = "login_history";
+	public static final String USER_APP_TABLE_NAME = "device_app_info";
 	public static final String MOBILE_DEVICE_TABLE_NAME = "mobile_device_info";
-	public static final String APP_TABLE_NAME = "app_info";
-	public static final String SYS_CONFIG_TABLE_NAME = "sys_config";
 	/** 数据库表名 end */
 	
 	/** 秒*/
@@ -99,8 +89,5 @@ public final class Constants
 
 	public static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	public static final SimpleDateFormat dataFormat = new SimpleDateFormat("yyyy-MM-dd");
-
-	/**临时用户标识*/
-	public static final int GUEST_USER_ROLE = 1;
 
 }

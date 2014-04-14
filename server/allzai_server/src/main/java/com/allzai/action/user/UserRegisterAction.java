@@ -13,7 +13,7 @@ import com.allzai.util.Constants;
 import com.restfb.json.JsonObject;
 
 /**
- * 注册用户
+ * 用户注册
  * 
  * @author Eric
  * @version hasoffer-0.0.1, 2013-9-12
@@ -27,14 +27,6 @@ public class UserRegisterAction extends BaseActionSupport {
 	 */
 	private static final long serialVersionUID = 5400375127584759786L;
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * com.yeahmobi.gamelala.action.BaseActionSupport#doAutoAction(com.yeahmobi
-	 * .gamelala.bean.InputBean, javax.servlet.http.HttpServletRequest,
-	 * javax.servlet.http.HttpServletResponse)
-	 */
 	@Override
 	public JsonObject doAutoAction(Object obj, HttpServletRequest req,
 			HttpServletResponse resp) throws Exception {

@@ -17,7 +17,6 @@ import com.restfb.json.JsonObject;
  */
 public class GetSysConfigAction extends BaseActionSupport 
 {
-	/** 类指纹 */
 	private static final long serialVersionUID = -8090111614472435948L;
 
 	/* (non-Javadoc)
@@ -36,7 +35,6 @@ public class GetSysConfigAction extends BaseActionSupport
 	 */
 	public Class<SysConfigForm> getFromBean() 
 	{
-		// TODO Auto-generated method stub
 		return SysConfigForm.class;
 	}
 	
