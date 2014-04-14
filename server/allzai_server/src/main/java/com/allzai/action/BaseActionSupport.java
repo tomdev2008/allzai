@@ -1,7 +1,6 @@
 package com.allzai.action;
 
 import java.io.IOException;
-import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -11,11 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.log4j.Logger;
 
-import com.allzai.des3.ThreeDESUtil;
-import com.allzai.util.Constants;
 import com.allzai.util.Hosts;
 import com.allzai.util.LangUtil;
-import com.allzai.util.StringUtil;
 import com.restfb.json.JsonObject;
 
 /**
@@ -47,10 +43,10 @@ public abstract class BaseActionSupport extends HttpServlet
 			throws ServletException, IOException 
 	{
 		/**
-		 * -10000:不支持GET请求
+		 * -10001:不支持GET请求
 		 */
 		try {
-			resp.getWriter().append(Hosts.InvalidRequestResponse(Hosts.getIpAddr(req),  "-1x0000"));
+			resp.getWriter().append(Hosts.InvalidRequestResponse(Hosts.getIpAddr(req),  "-1x0001"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -83,124 +79,12 @@ public abstract class BaseActionSupport extends HttpServlet
 		Object obj = null;
 		try 
 		{
-			//解析浏览器
-			String user_agent = req.getHeader("User-Agent");
-			if(!StringUtil.isEmpty(user_agent)) {
-				if(!user_agent.endsWith("UA-lalasdk")) {
-					/**
-					 * -1x0007:错误的引擎
-					 */
-					resp.getWriter().append(Hosts.InvalidRequestResponse(ip,  "-1x0007"));
-					return;
-				}
-			} else {
-				/**
-				 * -1x0006:没有对UA封装
-				 */
-				resp.getWriter().append(Hosts.InvalidRequestResponse(ip, "-1x0006"));
-				return;
-			}
-
 			if(getFromBean() != null)
 			{
 				obj = getFromBean().newInstance();
 				
-				//解析加密串
-				String index = req.getParameter("index");
-				String gll = req.getParameter("GLL");
-				if(!StringUtil.isEmpty(gll) && !StringUtil.isEmpty(index)) {
-					int key = Integer.parseInt(index);
-					if(key <= 0 || key >= ThreeDESUtil.get3desKeyLength()) {
-						/**
-						 * -1x0003:加密下标错误
-						 */
-						resp.getWriter().append(Hosts.InvalidRequestResponse(ip, "-1x0003"));
-						return;
-					}
-					
-					gll = ThreeDESUtil.Decode(gll, key);
-				} else {
-					/**
-					 * -1x0005:没有加密参数
-					 */
-					resp.getWriter().append(Hosts.InvalidRequestResponse(ip, "-1x0005"));
-					return;
-				}
-				
-				//封装参数项
-				Map<String, Object> map = Hosts.getReqKeys(gll);
-				if(!map.containsKey("imei") 
-						|| !map.containsKey("mac") 
-						|| !map.containsKey("ver") 
-						|| !map.containsKey("platform")) {
-					/**
-					 * -1x0009:必填参数缺少时, 不允许通过
-					 */
-					resp.getWriter().append(Hosts.InvalidRequestResponse(ip, "-1x0009"));
-					return;
-				}
-				
-				String imei = String.valueOf(map.get("imei"));
-				String mac = String.valueOf(map.get("mac"));
-				if(StringUtil.isEmpty(imei) && StringUtil.isEmpty(mac)) {
-					/**
-					 * -1x0010:IMEI和MAC同时为空
-					 */
-					resp.getWriter().append(Hosts.InvalidRequestResponse(ip, "-1x0010"));
-					return;
-				}
-				
-				map.put("ip", ip);
-				if(!map.containsKey("lang") 
-						|| StringUtil.isEmpty(String.valueOf(map.get("lang")))) {
-					map.put("lang", "EN");
-				}
-				lang = String.valueOf(map.get("lang"));
-				if(StringUtil.isEmpty(imei)) {map.put("imei", mac);}
-
-				//对tk进行校验
-				if(map.containsKey("userId")) {
-					
-					boolean ok = false;
-					try {
-						String h_tk = req.getHeader("tk");
-						if(map.containsKey("tk") &&  !StringUtil.isEmpty(h_tk)) {
-							
-							if(h_tk.equals(String.valueOf(map.get("tk")))) {
-								h_tk = ThreeDESUtil.Decode(h_tk, Constants.index_tk_deocde);
-								
-								String[] keys = h_tk.split("_");
-								if(keys.length == 3 
-										&& keys[0].equals(String.valueOf(map.get("userId"))) 
-										//&& keys[1].equals(String.valueOf(map.get("imei"))) //设备号存在取不到的情况, 忽略这个校验
-										&& (keys[2]).equals("0") || keys[2].equals("1")) {
-									ok = true;
-								}
-								keys = null;
-							}
-						}
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-					
-					if(!ok) {
-						/**
-						 * -1x0008:校验tk参数错误
-						 */
-						resp.getWriter().append(Hosts.InvalidRequestResponse(ip, "-1x0008"));
-						return;
-					}
-				}
-				
-				logger.info("ip = " + ip + ", gll = " + gll);
-				BeanUtils.populate(obj, map);
+				BeanUtils.populate(obj, req.getParameterMap());
 				logger.info("ip = " + ip + ", obj = " + obj.toString());
-			} else {
-				/**
-				 * -1x0004:没有参数
-				 */
-				resp.getWriter().append(Hosts.InvalidRequestResponse(ip, "-1x0004"));
-				return;
 			}
 		} 
 		catch (Exception e) 
@@ -208,9 +92,9 @@ public abstract class BaseActionSupport extends HttpServlet
 			logger.warn("parse parameter error: ", e);
 			
 			/**
-			 * -1x0001:内部异常
+			 * -1x0002:内部解析异常
 			 */
-			resp.getWriter().append(Hosts.InvalidRequestResponse(ip, "-1x0001"));
+			resp.getWriter().append(Hosts.InvalidRequestResponse(ip, "-1x0002"));
 			return;
 		}
 
@@ -221,16 +105,16 @@ public abstract class BaseActionSupport extends HttpServlet
 			
 			logger.info("ip = " + ip + ", ret = " + json.toString());
 			
-			 resp.getWriter().append(ThreeDESUtil.Encode(json.toString(), Constants.index_az_decode));
+			 resp.getWriter().append(json.toString());
 		} 
 		catch (Exception e) 
 		{
 			logger.error("Failed: Method is called doAutoAction failure!", e);
 
 			/**
-			 * -1x0002:自动处理异常
+			 * -1x0003:内部处理异常
 			 */
-			resp.getWriter().append(Hosts.InvalidRequestResponse(ip, "-1x0002"));
+			resp.getWriter().append(Hosts.InvalidRequestResponse(ip, "-1x0003"));
 		}
 	}
 

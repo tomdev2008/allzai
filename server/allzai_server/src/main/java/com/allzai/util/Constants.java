@@ -13,7 +13,6 @@ public final class Constants
 {
 
 	public static final int index_tk_deocde = 1;
-	public static final int index_az_decode = 2;
 	
 	public static final int ZERO_NUMBER = 0;
 	public static final int ONE_NUMBER = 1;

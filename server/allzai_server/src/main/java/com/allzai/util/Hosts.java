@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
 
-import com.allzai.des3.ThreeDESUtil;
 import com.restfb.json.JsonObject;
 
 public class Hosts {
@@ -72,7 +71,7 @@ public class Hosts {
 		json.put("info", LangUtil.getCodeInfoByLang(LangUtil.defaultLang, code));
 		
 		logger.info("ip = " + ip + ", err = " + json.toString());
-		return ThreeDESUtil.Encode(json.toString(), Constants.index_az_decode);
+		return json.toString();
 	}
 
 }
