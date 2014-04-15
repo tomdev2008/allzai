@@ -8,38 +8,36 @@ import java.text.SimpleDateFormat;
 public final class Constants
 {
 
+	/**
+	 * 固定加密串的下标
+	 */
 	public static final int index_tk_deocde = 1;
+	public static final int index_pw_deocde = 2;
 	
+	/**
+	 * 数字定义串
+	 */
 	public static final int ZERO_NUMBER = 0;
 	public static final int ONE_NUMBER = 1;
 	public static final int TWO_NUMBER = 2;
-	public static final int THREE_NUMBER = 3;
-	public static final int FOUR_NUMBER = 4;
 	
 	/** 字符 "0" */
 	public static final String ZERO_STR = "0";
-	
 	/** 字符 "1" */
 	public static final String ONE_STR = "1";
-	
 	/** 字符 "2" */
 	public static final String TWO_STR = "2";
-	
 	/** 字符 "3" */
 	public static final String THREE_STR = "3";
-	
 	/** 字符 "4" */
 	public static final String FOUR_STR = "4";
 	
 	/** 字符 "-1" */
 	public static final String MINUS_ONE_STR = "-1";
-	
 	/** 字符 "-2" */
 	public static final String MINUS_TWO_STR = "-2";
-	
 	/** 字符 "-3" */
 	public static final String MINUS_THREE_STR = "-3";
-	
 	/** 字符 "-4" */
 	public static final String MINUS_FOUR_STR = "-4";
 	

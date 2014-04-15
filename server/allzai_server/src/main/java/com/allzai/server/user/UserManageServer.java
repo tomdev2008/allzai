@@ -6,6 +6,7 @@ import com.allzai.bean.UserBean;
 import com.allzai.dao.ManulBeanDao;
 import com.allzai.dao.TransactionManager;
 import com.allzai.dao.user.UserSlaveDao;
+import com.allzai.des3.ThreeDESUtil;
 import com.allzai.form.user.RegeistUserForm;
 import com.allzai.util.Constants;
 
@@ -43,6 +44,8 @@ public class UserManageServer
 				TransactionManager.startTransaction();
 				ManulBeanDao dao = new ManulBeanDao();
 
+				//对用户密码进行加密处理
+				user.setPassword(ThreeDESUtil.Encode(user.getPassword(), Constants.index_pw_deocde));
 				// 添加用户信息
 				int id = dao.getAddSingleBean(user);
 

@@ -31,6 +31,8 @@ public class LoginUserServer {
 				return json;
 			}
 
+			//对用户密码进行加密处理
+			form.setPassword(ThreeDESUtil.Encode(form.getPassword(), Constants.index_pw_deocde));
 			Map<String, Object> users =  UserSlaveDao.getInstance().doLoginUser(form.getAccount(), form.getPassword());
 			
 			if(users == null || users.size() <= 0) {
