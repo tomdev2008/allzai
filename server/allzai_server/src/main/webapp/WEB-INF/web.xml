@@ -13,16 +13,6 @@
 		<listener-class>com.allzai.system.ServerListener</listener-class>
 	</listener>
 
-	<!-- 刷新缓存 -->
-	<servlet>
-		<servlet-name>CacheRefresh</servlet-name>
-		<servlet-class>com.allzai.action.admin.CacheRefreshAction</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>CacheRefresh</servlet-name>
-		<url-pattern>/private/refreshCache</url-pattern>
-	</servlet-mapping>
-
 	<!-- 服务响应 -->
 	<servlet>
 		<servlet-name>AliveAction</servlet-name>
@@ -31,26 +21,6 @@
 	<servlet-mapping>
 		<servlet-name>AliveAction</servlet-name>
 		<url-pattern>/private/alive</url-pattern>
-	</servlet-mapping>
-
-	<!-- 用户转化 -->
-	<servlet>
-		<servlet-name>RoleChange</servlet-name>
-		<servlet-class>com.allzai.action.user.RoleChangeAction</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>RoleChange</servlet-name>
-		<url-pattern>/secure/roleChange</url-pattern>
-	</servlet-mapping>
-
-	<!-- 时光轴 -->
-	<servlet>
-		<servlet-name>GetOperation</servlet-name>
-		<servlet-class>com.allzai.action.user.GetOperationAction</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>GetOperation</servlet-name>
-		<url-pattern>/secure/getOperation</url-pattern>
 	</servlet-mapping>
 
 	<!-- 头像上传 -->
@@ -71,16 +41,6 @@
 	<servlet-mapping>
 		<servlet-name>GetSysConfig</servlet-name>
 		<url-pattern>/public/getSysConfig</url-pattern>
-	</servlet-mapping>
-
-	<!-- 动态验证 -->
-	<servlet>
-		<servlet-name>SmartCode</servlet-name>
-		<servlet-class>com.allzai.code.SmartCode</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>SmartCode</servlet-name>
-		<url-pattern>/public/smartCode</url-pattern>
 	</servlet-mapping>
 
 	<!-- 用户注册 -->
@@ -121,26 +81,6 @@
 	<servlet-mapping>
 		<servlet-name>InstallReport</servlet-name>
 		<url-pattern>/public/installReport</url-pattern>
-	</servlet-mapping>
-
-	<!-- 快速登录 -->
-	<servlet>
-		<servlet-name>QuickLogon</servlet-name>
-		<servlet-class>com.allzai.action.guest.QuickLogonAction</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>QuickLogon</servlet-name>
-		<url-pattern>/public/quickLogon</url-pattern>
-	</servlet-mapping>
-
-	<!-- 推送上报 -->
-	<servlet>
-		<servlet-name>GcmReport</servlet-name>
-		<servlet-class>com.allzai.action.gcm.GcmReportAction</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>GcmReport</servlet-name>
-		<url-pattern>/public/gcmReport</url-pattern>
 	</servlet-mapping>
 
 	<!-- 游戏通知 -->
