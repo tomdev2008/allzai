@@ -12,6 +12,7 @@ import org.apache.log4j.Logger;
 
 import com.allzai.isp.IPLocation;
 import com.allzai.isp.IPSeeker;
+import com.allzai.util.Constants;
 import com.allzai.util.Hosts;
 import com.allzai.util.LangUtil;
 import com.restfb.json.JsonObject;
@@ -104,6 +105,7 @@ public abstract class BaseActionSupport extends HttpServlet
 		try 
 		{
 			JsonObject json = doAutoAction(obj, req, resp);
+			json.put("level", Constants.LEVEL_FUNCTION);
 			json.put("info", LangUtil.getCodeInfoByLang(lang, json.getString("code")));
 			
 			logger.info("ip = " + ip + ", area = " + location.getArea() + ", country = " + location.getCountry() + ", err = " + json.toString());

@@ -74,7 +74,7 @@ public class FileUploadServer {
 						if(str != null) {msg = str;code="Kx0002";break;}
 						
 						/**生成临时文件*/
-						String srcFileName = form.getUserId() + "_" + System.currentTimeMillis() + Constants.FileCompressSuffix;
+						String srcFileName = form.getUserId() + "_" + System.currentTimeMillis() + Constants.FileSuffix;
 						String path = fileTempPath + srcFileName;
 						File srcFile = new File(path);
 						item.write(srcFile);
@@ -82,7 +82,7 @@ public class FileUploadServer {
 						
 						/**压制存储文件*/
 						String md5 = UploadFileUtil.getFileMD5String(srcFile);
-						String tarFileName = form.getUserId() + "_" + md5 + Constants.FileCompressSuffix;
+						String tarFileName = form.getUserId() + "_" + md5 + Constants.FileSuffix;
 						path = fileStorePath  + tarFileName;
 						File tarFile = new File(path);
 						if(UploadFileUtil.doFileCompress(fileTempPath, fileStorePath, srcFileName, tarFileName)) {

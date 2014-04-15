@@ -69,6 +69,7 @@ public class Hosts {
 		
 		JsonObject json = new JsonObject();
 		json.put("result", Boolean.FALSE);
+		json.put("level", Constants.LEVEL_SYSTEM);
 		json.put("code", code);
 		json.put("info", LangUtil.getCodeInfoByLang(LangUtil.defaultLang, code));
 		

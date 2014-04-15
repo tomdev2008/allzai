@@ -85,9 +85,14 @@ public final class Constants
 	/**文件压制的高度*/
 	public static final int FileOutputHeight = 75;
 	/**文件压制的后缀*/
-	public static final String FileCompressSuffix = ".jpg";
+	public static final String FileSuffix = ".jpg";
 
+	/**日期的格式化处理*/
 	public static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	public static final SimpleDateFormat dataFormat = new SimpleDateFormat("yyyy-MM-dd");
-
+	
+	/**定义消息的级别*/
+	public static final String LEVEL_SYSTEM = "system";
+	public static final String LEVEL_FUNCTION = "function";
+	
 }
