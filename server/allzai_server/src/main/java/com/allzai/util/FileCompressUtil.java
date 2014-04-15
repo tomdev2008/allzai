@@ -68,11 +68,4 @@ public class FileCompressUtil {
 		return true;
 	}
 
-	public static void main(String[] arg) {
-
-		FileCompressUtil mypic = new FileCompressUtil();
-		mypic.doFileCompress("E:\\testFIle\\before\\", "E:\\testFIle\\after\\", "20111003111026695.jpg", "_123456.jpg", Constants.FileOutputWidth, Constants.FileOutputHeight, true);
-
-	}
-
 }

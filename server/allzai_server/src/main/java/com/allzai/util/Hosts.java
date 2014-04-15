@@ -1,8 +1,5 @@
 package com.allzai.util;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
@@ -32,29 +29,6 @@ public class Hosts {
 	        ip = request.getRemoteAddr();  
 	    }  
 	    return ip;  
-	}
-	
-	/***
-	 * 从已解密的请求串中封装参数
-	 * @param gll
-	 * @return
-	 */
-	public static Map<String, Object> getReqKeys(String gll) {
-		Map<String, Object> map = new HashMap<String, Object>();
-		if(StringUtil.isEmpty(gll)) {
-			return map;
-		}
-		String[] keys = gll.split("&");
-		String[] vals = null;
-		for(String key : keys) {
-			vals = key.split("=");
-			if(vals.length > 1) {
-				map.put(vals[0], vals[1]);
-			} else {
-				map.put(vals[0], "");
-			}
-		}
-		return map;
 	}
 	
 	/**
