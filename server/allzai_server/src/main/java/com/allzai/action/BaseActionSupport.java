@@ -49,6 +49,10 @@ public abstract class BaseActionSupport extends HttpServlet
 		 * -10001:不支持GET请求
 		 */
 		try {
+			req.setCharacterEncoding("UTF-8");
+			resp.setCharacterEncoding("UTF-8");
+			resp.setContentType("text/json");
+			
 			resp.getWriter().append(Hosts.InvalidRequestResponse(Hosts.getIpAddr(req),  "-1x0001"));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -73,8 +77,9 @@ public abstract class BaseActionSupport extends HttpServlet
 	private void initService(HttpServletRequest req, HttpServletResponse resp)
 			throws Exception 
 	{
-		req.setCharacterEncoding("utf-8");
-		resp.setContentType("text/xml");
+		req.setCharacterEncoding("UTF-8");
+		resp.setCharacterEncoding("UTF-8");
+		resp.setContentType("text/json");
 		
 		String ip = Hosts.getIpAddr(req);
 		IPLocation location = IPSeeker.getInstance().getIPLocation(ip);
@@ -129,5 +134,6 @@ public abstract class BaseActionSupport extends HttpServlet
 	 * @return
 	 */
 	public abstract Class<?> getFromBean();
+
 }
 
