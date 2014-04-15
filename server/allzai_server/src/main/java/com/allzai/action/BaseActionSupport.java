@@ -77,22 +77,22 @@ public abstract class BaseActionSupport extends HttpServlet
 		
 		String ip = Hosts.getIpAddr(req);
 		IPLocation location = IPSeeker.getInstance().getIPLocation(ip);
+		String area = location.getArea();
+		String country = location.getCountry();
 		String lang = LangUtil.defaultLang;
 
 		Object obj = null;
 		try 
 		{
-			if(getFromBean() != null)
-			{
+			if(getFromBean() != null) {
 				obj = getFromBean().newInstance();
-				
 				BeanUtils.populate(obj, req.getParameterMap());
-				logger.info("ip = " + ip + ", obj = " + obj.toString());
+				logger.info("ip = " + ip + ", area = " + area + ", country = " + country + ", req = " + obj.toString());
 			}
 		} 
 		catch (Exception e) 
 		{
-			logger.warn("parse parameter error: ", e);
+			logger.warn("Failed: getFromBean() Exception", e);
 			
 			/**
 			 * -1x0002:内部解析异常
@@ -107,13 +107,13 @@ public abstract class BaseActionSupport extends HttpServlet
 			json.put("level", Constants.LEVEL_FUNCTION);
 			json.put("info", LangUtil.getCodeInfoByLang(lang, json.getString("code")));
 			
-			logger.info("ip = " + ip + ", area = " + location.getArea() + ", country = " + location.getCountry() + ", err = " + json.toString());
+			logger.info("ip = " + ip + ", area = " + area + ", country = " + country + ", resp = " + json.toString());
 			
 			 resp.getWriter().append(json.toString());
 		} 
 		catch (Exception e) 
 		{
-			logger.error("Failed: Method is called doAutoAction failure!", e);
+			logger.error("Failed: doAutoAction() Exception", e);
 
 			/**
 			 * -1x0003:内部处理异常
