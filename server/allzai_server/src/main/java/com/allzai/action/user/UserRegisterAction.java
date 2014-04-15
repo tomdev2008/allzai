@@ -39,10 +39,10 @@ public class UserRegisterAction extends BaseActionSupport {
 			
 			if(form.getAccount() == null  || form.getPassword() == null) {
 				/**
-				 * Fx0004:参数错误
+				 * Ex0005:参数错误
 				 */
 				json.put("result", Boolean.FALSE);
-				json.put("code", "Fx0004");
+				json.put("code", "Ex0005");
 				return json;
 			}
 
