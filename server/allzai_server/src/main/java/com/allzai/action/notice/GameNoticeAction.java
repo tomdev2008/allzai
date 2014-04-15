@@ -11,7 +11,7 @@ import com.restfb.json.JsonObject;
 public class GameNoticeAction extends BaseActionSupport {
 
 	/**
-	 * 
+	 * 获取通知
 	 */
 	private static final long serialVersionUID = 1L;
 

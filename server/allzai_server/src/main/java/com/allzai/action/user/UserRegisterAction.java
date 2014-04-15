@@ -12,13 +12,10 @@ import com.allzai.server.user.UserManageServer;
 import com.allzai.util.Constants;
 import com.restfb.json.JsonObject;
 
-/**
- * 用户注册
- */
 public class UserRegisterAction extends BaseActionSupport {
 
 	/**
-	 * 
+	 *  用户注册
 	 */
 	private static final long serialVersionUID = 5400375127584759786L;
 
