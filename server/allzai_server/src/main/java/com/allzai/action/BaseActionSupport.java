@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.log4j.Logger;
 
+import com.allzai.isp.IPLocation;
+import com.allzai.isp.IPSeeker;
 import com.allzai.util.Hosts;
 import com.allzai.util.LangUtil;
 import com.restfb.json.JsonObject;
@@ -74,6 +76,7 @@ public abstract class BaseActionSupport extends HttpServlet
 		resp.setContentType("text/xml");
 		
 		String ip = Hosts.getIpAddr(req);
+		IPLocation location = IPSeeker.getInstance().getIPLocation(ip);
 		String lang = LangUtil.defaultLang;
 
 		Object obj = null;
@@ -103,7 +106,7 @@ public abstract class BaseActionSupport extends HttpServlet
 			JsonObject json = doAutoAction(obj, req, resp);
 			json.put("info", LangUtil.getCodeInfoByLang(lang, json.getString("code")));
 			
-			logger.info("ip = " + ip + ", ret = " + json.toString());
+			logger.info("ip = " + ip + ", area = " + location.getArea() + ", country = " + location.getCountry() + ", err = " + json.toString());
 			
 			 resp.getWriter().append(json.toString());
 		} 

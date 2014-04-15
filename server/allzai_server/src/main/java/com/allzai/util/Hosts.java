@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
 
+import com.allzai.isp.IPLocation;
+import com.allzai.isp.IPSeeker;
 import com.restfb.json.JsonObject;
 
 public class Hosts {
@@ -70,7 +72,8 @@ public class Hosts {
 		json.put("code", code);
 		json.put("info", LangUtil.getCodeInfoByLang(LangUtil.defaultLang, code));
 		
-		logger.info("ip = " + ip + ", err = " + json.toString());
+		IPLocation location = IPSeeker.getInstance().getIPLocation(ip);
+		logger.info("ip = " + ip + ", area = " + location.getArea() + ", country = " + location.getCountry() + ", err = " + json.toString());
 		return json.toString();
 	}
 
