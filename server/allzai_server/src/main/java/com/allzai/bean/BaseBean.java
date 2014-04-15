@@ -3,11 +3,6 @@ package com.allzai.bean;
 import java.io.Serializable;
 import java.util.List;
 
-/**
- * @author  Eric
- * @version hasoffer-0.0.1, 2013-9-17
- * @since   JDK 1.6
- */
 public abstract class BaseBean implements Serializable 
 {
 	

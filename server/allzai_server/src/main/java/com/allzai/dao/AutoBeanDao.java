@@ -7,11 +7,6 @@ import com.allzai.system.DatabaseManager;
 
 /**
  * BaseBean公用Dao层支持,自动提交事务<p>
- * 
- * @author  Eric
- * @version hasoffer-0.0.1, 2013-9-18
- * @see     BaseJdbcDaoSupport
- * @since   JDK 1.6
  */
 public class AutoBeanDao extends BaseJdbcDaoSupport<BaseBean> 
 {

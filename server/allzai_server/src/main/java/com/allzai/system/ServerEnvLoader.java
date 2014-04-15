@@ -14,11 +14,6 @@ import com.allzai.util.Constants;
 
 /**
  * 装载服务器基础环境
- * 
- * @author  Eric
- * @version hasoffer-0.0.1, 2013-9-6
- * @see     SystemCacheServer
- * @since   JDK 1.6
  */
 public class ServerEnvLoader  
 {

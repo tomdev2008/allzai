@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.apache.log4j.Logger;
 
 import com.allzai.bean.UserBean;
 import com.allzai.cdn.CdnUtil;
@@ -21,8 +20,6 @@ import com.allzai.util.UploadFileUtil;
 import com.restfb.json.JsonObject;
 
 public class FileUploadServer {
-	
-	private static final Logger logger = Logger.getLogger(FileUploadServer.class);
 	
 	private static String fileStorePath = null, fileTempPath = null;
 	
@@ -41,7 +38,6 @@ public class FileUploadServer {
 		JsonObject json = new JsonObject();
 		
 		boolean suc = false;
-		String msg = null;
 		String newurl = null;
 		String code = "Kx0001";
 
@@ -71,14 +67,14 @@ public class FileUploadServer {
 					if (item.getName() != null && !item.getName().trim().isEmpty()) {
 						/**文件信息校验*/
 						String str = checkFileItem(item);
-						if(str != null) {msg = str;code="Kx0002";break;}
+						if(str != null) {code="Kx0002";break;}
 						
 						/**生成临时文件*/
 						String srcFileName = form.getUserId() + "_" + System.currentTimeMillis() + Constants.FileSuffix;
 						String path = fileTempPath + srcFileName;
 						File srcFile = new File(path);
 						item.write(srcFile);
-						if (!srcFile.exists()) {msg = "write file error.";code="Kx0003";break;}
+						if (!srcFile.exists()) {code="Kx0003";break;}
 						
 						/**压制存储文件*/
 						String md5 = UploadFileUtil.getFileMD5String(srcFile);
@@ -101,7 +97,6 @@ public class FileUploadServer {
 									}
 								}
 							} catch (Exception e) {
-								msg = "s3 upload file error.";
 								code="Kx0005";
 								e.printStackTrace();
 							}
@@ -113,7 +108,7 @@ public class FileUploadServer {
 						tarFile.delete();
 						srcFile.delete();
 					} else {
-						msg = "not provide the upload file.";code="Kx0002";break;
+						code="Kx0002";break;
 					}
 				}
 			}
@@ -140,8 +135,6 @@ public class FileUploadServer {
 			 */
 			json.put("result", Boolean.FALSE);
 			json.put("code", code);
-			
-			logger.info(msg);
 			
 			return json;
 		}

@@ -9,10 +9,6 @@ import com.allzai.system.DatabaseManager;
 
 /**
  * 用户管理操作dao<p>
- * 
- * @author  Eric
- * @version hasoffer-0.0.1, 2013-10-17
- * @since   JDK 1.6
  */
 public class UserManageMasterDao extends BaseJdbcDaoSupport<UserAppBean> 
 {

@@ -15,11 +15,6 @@ import com.mchange.v2.c3p0.DataSources;
 /**
  * DB连接管理类<p>
  * 提供Master,Slave数据的，连接，关闭，以及连接池销毁
- * 
- * @author  Eric
- * @version hasoffer-0.0.1, 2013-9-6
- * @see     JdbcPropertiesUtil
- * @since   JDK 1.6
  */
 public class DatabaseManager 
 {
@@ -35,15 +30,6 @@ public class DatabaseManager
 	private static Logger logger = Logger.getLogger(DatabaseManager.class);
 	
 	private static JdbcPropertiesUtil jpu = new JdbcPropertiesUtil("/config");
-	 
-//  private static final ThrL threadLocal = new ThrL....();
-//    private static final ThreadLocal<AutoCommit> threadLocal = new ThreadLocal<AutoCommit>();
-	
-    
-	private DatabaseManager()
-	{
-		
-	}
 
 	public static boolean init() throws Exception
 	{
@@ -79,7 +65,6 @@ public class DatabaseManager
 
 	public static Connection getMasterConn() 
 	{
-		
 		try 
 		{
 			return master.getConnection();
@@ -138,7 +123,6 @@ public class DatabaseManager
 	 */
 	private static Properties initC3p0Properties()
 	{
-		
 		JdbcPropertiesUtil c3p0Config = null;
 		
 		try 
@@ -147,7 +131,6 @@ public class DatabaseManager
 		} 
 		catch (Exception e) 
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
         

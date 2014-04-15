@@ -6,10 +6,6 @@ import com.allzai.bean.BaseBean;
 
 /**
  * 映射请求参数的全局Form
- * 
- * @author  Eric
- * @version hasoffer-0.0.1, 2013-10-10
- * @since   JDK 1.6
  */
 public abstract class BasicForm implements Serializable
 {

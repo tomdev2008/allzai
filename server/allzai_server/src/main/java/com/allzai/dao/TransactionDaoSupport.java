@@ -11,11 +11,6 @@ import com.allzai.util.StringUtil;
 
 /**
  * 支持JDBC事务操作<p>
- * 
- * @author  Eric
- * @version hasoffer-0.0.1, 2013-9-17
- * @see     ITransformDao
- * @since   JDK 1.6
  */
 public abstract class TransactionDaoSupport<T> implements ITransformDao<T> 
 {

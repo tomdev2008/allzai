@@ -7,11 +7,6 @@ import com.allzai.system.DatabaseManager;
 
 /**
  * 事务管理
- * 
- * @author  Eric
- * @version hasoffer-0.0.1, 2013-9-17
- * @see     DatabaseManager#getMasterConn()
- * @since   JDK 1.6
  */
 public class TransactionManager 
 {

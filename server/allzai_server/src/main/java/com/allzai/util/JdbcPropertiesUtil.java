@@ -6,10 +6,6 @@ import java.util.Properties;
 
 /**
  * 获取配置文件中的数据类
- * 
- * @author  Eric
- * @version hasoffer-0.0.1, 2013-9-6
- * @since   JDK 1.6
  */
 public class JdbcPropertiesUtil 
 {

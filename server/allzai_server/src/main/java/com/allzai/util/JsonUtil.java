@@ -19,11 +19,6 @@ import net.sf.json.JsonConfig;
 import net.sf.json.processors.JsonValueProcessor;
 import net.sf.json.util.JSONUtils;
 
-/**
- * @author Eric
- * @version hasoffer-0.0.1, 2013-10-17
- * @since JDK 1.6
- */
 public class JsonUtil 
 {
 
@@ -283,19 +278,13 @@ public class JsonUtil
 
 /**
  * 处理Json日期对象
- * 
- * @author  Eric
- * @version hasoffer-0.0.1, 2013-10-17
- * @since   JDK 1.6
  */
 class JsonDateValueProcessor implements JsonValueProcessor 
 {
 
 	private String format = "yyyy-MM-dd HH:mm:ss";
 
-	public JsonDateValueProcessor() 
-	{
-
+	public JsonDateValueProcessor() {
 	}
 
 	public JsonDateValueProcessor(String format) 

@@ -8,10 +8,6 @@ import org.apache.log4j.Logger;
 
 /**
  * 实时刷新系统缓存信息<p>
- * 
- * @author  Eric
- * @version hasoffer-0.0.1, 2013-9-7
- * @since   JDK 1.6
  */
 public class CacheManager 
 {
@@ -21,11 +17,6 @@ public class CacheManager
 
 	private static Logger logger = Logger.getLogger(CacheManager.class);
 
-	private CacheManager() 
-	{
-		
-	}
-
 	public static void init()
 	{
 		logger.info("data manager init started");
@@ -33,7 +24,6 @@ public class CacheManager
 		execService.scheduleWithFixedDelay(new Runnable() {
 			
 			public void run() {
-				// TODO Auto-generated method stub
 				onUpdate();
 			}
 		}, 3, 1, TimeUnit.SECONDS);

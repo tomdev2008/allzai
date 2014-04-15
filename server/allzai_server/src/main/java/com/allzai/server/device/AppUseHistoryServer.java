@@ -22,20 +22,12 @@ import com.restfb.json.JsonObject;
 
 /**
  * 用户APP装卸历史服务
- * 
- * @author  Eric
- * @version hasoffer-0.0.1, 2013-10-11
- * @see     UserAppUseHistoryMasterDao
- * @see     DeviceUserDao#getDeviceUser(String)
- * @since   JDK 1.6
  */
 public class AppUseHistoryServer 
 {
 	private static final AppUseHistoryServer appHisServer = new AppUseHistoryServer();
-
 	
-	public static AppUseHistoryServer getInstance()
-	{
+	public static AppUseHistoryServer getInstance() {
 		return AppUseHistoryServer.appHisServer;
 	}
 	

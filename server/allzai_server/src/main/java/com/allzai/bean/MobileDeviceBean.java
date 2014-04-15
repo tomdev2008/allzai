@@ -9,10 +9,6 @@ import com.allzai.util.StringUtil;
 
 /**
  * 手机设备实体
- * 
- * @author  Eric
- * @version hasoffer-0.0.1, 2013-9-17
- * @since   JDK 1.6
  */
 public class MobileDeviceBean extends BaseBean implements Serializable
 {

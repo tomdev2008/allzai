@@ -9,10 +9,6 @@ import com.allzai.dao.TransactionManager;
 
 /**
  * 用户APP使用记录操作Dao
- * 
- * @author  Eric
- * @version hasoffer-0.0.1, 2013-10-17
- * @since   JDK 1.6
  */
 public class UserAppUseHistoryMasterDao extends TransactionDaoSupport<UserAppBean> 
 {

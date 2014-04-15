@@ -1,7 +1,5 @@
 package com.allzai.server.device;
 
-import org.apache.log4j.Logger;
-
 import com.allzai.bean.MobileDeviceBean;
 import com.allzai.dao.AutoBeanDao;
 import com.allzai.dao.decive.DeviceUserDao;
@@ -10,8 +8,6 @@ import com.allzai.util.StringUtil;
 import com.restfb.json.JsonObject;
 
 public class DeviceUserServer {
-
-	private static final Logger logger = Logger.getLogger(DeviceUserServer.class);
 
 	private static final DeviceUserServer deviceUserServer = new DeviceUserServer();
 
@@ -32,8 +28,6 @@ public class DeviceUserServer {
 				json.put("code", "Ax0003");
 				return json;
 			}
-
-			logger.info("Device Report, imei = " + form.getImei() + ", mac = " + form.getMac());
 
 			MobileDeviceBean device = DeviceUserDao.getInstance().getDeviceUser(form.getImei());
 			if (device == null) {

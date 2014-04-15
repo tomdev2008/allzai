@@ -9,10 +9,6 @@ import com.allzai.util.StringUtil;
 
 /**
  * 用户APP信息实体
- * 
- * @author  Eric
- * @version hasoffer-0.0.1, 2013-9-17
- * @since   JDK 1.6
  */
 public class UserAppBean extends BaseBean implements Comparable<UserAppBean> 
 {

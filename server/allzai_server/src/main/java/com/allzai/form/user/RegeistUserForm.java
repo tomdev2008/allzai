@@ -8,10 +8,6 @@ import com.allzai.form.BasicForm;
 /**
  * 注册用户Form<p>
  * convertUserBean需要调整
- * 
- * @author  Eric
- * @version hasoffer-0.0.1, 2013-10-10
- * @since   JDK 1.6
  */
 public class RegeistUserForm extends BasicForm implements Serializable
 {

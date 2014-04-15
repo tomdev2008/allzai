@@ -8,19 +8,12 @@ import com.allzai.exception.DaoException;
 
 /**
  * 提供系统基础信息的加载服务<p>
- * 比如：未删除广告,APP,礼物，系统配置信息缓存
- * 
- * @author  Eric
- * @version hasoffer-0.0.1, 2013-9-7
- * @see     SystemCacheSlaveDao
- * @since   JDK 1.6
  */
 public class SystemCacheServer 
 {
 	private static final SystemCacheServer sysCacgeService = new SystemCacheServer();
 
-	public static SystemCacheServer getInstance()
-	{
+	public static SystemCacheServer getInstance() {
 		return SystemCacheServer.sysCacgeService;
 	}
 	
@@ -32,8 +25,8 @@ public class SystemCacheServer
 	 * @return
 	 * @throws DaoException
 	 */
-	public void loadConfigData(Timestamp updateTimeToken, Map<String, Map<String, Object>> configCacheMap) throws DaoException
-	{
+	public void loadConfigData(Timestamp updateTimeToken, Map<String, Map<String, Object>> configCacheMap) throws DaoException {
+		
 		SystemCacheSlaveDao.getInstance().queryConfigData(updateTimeToken, configCacheMap);
 	}
 	

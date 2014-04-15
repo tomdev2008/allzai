@@ -12,11 +12,6 @@ import com.restfb.json.JsonObject;
 
 /**
  * 提供系统配置管理服务
- * 
- * @author  Eric
- * @version hasoffer-0.0.1, 2013-9-10
- * @see     ServerEnvLoader.configCacheMap
- * @since   JDK 1.6
  */
 public class SystemConfigServer 
 {

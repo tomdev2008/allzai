@@ -7,17 +7,9 @@ import com.allzai.bean.BaseBean;
 
 /**
  * 对符合规则的BaseBean类型提供公共的添加、修改方法
- * 
- * @author  Eric
- * @version hasoffer-0.0.1, 2013-9-17
- * @see     TransactionDaoSupport
- * @since   JDK 1.6
  */
 public class ManulBeanDao extends TransactionDaoSupport<BaseBean> 
 {
-
-//	private static ManulBeanDao transacDao = new ManulBeanDao();
-	
 	/**
 	 * 添加一个简单的Bean 并返回去其ID<p>
 	 *  Bean 必须实现getSaveCondition()方法

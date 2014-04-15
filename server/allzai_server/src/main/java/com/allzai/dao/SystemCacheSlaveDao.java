@@ -10,11 +10,6 @@ import com.allzai.util.JsonUtil;
 
 /**
  * 系统缓存读取
- * 
- * @author  Eric
- * @version hasoffer-0.0.1, 2013-9-7
- * @see     BaseJdbcDaoSupport
- * @since   JDK 1.6
  */
 public class SystemCacheSlaveDao extends BaseJdbcDaoSupport<Object> 
 {

@@ -14,11 +14,6 @@ import com.restfb.json.JsonObject;
 
 /**
  * 用户注册
- * 
- * @author Eric
- * @version hasoffer-0.0.1, 2013-9-12
- * @see UserManageServer#registerUser(com.yeahmobi.gamelala.bean.UserBean)
- * @since JDK 1.6
  */
 public class UserRegisterAction extends BaseActionSupport {
 

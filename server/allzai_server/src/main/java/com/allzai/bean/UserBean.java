@@ -10,10 +10,6 @@ import com.allzai.util.StringUtil;
 
 /**
  * 用户实体类
- * 
- * @author  Eric
- * @version hasoffer-0.0.1, 2013-9-7
- * @since   JDK 1.6
  */
 public class UserBean extends BaseBean implements Comparable<UserBean> 
 {

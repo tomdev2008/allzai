@@ -9,10 +9,6 @@ import com.allzai.dao.BaseJdbcDaoSupport;
 import com.allzai.system.DatabaseManager;
 
 /**
- * 
- * @author  Eric
- * @version hasoffer-0.0.1, 2013-11-28
- * @since   JDK 1.6
  */
 public class DeviceUserDao extends BaseJdbcDaoSupport<BaseBean> 
 {
@@ -24,11 +20,6 @@ public class DeviceUserDao extends BaseJdbcDaoSupport<BaseBean>
 		return deviceUserDao;
 	}
 
-	private DeviceUserDao()
-	{
-		
-	}
-	
 	public Connection getConnection() 
 	{
 		return DatabaseManager.getSlaveConn();

@@ -10,18 +10,11 @@ import com.restfb.json.JsonObject;
 
 /**
  * 获取系统配置处理类
- * 
- * @author  Eric
- * @version hasoffer-0.0.1, 2013-9-10
- * @since   JDK 1.6
  */
 public class GetSysConfigAction extends BaseActionSupport 
 {
 	private static final long serialVersionUID = -8090111614472435948L;
 
-	/* (non-Javadoc)
-	 * @see com.yeahmobi.hasoffer.action.BaseActionSupport#doAutoAction(com.yeahmobi.hasoffer.bean.InputBean, javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
-	 */
 	public JsonObject doAutoAction(Object obj, HttpServletRequest req,
 			HttpServletResponse resp) throws Exception 
 	{
@@ -30,9 +23,6 @@ public class GetSysConfigAction extends BaseActionSupport
 		return SystemConfigServer.getInstance().getSysConfigListForJson(form);
 	}
 
-	/* (non-Javadoc)
-	 * @see com.yeahmobi.hasoffer.action.BaseActionSupport#getFromBean()
-	 */
 	public Class<SysConfigForm> getFromBean() 
 	{
 		return SysConfigForm.class;

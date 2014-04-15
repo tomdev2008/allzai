@@ -13,8 +13,7 @@ public class LoginUserServer {
 	
 	 private static final LoginUserServer loginUserServer = new LoginUserServer();
 		
-	public static LoginUserServer getInstance()
-	{
+	public static LoginUserServer getInstance() {
 		return loginUserServer;
 	}
 	

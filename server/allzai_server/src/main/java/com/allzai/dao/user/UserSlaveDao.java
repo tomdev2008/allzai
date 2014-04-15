@@ -12,10 +12,6 @@ import com.allzai.system.DatabaseManager;
 
 /**
  * 用户管理读取Dao
- * 
- * @author  Eric
- * @version hasoffer-0.0.1, 2013-9-11
- * @since   JDK 1.6
  */
 public class UserSlaveDao extends BaseJdbcDaoSupport<Map<String, Object>> 
 {

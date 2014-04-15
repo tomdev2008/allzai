@@ -18,11 +18,6 @@ import com.allzai.util.StringUtil;
 
 /**
  * 基本JDBC数据操作类，自主事务<p>
- * 
- * @author  Eric
- * @version hasoffer-0.0.1, 2013-9-6
- * @see     IBaseDao
- * @since   JDK 1.6
  */
 public abstract class BaseJdbcDaoSupport<T> implements IBaseDao<T>
 {

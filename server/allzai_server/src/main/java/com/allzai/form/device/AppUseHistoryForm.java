@@ -9,12 +9,6 @@ import com.allzai.util.StringUtil;
 
 /**
  * 用户App装卸历史表单
- * 
- * @author  Eric
- * @version hasoffer-0.0.1, 2013-10-11
- * @see     UserAppBean
- * @see     JsonUtil#getDTO(String, Class)
- * @since   JDK 1.6
  */
 public class AppUseHistoryForm extends BasicForm 
 {

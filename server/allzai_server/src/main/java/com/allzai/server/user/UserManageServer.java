@@ -2,8 +2,6 @@ package com.allzai.server.user;
 
 import java.util.Map;
 
-import org.apache.log4j.Logger;
-
 import com.allzai.bean.UserBean;
 import com.allzai.dao.ManulBeanDao;
 import com.allzai.dao.TransactionManager;
@@ -13,20 +11,12 @@ import com.allzai.util.Constants;
 
 /**
  * 提供用户信息管理服务
- * 
- * @author Eric
- * @version hasoffer-0.0.1, 2013-9-11
- * @see     UserSlaveDao
- * @since JDK 1.6
  */
 public class UserManageServer 
 {
 	private static final UserManageServer userService = new UserManageServer();
 
-	private static final Logger logger = Logger.getLogger(UserManageServer.class);
-
-	public static UserManageServer getInstance() 
-	{
+	public static UserManageServer getInstance() {
 		return UserManageServer.userService;
 	}
 	
@@ -72,8 +62,8 @@ public class UserManageServer
 		}
 		catch (Exception e)
 		{
+			e.printStackTrace();
 			regisResult = e.toString();
-			logger.warn("Registered users fail, detailed information is as follows:", e);
 			TransactionManager.rollback();
 		}
 		finally 

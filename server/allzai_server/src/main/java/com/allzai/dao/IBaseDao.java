@@ -5,11 +5,6 @@ import java.util.Map;
 
 /**
  * 基本的DB操作接口 自动提交事务
- * 
- * @author  Eric
- * @version hasoffer-0.0.1, 2013-9-6
- * @param   <T> 参数类型
- * @since   JDK 1.6
  */
 public interface IBaseDao<T> extends ITransformDao<T>
 {

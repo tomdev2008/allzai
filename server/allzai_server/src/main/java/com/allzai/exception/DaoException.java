@@ -4,10 +4,6 @@ package com.allzai.exception;
 /**
  * Dao层异常类<p>
  * 所有DAO层都抛出此异常。
- * 
- * @author Eric
- * @version hasoffer-0.0.1, 2013-9-6
- * @since JDK 1.6
  */
 public class DaoException extends Exception 
 {

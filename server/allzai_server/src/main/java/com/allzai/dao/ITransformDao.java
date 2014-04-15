@@ -4,10 +4,6 @@ import java.sql.Connection;
 
 /**
  * AUD上级接口<p>
- * 
- * @author  Eric
- * @version hasoffer-0.0.1, 2013-9-17
- * @since   JDK 1.6
  */
 public interface ITransformDao<T> 
 {

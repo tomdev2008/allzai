@@ -4,10 +4,6 @@ import java.text.SimpleDateFormat;
 
 /**
  * 系统常量类
- * 
- * @author  Eric
- * @version hasoffer-0.0.1, 2013-9-6
- * @since   JDK 1.6
  */
 public final class Constants
 {

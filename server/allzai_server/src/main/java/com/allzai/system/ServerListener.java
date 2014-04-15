@@ -9,11 +9,6 @@ import com.allzai.util.LangUtil;
 
 /**
  * 装载系统初始资源
- * 
- * @author  Eric
- * @version hasoffer-0.0.1, 2013-9-7
- * @see     DatabaseManager
- * @since   JDK 1.6
  */
 public class ServerListener implements ServletContextListener 
 {

@@ -10,11 +10,6 @@ import com.restfb.json.JsonObject;
 
 /**
  * 用户APP装卸历史接口<p>
- * 
- * @author  Eric
- * @version hasoffer-0.0.1, 2013-10-11
- * @see     AppUseHistoryServer#recordUserAppInfo(AppUseHistoryForm)
- * @since   JDK 1.6
  */
 public class InstallReportAction extends BaseActionSupport 
 {
