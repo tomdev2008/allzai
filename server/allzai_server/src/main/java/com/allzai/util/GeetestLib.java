@@ -4,13 +4,10 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.io.UnsupportedEncodingException;
 import java.net.InetAddress;
 import java.net.Socket;
-import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-
 
 public class GeetestLib {
 	private String privateKey;
@@ -66,12 +63,7 @@ public class GeetestLib {
         rd.close();
         return response;
     }
-    //杞负UTF8缂栫爜
-    private String fixEncoding(String str) throws UnsupportedEncodingException{
-    	String tempStr = new String(str.getBytes("UTF-8"));  
-        return URLEncoder.encode(tempStr, "UTF-8");  
-    }
-    
+
     //md5 鍔犲瘑
     public String md5Encode(String plainText) {
         String re_md5 = new String();

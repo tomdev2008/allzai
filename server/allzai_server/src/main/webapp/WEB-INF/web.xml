@@ -109,4 +109,44 @@
 		<url-pattern>/public/gameNotice</url-pattern>
 	</servlet-mapping>
 
+	<!-- paypal通知 -->
+	<servlet>
+		<servlet-name>SyncPayPal</servlet-name>
+		<servlet-class>com.allzai.action.paypal.SyncPayPalAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SyncPayPal</servlet-name>
+		<url-pattern>/paypal/syncPayPal</url-pattern>
+	</servlet-mapping>
+	
+	<!-- paypal设置 -->
+	<servlet>
+		<servlet-name>SetExpress</servlet-name>
+		<servlet-class>com.allzai.action.paypal.SetExpressCheckout</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SetExpress</servlet-name>
+		<url-pattern>/EC/setExpress</url-pattern>
+	</servlet-mapping>
+	
+	<!-- paypal获取 -->
+	<servlet>
+		<servlet-name>GetExpress</servlet-name>
+		<servlet-class>com.allzai.action.paypal.GetExpressCheckout</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetExpress</servlet-name>
+		<url-pattern>/EC/getExpress</url-pattern>
+	</servlet-mapping>
+	
+	<!-- paypal执行 -->
+	<servlet>
+		<servlet-name>DoExpress</servlet-name>
+		<servlet-class>com.allzai.action.paypal.DoExpressCheckout</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DoExpress</servlet-name>
+		<url-pattern>/EC/doExpress</url-pattern>
+	</servlet-mapping>
+
 </web-app>
