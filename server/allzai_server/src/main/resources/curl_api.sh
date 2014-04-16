@@ -1,8 +1,8 @@
 #/bin/bash 
 
-sdk_call_game_api=$1
+curl_call_api=$1
 query=$2
 
-curl -d '$query' --user-agent 'curl/UA-lalasdk' $sdk_call_game_api
+curl -d '$query' --user-agent 'curl/UA-allzai' $curl_call_api
 
 exit

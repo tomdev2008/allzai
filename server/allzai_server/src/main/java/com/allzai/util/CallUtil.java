@@ -18,13 +18,13 @@ public class CallUtil {
 			try {
 				properties.load(CallUtil.class.getResourceAsStream(CONFIG_FILE));
 				
-				shellMap.put("sdk_call_game_path", properties.getProperty("sdk_call_game_path"));			//助手通知游戏的脚本路径
+				shellMap.put("curl_call_path", properties.getProperty("curl_call_path"));
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
 		
-		return CmdUtil.execCmdMethod(shellMap.get("sdk_call_game_path"), String.valueOf(callback), query);
+		return CmdUtil.execCmdMethod(shellMap.get("curl_call_path"), String.valueOf(callback), query);
 		
 	}
 
