@@ -38,7 +38,7 @@ public abstract class BaseActionSupport extends HttpServlet
 		try {
 			req.setCharacterEncoding("UTF-8");
 			resp.setCharacterEncoding("UTF-8");
-			resp.setContentType("text/json");
+			resp.setContentType("text/html");
 			
 			resp.getWriter().append(Hosts.InvalidRequestResponse(Hosts.getIpAddr(req),  "-1x0001"));
 		} catch (Exception e) {
@@ -63,7 +63,7 @@ public abstract class BaseActionSupport extends HttpServlet
 	{
 		req.setCharacterEncoding("UTF-8");
 		resp.setCharacterEncoding("UTF-8");
-		resp.setContentType("text/json");
+		resp.setContentType("text/html");
 		
 		String ip = Hosts.getIpAddr(req);
 		IPLocation location = IPSeeker.getInstance().getIPLocation(ip);
