@@ -11,6 +11,7 @@ import urn.ebay.api.PayPalAPI.GetExpressCheckoutDetailsResponseType;
 import urn.ebay.api.PayPalAPI.PayPalAPIInterfaceServiceService;
 
 import com.allzai.action.BaseActionSupport;
+import com.allzai.form.paypal.GetExpressForm;
 import com.allzai.util.Configuration;
 import com.restfb.json.JsonObject;
 
@@ -63,9 +64,8 @@ public class GetExpressCheckout extends BaseActionSupport {
 	}
 
 	@Override
-	public Class<?> getFromBean() {
-		// TODO Auto-generated method stub
-		return null;
+	public Class<GetExpressForm> getFromBean() {
+		return GetExpressForm.class;
 	}
 
 }

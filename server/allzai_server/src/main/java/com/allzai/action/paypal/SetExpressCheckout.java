@@ -19,6 +19,7 @@ import urn.ebay.apis.eBLBaseComponents.PaymentDetailsType;
 import urn.ebay.apis.eBLBaseComponents.SetExpressCheckoutRequestDetailsType;
 
 import com.allzai.action.BaseActionSupport;
+import com.allzai.form.paypal.SetExpressForm;
 import com.allzai.util.Configuration;
 import com.restfb.json.JsonObject;
 
@@ -120,9 +121,8 @@ public class SetExpressCheckout extends BaseActionSupport {
 	}
 
 	@Override
-	public Class<?> getFromBean() {
-		// TODO Auto-generated method stub
-		return null;
+	public Class<SetExpressForm> getFromBean() {
+		return SetExpressForm.class;
 	}
 
 }

@@ -14,7 +14,7 @@ import com.allzai.util.CallUtil;
 
 public class SyncPayPalServer {
 	
-private static final SyncPayPalServer syncPayPalServer = new SyncPayPalServer();
+	private static final SyncPayPalServer syncPayPalServer = new SyncPayPalServer();
 	
 	private static final Logger logger = Logger.getLogger(SyncPayPalServer.class);
 
