@@ -21,7 +21,7 @@ public class SetExpressCheckout extends BaseActionSupport {
 		
 		SetExpressForm form = (SetExpressForm) obj;
 
-		return CheckoutServer.getInstance().setExpressCheckOut(form);
+		return CheckoutServer.getInstance().setExpressCheckOut(form, req.getServerName(), req.getServerPort(), req.getContextPath());
 	}
 
 	@Override
