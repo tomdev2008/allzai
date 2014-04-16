@@ -18,7 +18,7 @@ public class QuickLogonAction extends BaseActionSupport {
 
 		QuickLogonForm form = (QuickLogonForm) obj;
 		
-		return QuickLogonServer.getInstance().doQuickLogon(form);
+		return QuickLogonServer.getInstance().doQuickLogon(form, req);
 	}
 
 	@Override

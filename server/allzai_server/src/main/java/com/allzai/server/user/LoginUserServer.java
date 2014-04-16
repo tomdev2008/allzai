@@ -2,10 +2,13 @@ package com.allzai.server.user;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import com.allzai.dao.user.UserSlaveDao;
 import com.allzai.des3.ThreeDESUtil;
 import com.allzai.form.user.LoginUserForm;
 import com.allzai.util.Constants;
+import com.allzai.util.GeetestLib;
 import com.allzai.util.JsonUtil;
 import com.restfb.json.JsonObject;
 
@@ -17,7 +20,7 @@ public class LoginUserServer {
 		return loginUserServer;
 	}
 	
-	public JsonObject doLoginUser(LoginUserForm form) throws Exception {
+	public JsonObject doLoginUser(LoginUserForm form, HttpServletRequest req) throws Exception {
 		
 		JsonObject json = new JsonObject();
 		
@@ -28,6 +31,20 @@ public class LoginUserServer {
 				 */
 				json.put("result", Boolean.FALSE);
 				json.put("code", "Fx0004");
+				return json;
+			}
+			
+			GeetestLib geetest = new GeetestLib(Constants.GEETEST_KEY);
+			boolean result = geetest.validate(
+					req.getParameter("geetest_challenge"),
+					req.getParameter("geetest_validate"),
+					req.getParameter("geetest_seccode"));
+			if (!result) {
+				/**
+				 * Fx0005:验证图片错误
+				 */
+				json.put("result", Boolean.FALSE);
+				json.put("code", "Fx0005");
 				return json;
 			}
 

@@ -18,7 +18,7 @@ public class UserLoginAction extends BaseActionSupport {
 		
 		LoginUserForm form = (LoginUserForm) obj;
 		
-		return LoginUserServer.getInstance().doLoginUser(form);
+		return LoginUserServer.getInstance().doLoginUser(form, req);
 	}
 
 	@Override

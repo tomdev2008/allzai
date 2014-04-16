@@ -2,12 +2,15 @@ package com.allzai.server.guest;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import com.allzai.dao.guest.QuickLogonDao;
 import com.allzai.dao.user.UserSlaveDao;
 import com.allzai.des3.ThreeDESUtil;
 import com.allzai.exception.DaoException;
 import com.allzai.form.guest.QuickLogonForm;
 import com.allzai.util.Constants;
+import com.allzai.util.GeetestLib;
 import com.allzai.util.JsonUtil;
 import com.restfb.json.JsonObject;
 
@@ -19,7 +22,7 @@ public class QuickLogonServer {
 		return quickLogonServer;
 	}
 
-	public JsonObject doQuickLogon(QuickLogonForm form) throws Exception {
+	public JsonObject doQuickLogon(QuickLogonForm form, HttpServletRequest req) throws Exception {
 		
 		JsonObject json = new JsonObject();
 
@@ -29,6 +32,20 @@ public class QuickLogonServer {
 			 */
 			json.put("result", Boolean.FALSE);
 			json.put("code", "Fx0103");
+			return json;
+		}
+		
+		GeetestLib geetest = new GeetestLib(Constants.GEETEST_KEY);
+		boolean result = geetest.validate(
+				req.getParameter("geetest_challenge"),
+				req.getParameter("geetest_validate"),
+				req.getParameter("geetest_seccode"));
+		if (!result) {
+			/**
+			 * Fx0104:验证图片错误
+			 */
+			json.put("result", Boolean.FALSE);
+			json.put("code", "Fx0104");
 			return json;
 		}
 

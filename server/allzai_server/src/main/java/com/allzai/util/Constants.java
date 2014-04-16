@@ -4,6 +4,9 @@ import java.text.SimpleDateFormat;
 
 public final class Constants
 {
+	
+	public static final String GEETEST_ID = "de7689d1283867a3b72f3ee0da8641db";
+	public static final String GEETEST_KEY = "3e81ef75d797e93c3496736b457ea3f6";
 
 	public static final int index_tk_deocde = 1;
 	public static final int index_pw_deocde = 2;
