@@ -9,10 +9,7 @@ import com.allzai.server.guest.QuickLogonServer;
 import com.restfb.json.JsonObject;
 
 public class QuickLogonAction extends BaseActionSupport {
-	
-	/**
-	 * 快速登录
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	@Override

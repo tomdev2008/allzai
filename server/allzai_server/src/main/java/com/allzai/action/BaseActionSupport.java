@@ -17,25 +17,13 @@ import com.allzai.util.Hosts;
 import com.allzai.util.LangUtil;
 import com.restfb.json.JsonObject;
 
-/**
- * 响应动作支持类，返回类型为JSON<p>
- */
 public abstract class BaseActionSupport extends HttpServlet 
 {
 
 	private static final long serialVersionUID = 7371056226740639176L;
 	
 	private static final Logger logger = Logger.getLogger(BaseActionSupport.class);
-	
-	/**
-	 * 自动响应执行结果<p>
-	 * 
-	 * @param  input
-	 * @param  req
-	 * @param  resp 
-	 * @return String 执行结果
-	 * @throws Exception
-	 */
+
 	public abstract JsonObject doAutoAction(Object obj, HttpServletRequest req, HttpServletResponse resp) throws Exception;
 	
 	@Override
@@ -43,7 +31,7 @@ public abstract class BaseActionSupport extends HttpServlet
 			throws ServletException, IOException 
 	{
 		/**
-		 * -10001:不支持GET请求
+		 * -10001:涓嶆敮鎸丟ET璇锋眰
 		 */
 		try {
 			req.setCharacterEncoding("UTF-8");
@@ -95,7 +83,7 @@ public abstract class BaseActionSupport extends HttpServlet
 			logger.warn("Failed: getFromBean() Exception", e);
 			
 			/**
-			 * -1x0002:内部解析异常
+			 * -1x0002:鍐呴儴瑙ｆ瀽寮傚父
 			 */
 			resp.getWriter().append(Hosts.InvalidRequestResponse(ip, "-1x0002"));
 			return;
@@ -116,14 +104,14 @@ public abstract class BaseActionSupport extends HttpServlet
 			logger.error("Failed: doAutoAction() Exception", e);
 
 			/**
-			 * -1x0003:内部处理异常
+			 * -1x0003:鍐呴儴澶勭悊寮傚父
 			 */
 			resp.getWriter().append(Hosts.InvalidRequestResponse(ip, "-1x0003"));
 		}
 	}
 
 	/**
-	 * 匹配接口参数类型
+	 * 鍖归厤鎺ュ彛鍙傛暟绫诲瀷
 	 * 
 	 * @return
 	 */

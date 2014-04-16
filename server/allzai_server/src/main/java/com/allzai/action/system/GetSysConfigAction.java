@@ -8,14 +8,8 @@ import com.allzai.form.config.SysConfigForm;
 import com.allzai.server.config.SystemConfigServer;
 import com.restfb.json.JsonObject;
 
-/**
- * 获取系统配置处理类
- */
 public class GetSysConfigAction extends BaseActionSupport {
-	
-	/**
-	 * 系统配置
-	 */
+
 	private static final long serialVersionUID = -8090111614472435948L;
 
 	public JsonObject doAutoAction(Object obj, HttpServletRequest req,

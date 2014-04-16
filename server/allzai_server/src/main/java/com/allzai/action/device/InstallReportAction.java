@@ -9,10 +9,7 @@ import com.allzai.server.device.AppUseHistoryServer;
 import com.restfb.json.JsonObject;
 
 public class InstallReportAction extends BaseActionSupport {
-	
-	/**
-	 * 安装上报
-	 */
+
 	private static final long serialVersionUID = -6130789374169942239L;
 
 	@Override

@@ -10,9 +10,6 @@ import com.restfb.json.JsonObject;
 
 public class FileUploadAction extends BaseActionSupport {
 
-	/**
-	 * 头像文件上传
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Override

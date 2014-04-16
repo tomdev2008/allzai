@@ -10,9 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 
 public class AliveAction extends HttpServlet {
 
-	/**
-	 * 响应负载均衡
-	 */
 	private static final long serialVersionUID = 2220197112877320346L;
 	
 	@Override

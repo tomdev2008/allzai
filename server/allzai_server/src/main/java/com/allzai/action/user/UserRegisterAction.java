@@ -14,9 +14,6 @@ import com.restfb.json.JsonObject;
 
 public class UserRegisterAction extends BaseActionSupport {
 
-	/**
-	 *  用户注册
-	 */
 	private static final long serialVersionUID = 5400375127584759786L;
 
 	@Override

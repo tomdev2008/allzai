@@ -10,9 +10,6 @@ import com.restfb.json.JsonObject;
 
 public class DeviceReportAction extends BaseActionSupport {
 
-	/**
-	 * 设备上报
-	 */
 	private static final long serialVersionUID = 5999635462092011193L;
 
 	@Override

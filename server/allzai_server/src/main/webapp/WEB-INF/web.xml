@@ -2,15 +2,14 @@
 <web-app xmlns:javaee="http://java.sun.com/xml/ns/javaee"
 	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
-	<display-name>az</display-name>
+	<display-name>allzai_server</display-name>
 
-	<!-- 监听服务 -->
+	<!-- 系统监听 -->
 	<listener>
-		<javaee:listener-class>com.allzai.system.ServerListener
-		</javaee:listener-class>
+		<listener-class>com.allzai.system.ServerListener</listener-class>
 	</listener>
 
-	<!-- 响应状态 -->
+	<!-- 服务响应 -->
 	<servlet>
 		<servlet-name>AliveAction</servlet-name>
 		<servlet-class>com.allzai.action.alive.AliveAction</servlet-class>
@@ -99,5 +98,4 @@
 		<servlet-name>GameNotice</servlet-name>
 		<url-pattern>/public/gameNotice</url-pattern>
 	</servlet-mapping>
-
 </web-app>

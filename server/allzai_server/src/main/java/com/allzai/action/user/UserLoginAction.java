@@ -10,9 +10,6 @@ import com.restfb.json.JsonObject;
 
 public class UserLoginAction extends BaseActionSupport {
 
-	/**
-	 * 用户登录
-	 */
 	private static final long serialVersionUID = -2437294960165906142L;
 
 	@Override

@@ -7,12 +7,12 @@ import java.util.Properties;
 
 public class LangUtil {
 	
-	private static Map<String, String> codeInfoMap = new HashMap<String, String>();
-	
 	private static final Properties properties = new Properties();
 	private static final String CONFIG_FILE = "/lang.properties";
 	
-	private static Map<String, String> langMap = new HashMap<String, String>(2);
+	private static Map<String, String> codeInfoMap = new HashMap<String, String>();
+	private static Map<String, String> langMap = new HashMap<String, String>(1);
+	
 	public static String defaultLang = "zh_CN";
 	
 	/**
