@@ -63,6 +63,16 @@
 		<url-pattern>/public/userLogin</url-pattern>
 	</servlet-mapping>
 
+	<!-- 快速登录 -->
+	<servlet>
+		<servlet-name>QuickLogon</servlet-name>
+		<servlet-class>com.allzai.action.guest.QuickLogonAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>QuickLogon</servlet-name>
+		<url-pattern>/public/quickLogon</url-pattern>
+	</servlet-mapping>
+
 	<!-- 上报设备 -->
 	<servlet>
 		<servlet-name>DeviceReport</servlet-name>
