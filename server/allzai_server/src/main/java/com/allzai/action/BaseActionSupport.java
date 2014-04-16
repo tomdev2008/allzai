@@ -78,6 +78,8 @@ public abstract class BaseActionSupport extends HttpServlet
 				obj = getFromBean().newInstance();
 				Map<String, String> map = new HashMap<String, String>(req.getParameterMap());
 				map.put("ip", ip);
+				map.put("area", area);
+				map.put("country", country);
 				BeanUtils.populate(obj, map);
 				logger.info("ip = " + ip + ", area = " + area + ", country = " + country + ", req = " + obj.toString());
 			}

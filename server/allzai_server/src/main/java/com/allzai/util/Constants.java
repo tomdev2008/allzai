@@ -50,6 +50,7 @@ public final class Constants
 
 	public static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	public static final SimpleDateFormat dataFormat = new SimpleDateFormat("yyyy-MM-dd");
+	public static final SimpleDateFormat orderFormat = new SimpleDateFormat("yyyyMMddSS");
 	
 	public static final String LEVEL_SYSTEM = "system";
 	public static final String LEVEL_FUNCTION = "function";

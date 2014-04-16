@@ -21,6 +21,26 @@ public abstract class BasicForm implements Serializable
 	
 	private String ip;
 	
+	private String area;
+	
+	private String country;
+	
+	public String getArea() {
+		return area;
+	}
+
+	public void setArea(String area) {
+		this.area = area;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
 	public int getUserId() {
 		return userId;
 	}
@@ -68,7 +88,8 @@ public abstract class BasicForm implements Serializable
 	@Override
 	public String toString() {
 		return "BasicForm [userId=" + userId + ", platform=" + platform
-				+ ", ip=" + ip + ", imei=" + imei + "]";
+				+ ", ip=" + ip + ", area=" + area + ", country=" + country
+				+ ", imei=" + imei + "]";
 	}
 	
 	
