@@ -2,18 +2,15 @@
 <web-app xmlns:javaee="http://java.sun.com/xml/ns/javaee"
 	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
-	<javaee:display-name>allzai_server</javaee:display-name>
+	<display-name>az</display-name>
 
-	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
-	</welcome-file-list>
-
-	<!-- 系统监听 -->
+	<!-- 监听服务 -->
 	<listener>
-		<listener-class>com.allzai.system.ServerListener</listener-class>
+		<javaee:listener-class>com.allzai.system.ServerListener
+		</javaee:listener-class>
 	</listener>
 
-	<!-- 服务响应 -->
+	<!-- 响应状态 -->
 	<servlet>
 		<servlet-name>AliveAction</servlet-name>
 		<servlet-class>com.allzai.action.alive.AliveAction</servlet-class>
@@ -23,7 +20,7 @@
 		<url-pattern>/private/alive</url-pattern>
 	</servlet-mapping>
 
-	<!-- 头像上传 -->
+	<!-- 文件上传 -->
 	<servlet>
 		<servlet-name>FileUpload</servlet-name>
 		<servlet-class>com.allzai.action.upload.FileUploadAction</servlet-class>
@@ -33,7 +30,7 @@
 		<url-pattern>/secure/fileUpload</url-pattern>
 	</servlet-mapping>
 
-	<!-- 系统设置 -->
+	<!-- 系统配置 -->
 	<servlet>
 		<servlet-name>GetSysConfig</servlet-name>
 		<servlet-class>com.allzai.action.system.GetSysConfigAction</servlet-class>
@@ -73,7 +70,7 @@
 		<url-pattern>/public/quickLogon</url-pattern>
 	</servlet-mapping>
 
-	<!-- 上报设备 -->
+	<!-- 设备上报 -->
 	<servlet>
 		<servlet-name>DeviceReport</servlet-name>
 		<servlet-class>com.allzai.action.device.DeviceReportAction</servlet-class>
@@ -83,7 +80,7 @@
 		<url-pattern>/public/deviceReport</url-pattern>
 	</servlet-mapping>
 
-	<!-- 上报应用 -->
+	<!-- 安装上报 -->
 	<servlet>
 		<servlet-name>InstallReport</servlet-name>
 		<servlet-class>com.allzai.action.device.InstallReportAction</servlet-class>

@@ -2,10 +2,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.allzai.allzai_server</groupId>
-	<artifactId>allzai_server</artifactId>
+	<groupId>com.allzai.az</groupId>
+	<artifactId>az</artifactId>
 	<packaging>war</packaging>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1-AZ</version>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -90,7 +90,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>allzai_server</finalName>
+		<finalName>az</finalName>
 	</build>
 
 </project>
