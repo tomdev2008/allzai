@@ -53,26 +53,18 @@ body {
 				<script type="text/javascript"
 					src="http://api.geetest.com/get.php?gt=de7689d1283867a3b72f3ee0da8641db"></script>
 				<script>
-function check() {
-
-String privateKey="3e81ef75d797e93c3496736b457ea3f6";
-GeetestLib geetest=new GeetestLib(privateKey);
-boolean result = geetest.validate(request.getParameter("geetest_challenge"),request.getParameter("geetest_validate"),request.getParameter("geetest_seccode"));
-if (result){
-alert('对了');
-return true;
-}else{
-alert(错了');
-  //验证失败后的操作
-return false;
+/* 定义一个全局的变量保存验证结果 */
+/* 未通过情况下不允许提交 */
+/* 通过:1, 未通过:0 */
+function gt_custom_ajax(result, selector) {
+	if(result == 1) {
+		document.getElementById("sb").disabled=false;
+	}
 }
-
-}
-
 				</script>
 			</div>
 			<div class="row">
-				<input type="submit" value="登录" onclick="return check()" />
+				<input id="sb" type="submit" disabled="disabled" value="登录" />
 			</div>
 		</form>
 	</div>
