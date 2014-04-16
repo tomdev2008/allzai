@@ -31,12 +31,12 @@
 
 	<!-- 系统配置 -->
 	<servlet>
-		<servlet-name>GetSysConfig</servlet-name>
+		<servlet-name>GetConfig</servlet-name>
 		<servlet-class>com.allzai.action.system.GetSysConfigAction</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>GetSysConfig</servlet-name>
-		<url-pattern>/public/getSysConfig</url-pattern>
+		<servlet-name>GetConfig</servlet-name>
+		<url-pattern>/public/getConfig</url-pattern>
 	</servlet-mapping>
 
 	<!-- 用户注册 -->
