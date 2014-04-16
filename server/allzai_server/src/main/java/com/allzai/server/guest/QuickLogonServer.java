@@ -23,7 +23,7 @@ public class QuickLogonServer {
 		
 		JsonObject json = new JsonObject();
 
-		if (form == null || form.getPackageName() == null) {
+		if (form.getPackageName() == null) {
 			/**
 			 * Fx0103:参数错误
 			 */

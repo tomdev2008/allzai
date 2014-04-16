@@ -1,6 +1,8 @@
 package com.allzai.action;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -74,7 +76,9 @@ public abstract class BaseActionSupport extends HttpServlet
 		{
 			if(getFromBean() != null) {
 				obj = getFromBean().newInstance();
-				BeanUtils.populate(obj, req.getParameterMap());
+				Map<String, String> map = new HashMap<String, String>(req.getParameterMap());
+				map.put("ip", ip);
+				BeanUtils.populate(obj, map);
 				logger.info("ip = " + ip + ", area = " + area + ", country = " + country + ", req = " + obj.toString());
 			}
 		} 

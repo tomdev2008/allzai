@@ -69,6 +69,16 @@
 		<url-pattern>/public/quickLogon</url-pattern>
 	</servlet-mapping>
 
+	<!-- 网络查询 -->
+	<servlet>
+		<servlet-name>NetWork</servlet-name>
+		<servlet-class>com.allzai.action.isp.NetWorkAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>NetWork</servlet-name>
+		<url-pattern>/public/netWork</url-pattern>
+	</servlet-mapping>
+
 	<!-- 设备上报 -->
 	<servlet>
 		<servlet-name>DeviceReport</servlet-name>
@@ -98,4 +108,5 @@
 		<servlet-name>GameNotice</servlet-name>
 		<url-pattern>/public/gameNotice</url-pattern>
 	</servlet-mapping>
+
 </web-app>
