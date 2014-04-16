@@ -89,4 +89,8 @@ public final class Constants
 	public static final String LEVEL_SYSTEM = "system";
 	public static final String LEVEL_FUNCTION = "function";
 	
+	/**用户类型的分类*/
+	public static final int NORMAL_USER_ROLE = 0;
+	public static final int GUEST_USER_ROLE = 1;
+	
 }

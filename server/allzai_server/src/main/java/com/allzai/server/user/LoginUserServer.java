@@ -47,7 +47,7 @@ public class LoginUserServer {
 			int userId = Integer.parseInt(String.valueOf(users.get("id")));
 			
 			//添加交互字段
-			users.put("tk", ThreeDESUtil.Encode(userId + "_" + form.getImei() + "_0", Constants.index_tk_deocde));
+			users.put("tk", ThreeDESUtil.Encode(userId + "_" + form.getImei()+ "_" + Constants.NORMAL_USER_ROLE, Constants.index_tk_deocde));
 			/**
 			 * Fx0000:登录成功
 			 */
