@@ -23,7 +23,7 @@ public class QuickLogonServer {
 		
 		JsonObject json = new JsonObject();
 
-		if (form == null || form.getImei() == null || form.getPackageName() == null) {
+		if (form == null || form.getPackageName() == null) {
 			/**
 			 * Fx0103:参数错误
 			 */
@@ -64,7 +64,7 @@ public class QuickLogonServer {
 		}
 
 		// 添加交互字段
-		userMap.put("tk", ThreeDESUtil.Encode(userMap.get("id") + "_" + form.getImei()+ "_" + Constants.GUEST_USER_ROLE, Constants.index_tk_deocde));
+		userMap.put("tk", ThreeDESUtil.Encode(userMap.get("id") + "_" + Constants.GUEST_USER_ROLE, Constants.index_tk_deocde));
 		/**
 		 * Fx0100:登录成功
 		 */

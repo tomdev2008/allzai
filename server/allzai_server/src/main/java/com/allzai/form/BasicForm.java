@@ -17,12 +17,6 @@ public abstract class BasicForm implements Serializable
 
 	private int userId;
 	
-	private String ver;
-	
-	private String imei;
-	
-	private String mac;
-	
 	private String platform;
 	
 	private String ip;
@@ -35,14 +29,6 @@ public abstract class BasicForm implements Serializable
 		this.userId = userId;
 	}
 
-	public String getMac() {
-		return mac;
-	}
-
-	public void setMac(String mac) {
-		this.mac = mac;
-	}
-
 	public String getIp() {
 		return ip;
 	}
@@ -50,24 +36,18 @@ public abstract class BasicForm implements Serializable
 	public void setIp(String ip) {
 		this.ip = ip;
 	}
+	
+	private String imei;
+
+	public String getImei() {
+		return imei;
+	}
+
+	public void setImei(String imei) {
+		this.imei = imei;
+	}
 
 	public abstract BaseBean convertBaseBean();
-
-	/**
-	 * @return the ver
-	 */
-	public String getVer() 
-	{
-		return ver;
-	}
-
-	/**
-	 * @param ver the ver to set
-	 */
-	public void setVer(String ver) 
-	{
-		this.ver = ver;
-	}
 
 	/**
 	 * @return the platform
@@ -85,28 +65,10 @@ public abstract class BasicForm implements Serializable
 		this.platform = platform;
 	}
 
-	
-	/**
-	 * @return the imei
-	 */
-	public String getImei() 
-	{
-		return imei;
-	}
-
-	/**
-	 * @param imei the imei to set
-	 */
-	public void setImei(String imei) 
-	{
-		this.imei = imei;
-	}
-
 	@Override
 	public String toString() {
-		return "BasicForm [userId=" + userId + ", ver=" + ver + ", imei="
-				+ imei + ", mac=" + mac + ", platform=" + platform + ", ip="
-				+ ip + "]";
+		return "BasicForm [userId=" + userId + ", platform=" + platform
+				+ ", ip=" + ip + ", imei=" + imei + "]";
 	}
 	
 	

@@ -23,7 +23,7 @@ public class QuickLogonForm extends BasicForm {
 	}
 
 	private String packageName;
-
+	
 	@Override
 	public String toString() {
 		return "QuickLogonForm [thirdParty=" + thirdParty + ", packageName="

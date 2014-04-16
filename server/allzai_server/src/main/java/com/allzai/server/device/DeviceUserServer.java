@@ -32,14 +32,11 @@ public class DeviceUserServer {
 			MobileDeviceBean device = DeviceUserDao.getInstance().getDeviceUser(form.getImei());
 			if (device == null) {
 				device = form.convertBaseBean();
-				device.setSdk_ver(form.getVer());
 				AutoBeanDao.getInstance().getAddSingleBean(device);
 			} else {
 				// 系统版本或SDK版本变更时, 同步更新设备信息
-				if (!form.getVersion().equals(device.getVersion()) 
-						|| !form.getVer().equals(device.getSdk_ver())) {
+				if (!form.getVersion().equals(device.getVersion())) {
 					device.setVersion(form.getVersion());
-					device.setSdk_ver(form.getVer());
 					AutoBeanDao.getInstance().editSingleBean(device);
 				}
 			}
