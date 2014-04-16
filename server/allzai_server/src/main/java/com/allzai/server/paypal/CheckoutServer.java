@@ -106,13 +106,11 @@ public class CheckoutServer {
 			} else {
 				JsonObject json = new JsonObject();
 				json.put("result", Boolean.FALSE);
-				json.put("info", "鑾峰彇楠岃瘉澶辫触");
 				return json;
 			}
 		} else {
 			JsonObject json = new JsonObject();
 			json.put("result", Boolean.FALSE);
-			json.put("info", "璇锋眰娌℃湁鍝嶅簲");
 			return json;
 		}
 		return null;
@@ -144,13 +142,11 @@ public class CheckoutServer {
 			} else {
 				JsonObject json = new JsonObject();
 				json.put("result", Boolean.FALSE);
-				json.put("info", "鑾峰彇楠岃瘉澶辫触");
 				return json;
 			}
 		} else {
 			JsonObject json = new JsonObject();
 			json.put("result", Boolean.FALSE);
-			json.put("info", "璇锋眰娌℃湁鍝嶅簲");
 			return json;
 		}
 		return null;
@@ -231,13 +227,11 @@ public class CheckoutServer {
 			} else {
 				JsonObject json = new JsonObject();
 				json.put("result", Boolean.FALSE);
-				json.put("info", "鑾峰彇楠岃瘉澶辫触");
 				return json;
 			}
 		} else {
 			JsonObject json = new JsonObject();
 			json.put("result", Boolean.FALSE);
-			json.put("info", "璇锋眰娌℃湁鍝嶅簲");
 			return json;
 		}
 		return null;
