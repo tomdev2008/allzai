@@ -40,8 +40,8 @@ body {
 <body>
 	<div class="wrap">
 
-		<h1>用户注册(<a href='login.jsp'>已有帐户,去登录</a>)</h1>
-		<form method="post" action="http://112.124.51.168:8080/allzai_server/public/userRegister">
+		<h1>用户登录(<a href='index.jsp'>没有帐户,去注册</a>)</h1>
+		<form method="post" action="http://112.124.51.168:8080/allzai_server/public/userLogin">
 			<div class="row">
 				<label for="name">邮箱</label> <input type="text" id="account"
 					name="account" value="test@allzai.com" />
@@ -59,13 +59,13 @@ body {
 /* 通过:1, 未通过:0 */
 function gt_custom_ajax(result, selector) {
 	if(result == 1) {
-		document.getElementById("rj").disabled=false;
+		document.getElementById("sb").disabled=false;
 	}
 }
 				</script>
 			</div>
 			<div class="row">
-				<input id="rj" type="submit" disabled="disabled" value="注册" />
+				<input id="sb" type="submit" disabled="disabled" value="登录" />
 			</div>
 		</form>
 
