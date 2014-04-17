@@ -169,7 +169,7 @@
 
 	<div class="container">		
 		<div class="row-fluid margin-bottom-10">
-        	<form class="reg-page" />
+        	<form class="reg-page">
             	<h3>Register a new account</h3>
                 <div class="controls">    
                     <label>First Name</label>
@@ -189,9 +189,24 @@
                         <input type="text" class="span12" />
                     </div>
                 </div>
+				
+				<div>
+				<script type="text/javascript" src="http://api.geetest.com/get.php?gt=de7689d1283867a3b72f3ee0da8641db"></script>
+				<script>
+					/* 定义一个全局的变量保存验证结果 */
+					/* 未通过情况下不允许提交 */
+					/* 通过:1, 未通过:0 */
+					function gt_custom_ajax(result, selector) {
+						if(result == 1) {
+							document.getElementById("rj").disabled=false;
+						}
+					}
+				</script>
+				</div>
+				
                 <div class="controls form-inline">
                     <label class="checkbox"><input type="checkbox" />&nbsp; I read <a href="">Terms and Conditions</a></label>
-                    <button class="btn-u pull-right" type="submit">Register</button>
+                    <button id="rj" class="btn-u pull-right" disabled="disabled" type="submit">Register</button>
                 </div>
                 <hr />
 				<p>Already Signed Up? Click <a href="page_login.html" class="color-green">Sign In</a> to login your account.</p>
