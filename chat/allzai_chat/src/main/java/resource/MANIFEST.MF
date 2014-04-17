@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: com.chat.service.MinaServer
+Class-Path: jar/log4j-1.2.16.jar jar/mina-core-2.0.4.jar jar/restfb-1.6.12.jar jar/slf4j-api-1.6.1.jar jar/slf4j-nop-1.6.1.jar
+
