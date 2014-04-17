@@ -17,6 +17,7 @@ public class CdnUtil {
 
 	private String cdn_host = "http://allzai.qiniudn.com/";
 	private String bucketName = "allzai";
+	private String storeName = "head_portrait/";
 	private String uptoken = null;
 	private PutExtra extra = null;
 	private RSClient client = null;
@@ -54,7 +55,7 @@ public class CdnUtil {
 	 * @return
 	 */
 	public String putFile2Cdn(String key, String file) {
-		PutRet ret = IoApi.putFile(this.uptoken, key, file, this.extra);
+		PutRet ret = IoApi.putFile(this.uptoken, this.storeName + key, file, this.extra);
 		return ret.getResponse();
 	}
 	
