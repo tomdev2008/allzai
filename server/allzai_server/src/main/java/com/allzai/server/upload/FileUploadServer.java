@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.apache.log4j.Logger;
 
 import com.allzai.bean.UserBean;
 import com.allzai.cdn.CdnUtil;
@@ -25,8 +24,6 @@ public class FileUploadServer {
 	private static String fileStorePath = null, fileTempPath = null;
 	
 	private static final FileUploadServer fileUploadServer = new FileUploadServer();
-	
-	private static final Logger logger = Logger.getLogger(FileUploadServer.class);
 	
 	public FileUploadServer() {initPath();}
 	
@@ -79,19 +76,13 @@ public class FileUploadServer {
 						String str = checkFileItem(item);
 						if(str != null) {code="Kx0002";break;}
 						
-						logger.info("开始生成临时文件");
-						
 						/**生成临时文件*/
 						String srcFileName = form.getUserId() + "_" + System.currentTimeMillis() + Constants.FileSuffix;
 						String path = fileTempPath + srcFileName;
 						File srcFile = new File(path);
 						
-						logger.info("开始写入文件");
-						
 						item.write(srcFile);
 						if (!srcFile.exists()) {code="Kx0003";break;}
-						
-						logger.info("开始压制存储文件");
 						
 						/**压制存储文件*/
 						String md5 = UploadFileUtil.getFileMD5String(srcFile);
@@ -101,8 +92,6 @@ public class FileUploadServer {
 						File tarFile = new File(path);
 						if(UploadFileUtil.doFileCompress(fileTempPath, fileStorePath, srcFileName, tarFileName)) {
 							
-							logger.info("开始上传到云");
-
 							/**文件上传至七牛*/
 							try {
 								JsonObject ret = new JsonObject(CdnUtil.getInstance().putFile2Cdn(key, path));
