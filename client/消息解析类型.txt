@@ -1,0 +1,34 @@
+	
+	{
+	"result":true,
+	"data":
+	[
+		{
+			"message":"你有一条系统消息",
+			"nikeName":"系统",
+			"userId":"100000",
+			"sendTime":"2014-04-17 16:17:10",
+			"msgType":"TEXT",
+			"type":1
+		},
+		{
+			"message":"吃饭了没?",
+			"nikeName":"菲菲",
+			"userId":"654321",
+			"sendTime":"2014-04-17 16:17:10",
+			"msgType":"TEXT",
+			"type":0
+		},
+		{
+			"message":"发来了一个视频",
+			"nikeName":"菲菲",
+			"userId":"654321",
+			"sendTime":"2014-04-17 16:17:11",
+			"msgType":"VIDEO",
+			"type":0
+		}
+	],
+	"code":"Dx0000",
+	"size":3,
+	"info":"接收成功"}
+
