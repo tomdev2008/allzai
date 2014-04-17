@@ -27,36 +27,6 @@ public abstract class BaseActionSupport extends HttpServlet
 	private static final Logger logger = Logger.getLogger(BaseActionSupport.class);
 
 	public abstract JsonObject doAutoAction(Object obj, HttpServletRequest req, HttpServletResponse resp) throws Exception;
-	
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException 
-	{
-		/**
-		 * -10001:涓嶆敮鎸丟ET璇锋眰
-		 */
-		try {
-			req.setCharacterEncoding("UTF-8");
-			resp.setCharacterEncoding("UTF-8");
-			resp.setContentType("text/html");
-			
-			resp.getWriter().append(Hosts.InvalidRequestResponse(Hosts.getIpAddr(req),  "-1x0001"));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return;
-	}
-
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException 
-	{
-		try {
-			this.initService(req, resp);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
 
 	private void initService(HttpServletRequest req, HttpServletResponse resp)
 			throws Exception 
@@ -89,9 +59,9 @@ public abstract class BaseActionSupport extends HttpServlet
 			logger.warn("Failed: getFromBean() Exception", e);
 			
 			/**
-			 * -1x0002:鍐呴儴瑙ｆ瀽寮傚父
+			 * -1x0001:内部解析异常
 			 */
-			resp.getWriter().append(Hosts.InvalidRequestResponse(ip, "-1x0002"));
+			resp.getWriter().append(Hosts.InvalidRequestResponse(ip, "-1x0001"));
 			return;
 		}
 
@@ -110,10 +80,24 @@ public abstract class BaseActionSupport extends HttpServlet
 			logger.error("Failed: doAutoAction() Exception", e);
 
 			/**
-			 * -1x0003:鍐呴儴澶勭悊寮傚父
+			 * -1x0002:内部处理异常
 			 */
-			resp.getWriter().append(Hosts.InvalidRequestResponse(ip, "-1x0003"));
+			resp.getWriter().append(Hosts.InvalidRequestResponse(ip, "-1x0002"));
 		}
+	}
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException 
+	{
+		try {this.initService(req, resp);} catch (Exception e) {e.printStackTrace();}
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException 
+	{
+		try {this.initService(req, resp);} catch (Exception e) {e.printStackTrace();}
 	}
 
 	/**

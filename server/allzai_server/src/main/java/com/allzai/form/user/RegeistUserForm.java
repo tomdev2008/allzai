@@ -17,34 +17,11 @@ public class RegeistUserForm extends BasicForm implements Serializable
 	private static final long serialVersionUID = 1180232489751657148L;
 	
 	//(0:官网, 1:googlePlay 2:facebook 3:twitter 4:未知)
-	private int type;
-	
-	private String name;
 	
 	private String account;
 	
 	private String password;
 	
-	private String firstName;
-	
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	private String lastName;
-
 	/* (non-Javadoc)
 	 * @see com.yeahmobi.gamelala.form.BaseForm#convertBaseBean()
 	 */
@@ -54,9 +31,6 @@ public class RegeistUserForm extends BasicForm implements Serializable
 		UserBean ub = new UserBean();
 		ub.setAccount(this.account);
 		ub.setPassword(this.password);
-		ub.setFirstName(this.firstName);
-		ub.setLastName(this.lastName);
-		ub.setNickName(this.lastName + " " + this.firstName);
 		return ub;
 	}
 	
@@ -95,47 +69,10 @@ public class RegeistUserForm extends BasicForm implements Serializable
 		this.password = password;
 	}
 
-
-	/**
-	 * @return the name
-	 */
-	public String getName() 
-	{
-		return name;
-	}
-
-
-	/**
-	 * @param name the name to set
-	 */
-	public void setName(String name) 
-	{
-		this.name = name;
-	}
-
-
-	/**
-	 * @return the type
-	 */
-	public int getType() 
-	{
-		return type;
-	}
-
-
-	/**
-	 * @param type the type to set
-	 */
-	public void setType(int type) 
-	{
-		this.type = type;
-	}
-
 	@Override
 	public String toString() {
-		return "RegeistUserForm [type=" + type + ", name=" + name
-				+ ", account=" + account + ", password=" + password
-				+ ", firstName=" + firstName + ", lastName=" + lastName + "]";
+		return "RegeistUserForm [account=" + account + ", password=" + password
+				+ "]";
 	}
 
 }

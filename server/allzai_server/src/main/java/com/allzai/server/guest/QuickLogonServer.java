@@ -26,7 +26,7 @@ public class QuickLogonServer {
 		
 		JsonObject json = new JsonObject();
 
-		if (form.getPackageName() == null) {
+		if (form.getThirdParty() == null) {
 			/**
 			 * Fx0103:参数错误
 			 */
@@ -35,11 +35,14 @@ public class QuickLogonServer {
 			return json;
 		}
 		
-		GeetestLib geetest = new GeetestLib(Constants.GEETEST_KEY);
-		boolean result = geetest.validate(
-				req.getParameter("geetest_challenge"),
-				req.getParameter("geetest_validate"),
-				req.getParameter("geetest_seccode"));
+		boolean result = false;
+		try {
+			GeetestLib geetest = new GeetestLib(Constants.GEETEST_KEY);
+			result = geetest.validate(
+					req.getParameter("geetest_challenge"),
+					req.getParameter("geetest_validate"),
+					req.getParameter("geetest_seccode"));
+		} catch (Exception ex) {ex.printStackTrace();}
 		if (!result) {
 			/**
 			 * Fx0104:验证图片错误

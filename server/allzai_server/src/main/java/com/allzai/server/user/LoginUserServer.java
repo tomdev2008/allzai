@@ -34,11 +34,14 @@ public class LoginUserServer {
 				return json;
 			}
 			
-			GeetestLib geetest = new GeetestLib(Constants.GEETEST_KEY);
-			boolean result = geetest.validate(
-					req.getParameter("geetest_challenge"),
-					req.getParameter("geetest_validate"),
-					req.getParameter("geetest_seccode"));
+			boolean result = false;
+			try {
+				GeetestLib geetest = new GeetestLib(Constants.GEETEST_KEY);
+				result = geetest.validate(
+						req.getParameter("geetest_challenge"),
+						req.getParameter("geetest_validate"),
+						req.getParameter("geetest_seccode"));
+			} catch (Exception e) {e.printStackTrace();}
 			if (!result) {
 				/**
 				 * Fx0005:验证图片错误

@@ -8,7 +8,7 @@ public class LoginUserForm extends BasicForm {
 	@Override
 	public String toString() {
 		return "LoginUserForm [account=" + account + ", password=" + password
-				+ ", packageName=" + packageName + "]";
+				+ "]";
 	}
 	/**
 	 * dhhuang
@@ -32,16 +32,6 @@ public class LoginUserForm extends BasicForm {
 	
 	public void setPassword(String password) {
 		this.password = password;
-	}
-	
-	private String packageName;
-
-	public String getPackageName() {
-		return packageName;
-	}
-	
-	public void setPackageName(String packageName) {
-		this.packageName = packageName;
 	}
 	
 	/* (non-Javadoc)

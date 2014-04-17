@@ -29,44 +29,31 @@ public class UserBean extends BaseBean implements Comparable<UserBean>
 	//角色
 	private int role;
 	
-	/** 统计累数据 begin */
-	private int credit;
-	
-	private int extendCount;
-	
-	private int exchangeCount;
-	
-	/** 统计累数据 end */
-	
-	private int deviceId;
-	
 	private int age;
 	private int gender;
 	private String nickName;
-	private String firstName;
-	private String lastName;
-	private String headPortrait;
 	private String headKey;
+	private String headPortrait;
 	private String phone;
 	private String address;
 	private String city;
-	private String state;
 	private String country;
 	private String zipcode;
 	private String contact;
-	private String imei;
-	
-	public String getImei() {
-		return imei;
-	}
-
-	public void setImei(String imei) {
-		this.imei = imei;
-	}
 
 	private Timestamp createTime;
 	private Timestamp updateTime;
 	
+	public String getHeadKey() {
+		return headKey;
+	}
+
+
+	public void setHeadKey(String headKey) {
+		this.headKey = headKey;
+	}
+
+
 	/* (non-Javadoc)
 	 * @see java.lang.Comparable#compareTo(java.lang.Object)
 	 */
@@ -92,14 +79,6 @@ public class UserBean extends BaseBean implements Comparable<UserBean>
 	public void setId(int id) 
 	{
 		this.id = id;
-	}
-
-	public String getHeadKey() {
-		return headKey;
-	}
-
-	public void setHeadKey(String headKey) {
-		this.headKey = headKey;
 	}
 
 	public int getRole() {
@@ -145,79 +124,6 @@ public class UserBean extends BaseBean implements Comparable<UserBean>
 		this.password = password;
 	}
 
-
-	/**
-	 * @return the credit
-	 */
-	public int getCredit() 
-	{
-		return credit;
-	}
-
-
-	/**
-	 * @param credit the credit to set
-	 */
-	public void setCredit(int credit) 
-	{
-		this.credit = credit;
-	}
-
-
-	/**
-	 * @return the extendCount
-	 */
-	public int getExtendCount() 
-	{
-		return extendCount;
-	}
-
-
-	/**
-	 * @param extendCount the extendCount to set
-	 */
-	public void setExtendCount(int extendCount) 
-	{
-		this.extendCount = extendCount;
-	}
-
-
-	/**
-	 * @return the exchangeCount
-	 */
-	public int getExchangeCount()
-	{
-		return exchangeCount;
-	}
-
-
-	/**
-	 * @param exchangeCount the exchangeCount to set
-	 */
-	public void setExchangeCount(int exchangeCount) 
-	{
-		this.exchangeCount = exchangeCount;
-	}
-
-
-	/**
-	 * @return the deviceId
-	 */
-	public int getDeviceId() 
-	{
-		return deviceId;
-	}
-
-
-	/**
-	 * @param deviceId the deviceId to set
-	 */
-	public void setDeviceId(int deviceId)
-	{
-		this.deviceId = deviceId;
-	}
-
-
 	/**
 	 * @return the nickName
 	 */
@@ -234,43 +140,6 @@ public class UserBean extends BaseBean implements Comparable<UserBean>
 	{
 		this.nickName = nickName;
 	}
-
-
-	/**
-	 * @return the firstName
-	 */
-	public String getFirstName() 
-	{
-		return firstName;
-	}
-
-
-	/**
-	 * @param firstName the firstName to set
-	 */
-	public void setFirstName(String firstName)
-	{
-		this.firstName = firstName;
-	}
-
-
-	/**
-	 * @return the lastName
-	 */
-	public String getLastName() 
-	{
-		return lastName;
-	}
-
-
-	/**
-	 * @param lastName the lastName to set
-	 */
-	public void setLastName(String lastName) 
-	{
-		this.lastName = lastName;
-	}
-
 
 	/**
 	 * @return the age
@@ -379,25 +248,6 @@ public class UserBean extends BaseBean implements Comparable<UserBean>
 		this.city = city;
 	}
 
-
-	/**
-	 * @return the state
-	 */
-	public String getState() 
-	{
-		return state;
-	}
-
-
-	/**
-	 * @param state the state to set
-	 */
-	public void setState(String state) 
-	{
-		this.state = state;
-	}
-
-
 	/**
 	 * @return the country
 	 */
@@ -489,17 +339,13 @@ public class UserBean extends BaseBean implements Comparable<UserBean>
 	@Override
 	public String toString() {
 		return "UserBean [id=" + id + ", account=" + account + ", password="
-				+ password + ", role=" + role + ", credit=" + credit
-				+ ", extendCount=" + extendCount + ", exchangeCount="
-				+ exchangeCount + ", deviceId=" + deviceId + ", age=" + age
-				+ ", gender=" + gender + ", nickName=" + nickName
-				+ ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", headPortrait=" + headPortrait + ", headKey=" + headKey
-				+ ", phone=" + phone + ", address=" + address + ", city="
-				+ city + ", state=" + state + ", country=" + country
-				+ ", zipcode=" + zipcode + ", contact=" + contact + ", imei="
-				+ imei + ", createTime=" + createTime + ", updateTime="
-				+ updateTime + "]";
+				+ password + ", role=" + role + ", age=" + age + ", gender="
+				+ gender + ", nickName=" + nickName + ", headKey=" + headKey
+				+ ", headPortrait=" + headPortrait + ", phone=" + phone
+				+ ", address=" + address + ", city=" + city + ", country="
+				+ country + ", zipcode=" + zipcode + ", contact=" + contact
+				+ ", createTime=" + createTime + ", updateTime=" + updateTime
+				+ "]";
 	}
 
 
@@ -526,40 +372,10 @@ public class UserBean extends BaseBean implements Comparable<UserBean>
 			tmpArray.add(this.password);
 		}
 
-		if (this.credit != 0)
-		{
-			sb.append(" credit,");
-			tmpArray.add(this.credit);
-		}
-
-		if (this.extendCount != 0) 
-		{
-			sb.append(" extendCount,");
-			tmpArray.add(this.extendCount);
-		}
-
-		if (this.exchangeCount != 0) 
-		{
-			sb.append(" exChangeCount,");
-			tmpArray.add(this.exchangeCount);
-		}
-
 		if (!StringUtil.isEmpty(this.nickName)) 
 		{
 			sb.append(" nickName,");
 			tmpArray.add(this.nickName);
-		}
-
-		if (!StringUtil.isEmpty(this.firstName)) 
-		{
-			sb.append(" firstName,");
-			tmpArray.add(this.firstName);
-		}
-
-		if (!StringUtil.isEmpty(this.lastName))
-		{
-			sb.append(" lastName,");
-			tmpArray.add(this.lastName);
 		}
 
 		if (this.age != 0) 
@@ -575,6 +391,12 @@ public class UserBean extends BaseBean implements Comparable<UserBean>
 			tmpArray.add(this.gender);
 		}
 
+		if (!StringUtil.isEmpty(this.headKey)) 
+		{
+			sb.append(" headKey,");
+			tmpArray.add(this.headKey);
+		}
+		
 		if (!StringUtil.isEmpty(this.headPortrait)) 
 		{
 			sb.append(" headPortrait,");
@@ -599,12 +421,6 @@ public class UserBean extends BaseBean implements Comparable<UserBean>
 			tmpArray.add(this.city);
 		}
 
-		if (!StringUtil.isEmpty(this.state)) 
-		{
-			sb.append(" state,");
-			tmpArray.add(this.state);
-		}
-
 		if (!StringUtil.isEmpty(this.country)) 
 		{
 			sb.append(" country,");
@@ -617,16 +433,8 @@ public class UserBean extends BaseBean implements Comparable<UserBean>
 			tmpArray.add(this.zipcode);
 		}
 
-		if (this.deviceId > 0) 
-		{
-			sb.append(" deviceId,");
-			tmpArray.add(this.deviceId);
-		}
-
 		if (this.createTime == null) 
 		{
-			// createTime = new
-			// Timestamp(Calendar.getInstance().getTimeInMillis());
 			sb.append(" createTime,");
 			tmpArray.add(new Timestamp(Calendar.getInstance().getTimeInMillis()));
 		} 
@@ -680,41 +488,11 @@ public class UserBean extends BaseBean implements Comparable<UserBean>
     			sb.append(" password = ? ,");
     			tmpArray.add(this.password);
     		}
-    		
-    		if(this.credit != 0)
-    		{
-    			sb.append(" credit = ? ,");
-    			tmpArray.add(this.credit);
-    		}
-    		
-    		if(this.extendCount != 0)
-    		{
-    			sb.append(" extendCount = ? ,");
-    			tmpArray.add(this.extendCount);
-    		}
-    		
-    		if(this.exchangeCount != 0)
-    		{
-    			sb.append(" exChangeCount = ? ,");
-    			tmpArray.add(this.exchangeCount);
-    		}
-    		
+ 
     		if(!StringUtil.isEmpty(this.nickName))
     		{
     			sb.append(" nickName = ? ,");
     			tmpArray.add(this.nickName);
-    		}
-    		
-    		if(!StringUtil.isEmpty(this.firstName))
-    		{
-    			sb.append(" firstName = ? ,");
-    			tmpArray.add(this.firstName);
-    		}
-    		
-    		if(!StringUtil.isEmpty(this.lastName))
-    		{
-    			sb.append(" lastName = ? ,");
-    			tmpArray.add(this.lastName);
     		}
     		
     		if(this.age != 0)
@@ -727,6 +505,12 @@ public class UserBean extends BaseBean implements Comparable<UserBean>
     		
     		sb.append(" gender = ? ,");
     		tmpArray.add(this.gender);
+    		
+    		if (!StringUtil.isEmpty(this.headKey)) 
+    		{
+    			sb.append(" headKey,");
+    			tmpArray.add(this.headKey);
+    		}
     		
     		if(!StringUtil.isEmpty(this.headPortrait))
     		{
@@ -752,12 +536,6 @@ public class UserBean extends BaseBean implements Comparable<UserBean>
     			tmpArray.add(this.city);
     		}
     		
-    		if(!StringUtil.isEmpty(this.state))
-    		{
-    			sb.append(" state = ? ,");
-    			tmpArray.add(this.state);
-    		}
-    		
     		if(!StringUtil.isEmpty(this.country))
     		{
     			sb.append(" country = ? ,");
@@ -768,12 +546,6 @@ public class UserBean extends BaseBean implements Comparable<UserBean>
     		{
     			sb.append(" zipcode = ? ,");
     			tmpArray.add(this.zipcode);
-    		}
-    		
-    		if(this.deviceId > 0)
-    		{
-    			sb.append(" deviceId = ? ,");
-    			tmpArray.add(this.deviceId);
     		}
     		
     		if(createTime != null)

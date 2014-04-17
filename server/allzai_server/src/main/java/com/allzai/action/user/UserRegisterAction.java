@@ -10,6 +10,7 @@ import com.allzai.action.BaseActionSupport;
 import com.allzai.form.user.RegeistUserForm;
 import com.allzai.server.user.UserManageServer;
 import com.allzai.util.Constants;
+import com.allzai.util.GeetestLib;
 import com.restfb.json.JsonObject;
 
 public class UserRegisterAction extends BaseActionSupport {
@@ -32,6 +33,23 @@ public class UserRegisterAction extends BaseActionSupport {
 				 */
 				json.put("result", Boolean.FALSE);
 				json.put("code", "Ex0005");
+				return json;
+			}
+			
+			boolean result = false;
+			try {
+				GeetestLib geetest = new GeetestLib(Constants.GEETEST_KEY);
+				result = geetest.validate(
+						req.getParameter("geetest_challenge"),
+						req.getParameter("geetest_validate"),
+						req.getParameter("geetest_seccode"));
+			} catch (Exception ex) {ex.printStackTrace();}
+			if (!result) {
+				/**
+				 * Ex0006:验证图片错误
+				 */
+				json.put("result", Boolean.FALSE);
+				json.put("code", "Ex0006");
 				return json;
 			}
 
