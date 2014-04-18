@@ -142,9 +142,7 @@ public class ObjectMinaServerHandler extends IoHandlerAdapter {
 						json.put("sendTime", Constancts.sdf.format(new Date()));
 						json.put("type", 0);
 						json.put("userId", myId);
-						json.put("nikeName", json.getString("myName"));
 						json.remove("myId");
-						json.remove("myName");
 						
 						synchronized (Constancts.MSG) {
 							if(Constancts.MSG.containsKey(userId)) {
