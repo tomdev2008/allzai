@@ -27,7 +27,7 @@ public class MinaServer {
 		acceptor.setHandler(new ObjectMinaServerHandler());
 
 		// 服务器端绑定的端口
-		int bindPort = 9988;
+		int bindPort = 9998;
 		// 绑定端口,启动服务器
 		acceptor.bind(new InetSocketAddress(bindPort));
 		System.out.println("Mina Server is Listing on:= " + bindPort);
