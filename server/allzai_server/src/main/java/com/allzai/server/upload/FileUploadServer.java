@@ -99,14 +99,11 @@ public class FileUploadServer {
 								JSONArray array = face.getJSONArray("face");
 								for(int i = 0, len= array.length(); i < len; i++) {
 									if(array.getJSONObject(i).getJSONObject("attribute").getJSONObject("gender").getString("value").equals(form.getGender())) {
-										faced = true;
-										break;
+										faced = true;break;
 									}
 								}
 							}
-							if(!faced) {
-								code="Kx0008";srcFile.delete();break;
-							}
+							if(!faced) {code="Kx0008";srcFile.delete();break;}
 						}
 						
 						/**压制存储文件*/
