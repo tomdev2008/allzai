@@ -25,10 +25,11 @@ public class ObjectMinaServerHandler extends IoHandlerAdapter {
 	public void messageReceived(IoSession session, Object object) throws Exception {
 		
 		JsonObject json = new JsonObject(object);
+		JsonObject result = execActionResult(json);
+		if(result == null) {return;}
+		
 		doLogger(session, "客户端发来消息");
 		logger.info(json.toString());
-
-		JsonObject result = execActionResult(json);
 
 		doLogger(session, "响应客户端消息");
 		logger.info(result.toString());
@@ -216,15 +217,9 @@ public class ObjectMinaServerHandler extends IoHandlerAdapter {
 				result.put("code", "Cx0004");
 				result.put("info", "确认失败");
 			}
-		} else {
-			/**
-			 * Cx0002:参数错误
-			 */
-			result.put("result", Boolean.FALSE);
-			result.put("code", "Cx0002");
-			result.put("info", "参数错误");
+			return result;
 		}
-		return result;
+		return null;
 	}
 
 }
