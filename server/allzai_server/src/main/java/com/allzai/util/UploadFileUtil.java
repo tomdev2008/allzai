@@ -33,14 +33,14 @@ public class UploadFileUtil {
 	}
 
 	public static String getFileStorePath() {
-		String path = System.getProperty("user.dir").replace("bin", "upload").replace("\\", "/") + "/store/";
+		String path = System.getProperty("user.dir").replace("bin", "webapps/ROOT").replace("\\", "/") + "/upload/store/";
 		File file = new File(path);
 		if (!file.exists()) {file.mkdirs();}
 		return path;
 	}
 	
 	public static String getFileTempPath() {
-		String path = System.getProperty("user.dir").replace("bin", "upload").replace("\\", "/") + "/temp/";
+		String path = System.getProperty("user.dir").replace("bin", "webapps/ROOT").replace("\\", "/") + "/upload/temp/";
 		File file = new File(path);
 		if (!file.exists()) {file.mkdirs();}
 		return path;

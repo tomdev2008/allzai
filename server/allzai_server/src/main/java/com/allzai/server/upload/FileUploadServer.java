@@ -9,13 +9,17 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import com.allzai.bean.UserBean;
 import com.allzai.cdn.CdnUtil;
 import com.allzai.dao.upload.FileUploadDao;
 import com.allzai.dao.user.UserSlaveDao;
+import com.allzai.face.FaceUtil;
 import com.allzai.form.upload.FileUploadForm;
 import com.allzai.util.Constants;
+import com.allzai.util.StringUtil;
 import com.allzai.util.UploadFileUtil;
 import com.restfb.json.JsonObject;
 
@@ -84,6 +88,27 @@ public class FileUploadServer {
 						item.write(srcFile);
 						if (!srcFile.exists()) {code="Kx0003";break;}
 						
+						/**图片人脸和性别识别*/
+						if(!StringUtil.isEmpty(form.getGender())) {
+							String url = "http://" + req.getServerName() + ":" + req.getServerPort();
+							boolean faced = false;
+							JSONObject face = FaceUtil.getInstance().doFace(url + "/upload/temp/" + srcFileName);
+							if(face == null || face.getJSONArray("face").length() <= 0) {
+								code="Kx0007";srcFile.delete();break;
+							} else {
+								JSONArray array = face.getJSONArray("face");
+								for(int i = 0, len= array.length(); i < len; i++) {
+									if(array.getJSONObject(i).getJSONObject("attribute").getJSONObject("gender").getString("value").equals(form.getGender())) {
+										faced = true;
+										break;
+									}
+								}
+							}
+							if(!faced) {
+								code="Kx0008";srcFile.delete();break;
+							}
+						}
+						
 						/**压制存储文件*/
 						String md5 = UploadFileUtil.getFileMD5String(srcFile);
 						String tarFileName = form.getUserId() + "_" + md5 + Constants.FileSuffix;
@@ -106,7 +131,7 @@ public class FileUploadServer {
 									}
 								}
 							} catch (Exception e) {
-								code="Kx0005";
+								srcFile.delete();code="Kx0005";
 								e.printStackTrace();
 							}
 						} else {

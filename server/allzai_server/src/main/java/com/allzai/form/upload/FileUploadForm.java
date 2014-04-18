@@ -10,7 +10,20 @@ public class FileUploadForm extends BasicForm {
 	 */
 	private static final long serialVersionUID = 208152304948294025L;
 	
-	//扩展
+	private String gender;
+
+	@Override
+	public String toString() {
+		return "FileUploadForm [gender=" + gender + "]";
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
 
 	@Override
 	public BaseBean convertBaseBean() {
