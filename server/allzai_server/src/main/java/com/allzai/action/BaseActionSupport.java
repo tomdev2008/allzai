@@ -17,6 +17,7 @@ import com.allzai.isp.IPSeeker;
 import com.allzai.util.Constants;
 import com.allzai.util.Hosts;
 import com.allzai.util.LangUtil;
+import com.allzai.util.StringUtil;
 import com.restfb.json.JsonObject;
 
 public abstract class BaseActionSupport extends HttpServlet 
@@ -40,6 +41,8 @@ public abstract class BaseActionSupport extends HttpServlet
 		String area = location.getArea();
 		String country = location.getCountry();
 		String lang = LangUtil.defaultLang;
+		
+		String callback = req.getParameter("callback");
 
 		Object obj = null;
 		try 
@@ -73,7 +76,8 @@ public abstract class BaseActionSupport extends HttpServlet
 			
 			logger.info("ip = " + ip + ", area = " + area + ", country = " + country + ", resp = " + json.toString());
 			
-			 resp.getWriter().append(json.toString());
+			
+			 resp.getWriter().append((StringUtil.isEmpty(callback) ? "" : "(") + json.toString() + (StringUtil.isEmpty(callback) ? "" : ")"));
 		} 
 		catch (Exception e) 
 		{
