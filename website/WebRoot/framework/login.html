@@ -64,16 +64,14 @@
 					geetest_seccode: seccode,"platform":"WEB","account":jQuery("#account").val(),"password":jQuery("#password").val(),"gender":"Male"
 				  },
 				  success:function(json) {
-				  alert(json.result);
-				  	//请求成功
+				  	console.log(json);
 				  }
 			})
 		}
 		
 		function jsonpcallback(json){
-			console.log("--------====>"+json);
 			
-			//alert(json.result);
+			alert(json.result);
 			
 		}
 	</script>
