@@ -48,9 +48,6 @@
 				//当验证成功时，获取相应input的值，并做ajax验证请求
 				jQuery("#btnSubmit").removeAttr("disabled");
 			  }
-			  else {
-				console.log(result);
-			  }
 		}
 	
 		function submitForm(){
@@ -58,32 +55,26 @@
 			jQuery.ajax({
 				  url: "http://112.124.51.168:8080/allzai_server/public/userLogin",
 				  type: "post",
-				  dataType:"JSONP",
-				  jsonp:"callbackparam", 
-				  jsonpCallback:'jsonpcallbackSuc',
+				  dataType:"jsonp",
+				  jsonp:"callback", 
+				  jsonpCallback:"jsonpcallback",
 				  data: {
 					geetest_challenge: challenge,
 					geetest_validate: validate,
-					geetest_seccode: seccode,"platform":"JAVA","account":jQuery("#account").val(),"password":jQuery("#password").val(),"gender":"Male"
+					geetest_seccode: seccode,"platform":"WEB","account":jQuery("#account").val(),"password":jQuery("#password").val(),"gender":"Male"
 				  },
-				  success:function(result) {
-				  
-					  console.log("json");
-					 //var r = eval('('+data+')')
-					 /* console.log(result);
-					 var r = jQuery.parseJSON(result);
-					 try{
-					  console.log(r.info);
-					 }
-					 catch(e){
-						 console.log("======>"+e);
-					 }*/
-					} 
-				})
+				  success:function(json) {
+				  alert(json.result);
+				  	//请求成功
+				  }
+			})
 		}
 		
-		function jsonpcallback(data){
-			console.log("--------====>"+data);
+		function jsonpcallback(json){
+			console.log("--------====>"+json);
+			
+			//alert(json.result);
+			
 		}
 	</script>
 	</div>
