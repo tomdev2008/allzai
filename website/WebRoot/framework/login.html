@@ -71,7 +71,11 @@
 		
 		function jsonpcallback(json){
 			
-			alert(json.result);
+			if(json.result) {
+				alert("登录成功");
+			} else {
+				alert(json.info);
+			}
 			
 		}
 	</script>
