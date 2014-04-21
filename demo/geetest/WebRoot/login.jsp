@@ -41,7 +41,7 @@ body {
 	<div class="wrap">
 
 		<h1>用户登录(<a href='index.jsp'>没有帐户,去注册</a>)</h1>
-		<form method="post" action="http://112.124.51.168:8080/allzai_server/public/userLogin">
+		<form method="post" action="http://112.124.51.168:8081/allzai_server/public/userLogin">
 			<div class="row">
 				<label for="name">邮箱</label> <input type="text" id="account"
 					name="account" value="test@allzai.com" />

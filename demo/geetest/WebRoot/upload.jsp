@@ -41,7 +41,7 @@ body {
 	<div class="wrap">
 
 		<h1>头像上传(<a href='index.jsp'>没有帐户,去注册</a>)</h1>
-		<form method="post" action="http://112.124.51.168:8080/allzai_server/secure/fileUpload?userId=1000000" enctype="multipart/form-data">
+		<form method="post" action="http://112.124.51.168:8081/allzai_server/secure/fileUpload?userId=1000000" enctype="multipart/form-data">
 			<div class="row">
 				<label for="passwd">文件</label> <input type="file" name="file" id="file"/>
 			</div>
