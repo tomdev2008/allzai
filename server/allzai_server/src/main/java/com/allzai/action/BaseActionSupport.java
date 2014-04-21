@@ -34,7 +34,7 @@ public abstract class BaseActionSupport extends HttpServlet
 	{
 		req.setCharacterEncoding("UTF-8");
 		resp.setCharacterEncoding("UTF-8");
-		resp.setContentType("text/html");
+		resp.setContentType("application/json");
 		
 		String ip = Hosts.getIpAddr(req);
 		IPLocation location = IPSeeker.getInstance().getIPLocation(ip);
@@ -76,7 +76,7 @@ public abstract class BaseActionSupport extends HttpServlet
 			
 			//Ajax跨域
 			String callback = req.getParameter("callback");
-			boolean call = StringUtil.isEmpty(callback);
+			boolean call = !StringUtil.isEmpty(callback);
 			if(call) {
 				resp.getWriter().append(callback + "(" + json.toString() + ")");
 			} else {
