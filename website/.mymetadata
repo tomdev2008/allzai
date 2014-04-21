@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="hundun"
+  id="myeclipse.1398052362898"
+  context-root="/hundun"
+  j2ee-spec="5.0"
+  archive="hundun.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
