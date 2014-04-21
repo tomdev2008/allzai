@@ -72,16 +72,18 @@ public abstract class BaseActionSupport extends HttpServlet
 			json.put("level", Constants.LEVEL_FUNCTION);
 			json.put("info", LangUtil.getCodeInfoByLang(lang, json.getString("code")));
 			
-			logger.info("ip = " + ip + ", area = " + area + ", country = " + country + ", resp = " + json.toString());
-			
 			//Ajax跨域
 			String callback = req.getParameter("callback");
-			boolean call = !StringUtil.isEmpty(callback);
-			if(call) {
-				resp.getWriter().append(callback + "(" + json.toString() + ")");
+			boolean noback = StringUtil.isEmpty(callback);
+			String ret = null;
+			if(!noback) {
+				ret = callback + "(" + json.toString() + ")";
 			} else {
-				resp.getWriter().append(json.toString());
+				ret = json.toString();
 			}
+			resp.getWriter().append(ret);
+			
+			logger.info("ip = " + ip + ", area = " + area + ", country = " + country + ", resp = " + ret);
 		} 
 		catch (Exception e) 
 		{
