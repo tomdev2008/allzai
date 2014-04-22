@@ -11,6 +11,7 @@ import com.allzai.form.user.RegeistUserForm;
 import com.allzai.server.user.UserManageServer;
 import com.allzai.util.Constants;
 import com.allzai.util.GeetestLib;
+import com.allzai.util.StringUtil;
 import com.restfb.json.JsonObject;
 
 public class UserRegisterAction extends BaseActionSupport {
@@ -37,13 +38,17 @@ public class UserRegisterAction extends BaseActionSupport {
 			}
 			
 			boolean result = false;
-			try {
-				GeetestLib geetest = new GeetestLib(Constants.GEETEST_KEY);
-				result = geetest.validate(
-						req.getParameter("geetest_challenge"),
-						req.getParameter("geetest_validate"),
-						req.getParameter("geetest_seccode"));
-			} catch (Exception ex) {ex.printStackTrace();}
+			if(!StringUtil.isEmpty(form.getCaptcha())) {
+				if(Constants.CAPTCHA_GEETEST.equals(form.getCaptcha())) {
+					try {
+						GeetestLib geetest = new GeetestLib(Constants.GEETEST_KEY);
+						result = geetest.validate(
+								req.getParameter("geetest_challenge"),
+								req.getParameter("geetest_validate"),
+								req.getParameter("geetest_seccode"));
+					} catch (Exception ex) {ex.printStackTrace();}
+				}
+			}
 			if (!result) {
 				/**
 				 * Ex0006:验证图片错误

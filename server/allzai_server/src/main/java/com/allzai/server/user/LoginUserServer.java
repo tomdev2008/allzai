@@ -10,6 +10,7 @@ import com.allzai.form.user.LoginUserForm;
 import com.allzai.util.Constants;
 import com.allzai.util.GeetestLib;
 import com.allzai.util.JsonUtil;
+import com.allzai.util.StringUtil;
 import com.restfb.json.JsonObject;
 
 public class LoginUserServer {
@@ -35,13 +36,17 @@ public class LoginUserServer {
 			}
 			
 			boolean result = false;
-			try {
-				GeetestLib geetest = new GeetestLib(Constants.GEETEST_KEY);
-				result = geetest.validate(
-						req.getParameter("geetest_challenge"),
-						req.getParameter("geetest_validate"),
-						req.getParameter("geetest_seccode"));
-			} catch (Exception e) {e.printStackTrace();}
+			if(!StringUtil.isEmpty(form.getCaptcha())) {
+				if(Constants.CAPTCHA_GEETEST.equals(form.getCaptcha())) {
+					try {
+						GeetestLib geetest = new GeetestLib(Constants.GEETEST_KEY);
+						result = geetest.validate(
+								req.getParameter("geetest_challenge"),
+								req.getParameter("geetest_validate"),
+								req.getParameter("geetest_seccode"));
+					} catch (Exception ex) {ex.printStackTrace();}
+				}
+			}
 			if (!result) {
 				/**
 				 * Fx0005:验证图片错误

@@ -58,4 +58,6 @@ public final class Constants
 	public static final int NORMAL_USER_ROLE = 0;
 	public static final int GUEST_USER_ROLE = 1;
 	
+	public static final String CAPTCHA_GEETEST = "geetest";
+	
 }

@@ -8,11 +8,9 @@ public class LoginUserForm extends BasicForm {
 	@Override
 	public String toString() {
 		return "LoginUserForm [account=" + account + ", password=" + password
-				+ "]";
+				+ ", captcha=" + captcha + "]";
 	}
-	/**
-	 * dhhuang
-	 */
+
 	private static final long serialVersionUID = 5061857746760461705L;
 	
 	private String account;
@@ -32,6 +30,16 @@ public class LoginUserForm extends BasicForm {
 	
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	private String captcha;
+	
+	public String getCaptcha() {
+		return captcha;
+	}
+	
+	public void setCaptcha(String captcha) {
+		this.captcha = captcha;
 	}
 	
 	/* (non-Javadoc)

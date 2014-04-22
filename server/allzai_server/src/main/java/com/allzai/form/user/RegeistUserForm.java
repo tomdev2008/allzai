@@ -68,11 +68,21 @@ public class RegeistUserForm extends BasicForm implements Serializable
 	{
 		this.password = password;
 	}
+	
+	private String captcha;
+
+	public String getCaptcha() {
+		return captcha;
+	}
+
+	public void setCaptcha(String captcha) {
+		this.captcha = captcha;
+	}
 
 	@Override
 	public String toString() {
 		return "RegeistUserForm [account=" + account + ", password=" + password
-				+ "]";
+				+ ", captcha=" + captcha + "]";
 	}
 
 }
