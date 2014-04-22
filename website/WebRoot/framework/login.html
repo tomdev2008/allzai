@@ -51,9 +51,8 @@
 		}
 	
 		function submitForm(){
-			console.log("------>"+challenge);
 			jQuery.ajax({
-				  url: "http://112.124.51.168:8080/allzai_server/public/userLogin",
+				  url: "http://112.124.51.168:8081/allzai_server/public/userLogin",
 				  type: "post",
 				  dataType:"jsonp",
 				  jsonp:"callback", 
