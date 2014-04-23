@@ -3,6 +3,7 @@ package com.allzai.server.user;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import com.allzai.dao.user.UserSlaveDao;
 import com.allzai.des3.ThreeDESUtil;
@@ -73,6 +74,10 @@ public class LoginUserServer {
 			
 			//添加交互字段
 			users.put("tk", ThreeDESUtil.Encode(userId + "_" + Constants.NORMAL_USER_ROLE, Constants.index_tk_deocde));
+
+			HttpSession session = req.getSession();
+			session.setAttribute("USER", users);
+			
 			/**
 			 * Fx0000:登录成功
 			 */
