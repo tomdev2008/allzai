@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!--=== Top ===-->    
 <div class="top">
@@ -12,6 +14,10 @@
             <li><a href="page_registration.html" target="_blank" class="login-btn">注册</a></li>	
             <li class="devider">&nbsp;</li>
             <li><a href="page_login.html" target="_blank" class="login-btn">登录</a></li>	
+            
+            <%
+            out.print("你好!");
+             %>
         </ul>
     </div>		
 </div><!--/top-->
