@@ -60,7 +60,7 @@
 				  data: {
 					geetest_challenge: challenge,
 					geetest_validate: validate,
-					geetest_seccode: seccode,"platform":"WEB","account":jQuery("#account").val(),"password":jQuery("#password").val(),"gender":"Male"
+					geetest_seccode: seccode,"platform":"WEB","account":jQuery("#account").val(),"password":jQuery("#password").val(),"gender":"Male","captcha":"geetest"
 				  },
 				  success:function(json) {
 				  	console.log(json);
@@ -72,6 +72,7 @@
 			
 			if(json.result) {
 				alert("登录成功");
+				window.location = 'http://127.0.0.1:8080/hundun/index.html';
 			} else {
 				alert(json.info);
 			}

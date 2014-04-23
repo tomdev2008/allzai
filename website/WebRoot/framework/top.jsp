@@ -18,22 +18,21 @@ user = null;
 	<div class="container">
 		<ul class="loginbar pull-right">
 			<li><i><img src="assets/img/home.png" width="10px;" height="10px;"></img>
-			</i>&nbsp;<a href="#">设为首页 <i class="icon-sort-up"></i>
+			</i>&nbsp;<a href="#">设为首页<i class="icon-sort-up"></i>
 			</a></li>
 			<li class="devider">&nbsp;</li>
 			<li><i><img src="assets/img/like.gif"></img>
-			</i>&nbsp;<a href="#">收藏本站 <i class="icon-sort-up"></i>
+			</i>&nbsp;<a href="#">收藏本站<i class="icon-sort-up"></i>
 			</a></li>
 
 			<%if(login) {%>
 			欢迎你, <%=nickName %>
 			<%} else {%>
 			<li class="devider">&nbsp;</li>
-			<li><a href="page_registration.html" target="_blank"
-				class="login-btn">注册</a>
+			<li><a id="registBtn">注册</a>
 			</li>
 			<li class="devider">&nbsp;</li>
-			<li><a href="page_login.html" target="_blank" class="login-btn">登录</a>
+			<li><a class="login-btn" id="loginBtn">登录</a>
 			</li>
 			<%}%>
 
