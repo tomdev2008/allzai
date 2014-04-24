@@ -21,7 +21,6 @@
 <body>
 <div class="center" style="margin-top:50px;">	
 <div class="row-fluid">
-
 	<h3>用户登录</h3>
 	<div class="input-prepend">
 		<span class="add-on"><i class="icon-user"></i>
@@ -60,7 +59,12 @@
 				  data: {
 					geetest_challenge: challenge,
 					geetest_validate: validate,
-					geetest_seccode: seccode,"platform":"WEB","account":jQuery("#account").val(),"password":jQuery("#password").val(),"gender":"Male","captcha":"geetest"
+					geetest_seccode: seccode,
+					"platform":"WEB",
+					"account":jQuery("#account").val(),
+					"password":jQuery("#password").val(),
+					"gender":"Male",
+					"captcha":"geetest"
 				  },
 				  success:function(json) {
 				  	console.log(json);
@@ -71,8 +75,11 @@
 		function jsonpcallback(json){
 			
 			if(json.result) {
+
+				$("#loginuser").html("1111");
+				
 				alert("登录成功");
-				window.location = 'http://127.0.0.1:8080/hundun/index.html';
+				
 			} else {
 				alert(json.info);
 			}
