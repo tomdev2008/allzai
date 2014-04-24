@@ -20,6 +20,11 @@ user = null;
 			<li><i><img src="assets/img/home.png" width="10px;" height="10px;"></img>
 			</i>&nbsp;<a href="#">设为首页<i class="icon-sort-up"></i>
 			</a></li>
+			
+<div id="loginuser">
+
+</div>
+
 			<li class="devider">&nbsp;</li>
 			<li><i><img src="assets/img/like.gif"></img>
 			</i>&nbsp;<a href="#">收藏本站<i class="icon-sort-up"></i>
