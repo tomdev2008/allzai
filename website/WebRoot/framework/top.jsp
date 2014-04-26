@@ -1,17 +1,6 @@
 <%@page import="java.util.Map"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<%!boolean login = false; %>
-<%!String nickName = "hundun"; %>
-<%
-Map<String, Object> user = (Map<String, Object>)request.getSession().getAttribute("USER");
-if(user != null && user.size() > 0) {
-login = true;
-nickName = String.valueOf(user.get("nickName"));
-user = null;
-}
-%>
-
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!--=== Top ===-->
 <div class="top">
@@ -20,27 +9,16 @@ user = null;
 			<li><i><img src="assets/img/home.png" width="10px;" height="10px;"></img>
 			</i>&nbsp;<a href="#">设为首页<i class="icon-sort-up"></i>
 			</a></li>
-			
-<div id="loginuser">
-
-</div>
-
 			<li class="devider">&nbsp;</li>
 			<li><i><img src="assets/img/like.gif"></img>
 			</i>&nbsp;<a href="#">收藏本站<i class="icon-sort-up"></i>
 			</a></li>
-
-			<%if(login) {%>
-			欢迎你, <%=nickName %>
-			<%} else {%>
 			<li class="devider">&nbsp;</li>
 			<li><a id="registBtn">注册</a>
 			</li>
 			<li class="devider">&nbsp;</li>
 			<li><a class="login-btn" id="loginBtn">登录</a>
 			</li>
-			<%}%>
-
 		</ul>
 	</div>
 </div>
