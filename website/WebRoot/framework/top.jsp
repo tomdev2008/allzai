@@ -30,9 +30,8 @@
 	<div class="container">
 		<!-- Logo -->
 		<div class="logo">
-			<a href="index.html"><img id="logo-header"
-				src="assets/img/logo1-default.png" alt="Logo" />
-			</a>
+			<div style="float: left;"><a href="index.html"><img id="logo-header" src="assets/img/logo1-default.png" alt="Logo" /></div>
+			<div style="float: left;"><h1>混沌网</h1></div></a>
 		</div>
 		<!-- /logo -->
 
