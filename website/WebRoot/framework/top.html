@@ -3,7 +3,9 @@
 <script type="text/javascript">
 
 	var user = getUser("用户");
-	alert(user);
+	if(user != null) {
+		$("#loginuser").html("欢迎回来, "+user+"! <a href=\"javascript:outUser('用户');\">退出</a>");
+	}
 
 	function getUser(name) {
 		if(window.localStorage) {
@@ -15,25 +17,39 @@
 		}
 		return null;
 	}
+	
+	function outUser(name) {
+		if(window.localStorage) {
+			var storage = window.localStorage;
+			if (storage.getItem(name)) {
+				storage.removeItem(name);
+			}
+		}
+		$("#loginuser").html("<li><a id=\"registBtn\" href=\"#\">注册</a></li><li class=\"devider\">&nbsp;</li><li><a class=\"login-btn\" id=\"loginBtn\" target=\"_blank\" href=\"login.html\">登录</a></li>");
+	}
 </script>
 
 <!--=== Top ===-->
 <div class="top">
 	<div class="container">
 		<ul class="loginbar pull-right">
-			<li><i><img src="assets/img/home.png" width="10px;" height="10px;"></img>
-			</i>&nbsp;<a href="#">设为首页<i class="icon-sort-up"></i>
-			</a></li>
-			<li class="devider">&nbsp;</li>
-			<li><i><img src="assets/img/like.gif"></img>
-			</i>&nbsp;<a href="#">收藏本站<i class="icon-sort-up"></i>
-			</a></li>
-			<li class="devider">&nbsp;</li>
-			<li><a id="registBtn" href="#">注册</a>
-			</li>
-			<li class="devider">&nbsp;</li>
-			<li><a class="login-btn" id="loginBtn" target="_blank" href="login.html">登录</a>
-			</li>
+			<div style="float: left;">
+				<li><i><img src="assets/img/home.png" width="10px;" height="10px;"></img>
+				</i>&nbsp;<a href="#">设为首页<i class="icon-sort-up"></i>
+				</a></li>
+				<li class="devider">&nbsp;</li>
+				<li><i><img src="assets/img/like.gif"></img>
+				</i>&nbsp;<a href="#">收藏本站<i class="icon-sort-up"></i>
+				</a></li>
+				<li class="devider">&nbsp;</li>
+			</div>
+			<div style="float: left;" id="loginuser">
+				<li><a id="registBtn" href="#">注册</a>
+				</li>
+				<li class="devider">&nbsp;</li>
+				<li><a class="login-btn" id="loginBtn" target="_blank" href="login.html">登录</a>
+				</li>
+			</div>
 		</ul>
 	</div>
 </div>

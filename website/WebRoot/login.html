@@ -151,7 +151,9 @@
 				//登录成功
 				$("#logininfo").html(json.info);
 				
-				setUser("用户", "huntun");
+				var account = JSON.parse(json.user);
+				alert(account);
+				setUser("用户", account);
 				
 				//setTimeout('closeWindow()', 3000);
 			} else {
