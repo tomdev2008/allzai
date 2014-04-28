@@ -151,7 +151,7 @@
 				//登录成功
 				$("#logininfo").html(json.info);
 				
-				//setUser("", "");
+				setUser("用户", "huntun");
 				
 				//setTimeout('closeWindow()', 3000);
 			} else {
@@ -163,7 +163,7 @@
 			window.opener=null;
 			window.close();
 		}
-		
+
 		function setUser(name, value) {
 			if(window.localStorage) {
 				var storage = window.localStorage;
