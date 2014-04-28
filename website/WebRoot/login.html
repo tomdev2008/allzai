@@ -57,7 +57,7 @@
         <div class="loginbtn">
         
           <div class="loginsubmit fl">
-            <a href="#" class="big-link" data-reveal-id="myModal"><input type="button" id="btnSubmit" onclick="submitForm()" disabled="disabled" value="登录" /></a>
+            <a href="#" class="big-link" data-reveal-id="myModal"><input type="button" onclick="submitForm()" value="登录" /></a>
             <div class="loginsubmiting">
               <div class="loginsubmiting_inner"></div>
             </div>
@@ -75,8 +75,8 @@
     <div class="pd50">
       <h4>使用第三方帐号可直接登录</h4>
       <ul>
-        <li id="sinal"><a href="http://sc.chinaz.com/">微博账号登录</a></li>
-        <li id="qql"><a href="http://sc.chinaz.com/">QQ账号登录</a></li>
+        <li id="sinal"><a href="#">微博账号登录</a></li>
+        <li id="qql"><a href="#">QQ账号登录</a></li>
         <div class="clear"></div>
       </ul>
       <div class="clear"></div>
@@ -89,8 +89,8 @@
   <div id="setp_quicklogin">
     <h3>您可以选择以下第三方帐号直接登录站长素材，一分钟完成注册</h3>
     <ul class="quicklogin_socical">
-      <li class="quicklogin_socical_weibo"><a href="http://sc.chinaz.com/">微博帐号注册</a></li>
-      <li class="quicklogin_socical_qq"><a href="http://sc.chinaz.com/">QQ帐号注册</a></li>
+      <li class="quicklogin_socical_weibo"><a href="#">微博帐号注册</a></li>
+      <li class="quicklogin_socical_qq"><a href="#">QQ帐号注册</a></li>
     </ul>
   </div>
 </div>
@@ -102,9 +102,8 @@
 				challenge = selector(".geetest_challenge").value;
 				validate = selector(".geetest_validate").value;
 				seccode = selector(".geetest_seccode").value;
-				jQuery("#btnSubmit").removeAttr("disabled");
 			  } else {
-			  	$("#logininfo").html("请勿重复提交");
+			  	$("#logininfo").html("验证码错误");
 			  }
 		}
 	
