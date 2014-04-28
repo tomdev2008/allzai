@@ -1,6 +1,15 @@
 <%@page import="java.util.Map"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
+<script type="text/javascript">
+	function getUser(name, value) {
+			if(window.localStorage) {
+				var storage = window.localStorage;
+				alert(storage.name);
+			}
+		}
+</script>
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!--=== Top ===-->
 <div class="top">
