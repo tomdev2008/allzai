@@ -72,27 +72,10 @@
     		cache: false //close AJAX cache
     		});
 		
-		jQuery("#loginBtn").live("click",function(){
-			//jQuery("#main").load("./html/login.html");
-			toLogin();
-		});
-		
-		jQuery("#registBtn").live("click",function(){
-			toRegist();
-		});
-	
         jQuery("#top").load("framework/top.jsp");
 		
 		jQuery("#footer").load("framework/footer.html");
     });
-	
-	function toLogin(){
-    	window.showModalDialog("./framework/login.html",'dialogHeight:300px;dialogWidth:400px;center: yes; resizable:no; scroll:yes; help:no; status:no;');
-    }
-    
-    function toRegist(){
-    	window.showModalDialog("./framework/regist.html",'dialogHeight:300px;dialogWidth:400px;center: yes; resizable:no; scroll:yes; help:no; status:no;');
-    }
 </script>
 </body>
 </html> 

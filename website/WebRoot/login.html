@@ -147,20 +147,30 @@
 		}
 		
 		function jsonpcallback(json){
-			
 			if(json.result) {
 				//登录成功
 				$("#logininfo").html(json.info);
-				setTimeout('closeWindow()', 3000);
+				
+				//setUser("", "");
+				
+				//setTimeout('closeWindow()', 3000);
 			} else {
 				$("#logininfo").html(json.info);
 			}
-			
 		}
 		
 		function closeWindow() {
 			window.opener=null;
 			window.close();
+		}
+		
+		function setUser(name, value) {
+			if(window.localStorage) {
+				var storage = window.localStorage;
+				if (!storage.getItem(name)) storage.setItem(name, value);
+			} else {
+				$("#logininfo").html("浏览器版本过低, 无法保持登录状态");
+			}
 		}
 	</script>
 
