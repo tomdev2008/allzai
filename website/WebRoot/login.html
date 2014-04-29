@@ -150,10 +150,7 @@
 			if(json.result) {
 				//登录成功
 				$("#logininfo").html(json.info);
-				
-				var account = JSON.parse(json.user);
-				alert(account);
-				setUser("用户", account);
+				setUser("用户", json.user.account);
 				
 				//setTimeout('closeWindow()', 3000);
 			} else {
